@@ -8,3 +8,22 @@
 	font-size: 150px;
 	padding-top:200px;
 }
+
+.entete {
+	background-color: #f6e58d;
+	height:50px;
+}
+
+
+.communaute {
+	background-color: #f6e58d;
+}
+
+.formulairegroupe {
+	width: 20%;
+	height:20%;
+}
+
+.gros {
+	background-color: red;
+}
