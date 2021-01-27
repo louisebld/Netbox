@@ -5,8 +5,9 @@
 session_start();
 
 
-// include 'PHP/functions/db.php';
+// include 'db.php';
+include 'action.php';
+include 'function.php';
 include 'view.php';
-include 'PHP/action.php';
 
 ?>
