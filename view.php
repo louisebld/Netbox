@@ -25,8 +25,10 @@
 		}
 
 		elseif ($_GET["page"] == "communaute"){
+			
 			include ("pages/entete.php");
 			include ("pages/communaute.php");
+			// print_formulairecreationcommu();
 		}
 
 		else {
