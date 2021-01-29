@@ -1,7 +1,27 @@
 <div class="container-fluid m-2">
 	<div class="navbar-right">
-		<button type="button" class="btn btn-light">Se connecter</button>
-		<button type="button" class="btn btn-light">S'inscrire</button>
+
+		<?php 
+		if (isset($_SESSION["id"])) {
+			$data = recup_profil_id($_SESSION["id"])[0];
+			$nom = $data["nom"];
+			$prenom = $data["prenom"];
+
+			echo "<button type='button' class='btn btn-light'>$nom, $prenom</button>";
+
+			?>
+			<button type="button" class="btn btn-light" ><a href="index.php?act=deconnexion" style="text-decoration: none;color: black;">Deconnexion<a/></button>
+
+			<?php
+
+		} else {
+			?>
+			<button type="button" class="btn btn-light" ><a href="index.php?page=connexion" style="text-decoration: none;color: black;">Se connecter<a/></button>
+			<button type="button" class="btn btn-light"><a href="index.php?page=inscription" style="text-decoration: none;color: black;">S'inscrire<a/></button>
+
+			<?php
+		}
+		 ?>
 		<a class="btn btn-success" href="index.php?page=communaute">Communauté</a>
 
 

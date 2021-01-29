@@ -29,9 +29,13 @@
 			include ("pages/entete.php");
 			include ("pages/communaute.php");
 			// print_formulairecreationcommu();
-		}
 
-		else {
+		}else if ($_GET["page"] == "connexion"){
+			include ("pages/connexion.php");
+		}else if ($_GET["page"] == "inscription"){
+			include ("pages/inscription.php");
+			
+		}else{
 			include ("pages/accueil.php");
 
 		}

@@ -15,10 +15,10 @@ function recup_profil_pseudo($pseudo)
 }
 
 
-function inscription($mail,$pseudo,$mdp)
+function inscription($mail,$pseudo,$mdp,$nom,$prenom)
 {
 	global $db;
-	$sql = "INSERT INTO `profil`(`id`, `pseudo`, `mail`, `mdp`, `nb_partie_joue_C`, `nb_partie_G_C`, `nb_partie_P_C`, `nb_partie_joue_M`, `nb_partie_G_M`, `nb_partie_P_M`) VALUES (null,'$pseudo','$mail','$mdp',0,0,0,0,0,0)";
+	$sql = "INSERT INTO `profil`(`id`, `nom`, `prenom`, `pseudo`, `mail`, `mdp`) VALUES (null,'$nom','$prenom','$pseudo','$mail','$mdp')";
 	$results = mysqli_query($db,$sql);
 	return $results;
 }

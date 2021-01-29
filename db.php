@@ -4,6 +4,4 @@ if ($db = mysqli_connect("localhost", "root", "","netbox")) {
 } else {
 	echo "Impossible de ce connecter";
 }
-
-echo "bruh";
 ?>
