@@ -16,7 +16,7 @@
 
 
 .communaute {
-	background-color: #f6e58d;
+	background-color: #b2bec3;
 }
 
 .formulairegroupe {
@@ -27,3 +27,29 @@
 .gros {
 	background-color: red;
 }
+
+.stylelien {
+	text-decoration: none;
+	color:black;
+}
+
+
+/*-------------------- Pour pagecommunaute*/
+
+.descriptioncommu {
+	height:200px;
+	background-color: #b2bec3;
+	font-size:25px;
+}
+
+.pagecommu {
+
+	font-size:100px;
+}
+
+.nomcommu {
+size:50%;
+}
+
+
+/* ---------------------------*/
