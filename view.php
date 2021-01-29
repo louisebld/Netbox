@@ -28,13 +28,15 @@
 			
 			include ("pages/entete.php");
 			include ("pages/communaute.php");
-			// print_formulairecreationcommu();
 		}
 
-		else {
-			include ("pages/accueil.php");
+		elseif (commenceparcommu($_GET["page"])){
+			$communaute=savoircommu($_GET["page"]);
+			include ("pages/entete.php");
+			include('pages/pagecommunaute.php');
 
 		}
+
 	}
 
 	else {
