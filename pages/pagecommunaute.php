@@ -1,18 +1,23 @@
 <?php
 $communaute= savoircommu($_GET["page"]);
+$donnecommunaute=recupdonnecommu($communaute);
+
+// var_dump($donnecommunaute);
+// var_dump($donnecommunaute[0]);
 
 ?>
 
 <div class="container ">
-<img class='card-img-top pt-2 img-article-board' src='images/commu.png'>
 
+<?php
+		echo affiche_imagecommu($donnecommunaute[0]['image']);
+?>
 
 <div class="container nomcommu">
 
 <?php
 
 // On récupère toutes les données de la communauté
-$donnecommunaute=recupdonnecommu($communaute);
 // echo "<img class='img-fluid' src='images/community.png'>";
 echo "<h1 class='pagecommu text-center '>" . $communaute .  "</h1>";
 ?>
