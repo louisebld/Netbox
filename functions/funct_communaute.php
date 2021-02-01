@@ -10,6 +10,23 @@ function remplaceApo ($chaine){
 }
 
 
+function get_file_extension($file) {
+		// BUT : get_file_extension : permet d'obtenir extension d'un fichier, decoupe le nom d'un fichier a partir d'un point
+
+		// $file : contient le nom d'un fichier
+
+	    return substr(strrchr($file,'.'),1);
+	}
+
+function enleveespacemaj($chaine) {
+	$ch=str_replace(' ','',$chaine);
+	return strtolower($ch);
+
+}
+
+function enleveespace($chaine) {
+	return str_replace(' ','',$chaine);
+}
 
 
 
@@ -42,6 +59,14 @@ function print_formulairecreationcommu() {
 }
 
 
+function affiche_imagecommu($nomimage){
+
+	return $img = '<img src="./images/commu/' . $nomimage . '" alt="communaute" class="card-img-top pt-2 img-article-board"/>';
+
+}
+
+
+
 function affichecommun($tableaucommu){
 
 	// BUT : afficher les communauté
@@ -57,7 +82,8 @@ function affichecommun($tableaucommu){
 		echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
 		echo "<h5>" . $value["nom"]; "</h5>";
 		echo "<div class='col' id='centre'>";
-		echo	"<img class='card-img-top pt-2 img-article-board' src='images/commu.png'>";
+		// echo	"<img class='card-img-top pt-2 img-article-board' src='images/commu.png'>";
+		echo affiche_imagecommu($value['image']);
 		echo $value["description"];
 		echo "</div>";
 		echo "</div>";
