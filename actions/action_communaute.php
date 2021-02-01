@@ -27,6 +27,11 @@ if (isset($_POST['creercommu'])) {
 	}
 
 
+	if(empty($_FILES['imagecom']['name'])){
+		$erreurcreatcommu[]= "Fichier vide";
+
+
+	}
 
 
 	// si il y a des erreurcreatcommus
@@ -39,12 +44,21 @@ if (isset($_POST['creercommu'])) {
 
 	else {
 // on récupère les données
-		$nom = remplaceApo ($_POST['nom']);
+		$nom = enleveespace(remplaceApo ($_POST['nom']));
 		$description = remplaceApo ($_POST['description']);
 		$createur = 1; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE
 
 // création de la communauté dans la bdd
 
+
+		$file_name = $_FILES['imagecom']['name'];
+		$file_size =$_FILES['imagecom']['size'];
+		$file_tmp =$_FILES['imagecom']['tmp_name'];
+		$file_type=$_FILES['imagecom']['type'];
+
+		move_uploaded_file($file_tmp,"./images/commu/" . enleveespacemaj($nom) . ".jpg");
+
+		$nomimage = enleveespacemaj($nom) . ".jpg";
 
 		// $nom =$_FILES['imagecom']['name'];
 		// $taille = $_FILES['imagecom']['size'];
@@ -63,7 +77,7 @@ if (isset($_POST['creercommu'])) {
 
 		// mysqli_query($db, "INSERT INTO imagescommu (nom, taille, type, bin) VALUES ($nom, $taille, $type, file_get_contents($temp))");
 
-		insert_commu($nom, $description, $createur);
+		insert_commu($nom, $description, $createur, $nomimage);
 		// insert_image();
 		// global $db;
 		// $req=$db-> prepare("insert into imagescommu(nom, taille, type, bin) values(?,?,?,?)");
