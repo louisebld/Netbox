@@ -1,8 +1,8 @@
 <?php
 
-function insert_commu($nom, $description, $createur) {
+function insert_commu($nom, $description, $createur, $nomimage) {
 	global $db;
-	mysqli_query($db, "INSERT INTO communaute(nom, description, idcreateur) VALUES ('$nom', '$description', $createur)");
+	mysqli_query($db, "INSERT INTO communaute(nom, description, idcreateur, image) VALUES ('$nom', '$description', $createur, '$nomimage')");
 
 }
 
