@@ -6,14 +6,14 @@
 		<?php
 
 		print_formulairecreationpost();
-	// 	if (isset($_SESSION['erreurcreatcommu'])) {
-	// 		echo "<ul>";
-	// // on affiche chaque erreur
-	// 		foreach($_SESSION["erreurcreatcommu"] as $faute)
-	// 			echo "<li>$faute</li>";
-	// 		echo "</ul>";
+		if (isset($_SESSION['erreurpost'])) {
+			echo "<ul>";
+	// on affiche chaque erreur
+			foreach($_SESSION["erreurpost"] as $faute)
+				echo "<li>$faute</li>";
+			echo "</ul>";
 
-	// 	}
+		}
 
 		?>
 	</div>
