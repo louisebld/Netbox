@@ -5,11 +5,8 @@ function print_formulairecreationpost() {
 	?>
 
 
-	<form method="post" action="index.php?page=communaute" enctype="multipart/form-data">
-		<div class="form-group">
-			<input type="text" placeholder="Nom de votre communauté" class="form-control" name="nom"  value="<?php if (isset($_SESSION['donnecreatcommu']['nom'])) echo $_SESSION['donnecreatcommu']['nom']; ?>">
-		</div>
-		<br/>
+	<form method="post" action="index.php?page=publication" enctype="multipart/form-data">
+
 
 		<div class="form-group">
 			<input type="file" name="imagecom" class="form-control">
@@ -17,8 +14,17 @@ function print_formulairecreationpost() {
 
 		<br/>
 		<div class="form-group">
-			<textarea class="form-control" name="description" id="description" placeholder="Description de votre communauté" rows="3"><?php if (isset($_SESSION['donnecreatcommu']['description'])) echo $_SESSION['donnecreatcommu']['description']; ?></textarea>
+			<textarea class="form-control" name="description" id="description" placeholder="Légende de votre publication" rows="3"><?php if (isset($_SESSION['donnecreatcommu']['description'])) echo $_SESSION['donnecreatcommu']['description']; ?></textarea>
 		</div>
+
+		<input type="hidden" id="idutilisateur" name="idutilisateur" value="<?php if (isset($_SESSION['id'])) {echo $_SESSION['id'];} ?>" />
+
+		<?php
+
+		listederoulcommu();
+		?>
+
+
 		<br/>
 		<center><input type="submit" class="btn btn-primary" name="creercommu" id="creercommu" value="Créer" /></center>
 

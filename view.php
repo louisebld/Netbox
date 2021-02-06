@@ -51,7 +51,13 @@
 			
 			include ("pages/inscription.php");
 			
-		}else{
+		}
+		else if ($_GET["page"] == "publication"){
+			include ("pages/publication.php");
+
+		}
+
+		else{
 			include ("pages/accueil.php");
 
 		}
