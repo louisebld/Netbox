@@ -1,6 +1,9 @@
 <?php
 $communaute= savoircommu($_GET["page"]);
 $donnecommunaute=recupdonnecommu($communaute);
+$idcommu = $donnecommunaute[0]['idcommu'];
+
+$donnepost = recuppost($idcommu);
 
 // var_dump($donnecommunaute);
 // var_dump($donnecommunaute[0]);
@@ -30,6 +33,8 @@ echo "<p>" . $donnecommunaute[0]['description'] .  "</p>";
 </div>
 </div>
 
+<?php
 
+affichepost($donnepost);
  
 
