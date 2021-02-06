@@ -108,3 +108,19 @@ for ($i = 0; $i < count($tableaucommu); $i++){
 
 <?php
 }
+
+// pour récupérer l'id de la commu à partir de son nom
+
+function recupecommu($com) {
+// variable globale base de donnée
+	global $db;
+
+	// Je fais une recherche dans la base à partir du métier
+	$commu = mysqli_query($db, "SELECT idcommu FROM communaute WHERE nom = '$com'");
+	// on selectionne le métier que l'on veut à partir de son nom
+
+	$resultat = mysqli_fetch_assoc($commu);
+	// on retourne l'id
+	$id=$resultat['idcommu'];
+	return $id;
+}
