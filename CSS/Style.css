@@ -4,6 +4,8 @@
 
 }
 
+
+
 .titre {
 	font-size: 150px;
 	padding-top:200px;
@@ -34,6 +36,8 @@
 }
 
 
+
+
 /*-------------------- Pour pagecommunaute*/
 
 .descriptioncommu {
@@ -51,5 +55,29 @@
 size:50%;
 }
 
+.imagecommu {
+	max-width: auto;
+	height: auto;
+	background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-/* ---------------------------*/
+#photos {
+	/* Prevent vertical gaps */
+	line-height: 0;
+	
+	-webkit-column-count: 5;
+	-webkit-column-gap:   0px;
+	-moz-column-count:    5;
+	-moz-column-gap:      0px;
+	column-count:         5;
+	column-gap:           0px;
+ }
+
+
+/* ----------- Entete ----------------*/
+
+.bgYellow {
+	background-color: #f6e58d;
+}

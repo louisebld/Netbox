@@ -70,6 +70,13 @@
 			?>
 		</div>
 	</div>
+
+
+	<div class="fixed-bottom">
+		<button type="submit" name="inscription" value="Inscription" class="btn btn-primary">S'inscrire</button>
+	</div>
+	
+
 	<footer>
 		<div class="container-fluid bg-dark mt-5" style="height: 300px">
 			<div class="row text-light text-center">

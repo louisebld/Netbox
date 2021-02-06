@@ -9,28 +9,27 @@
 </div> -->
 
 
-<nav class="navbar navbar-expand-md navbar-light bg-warning sticky-top">
-       <a href="index.php?page=accueil" class="navbar-brand">
-       	#ShareLife
-           <img src="images/community.png" width="50">
-       </a>
-       <button class="navbar-toggler" data-toggle="collapse" data-target="#menuhamburger">
-           <span class="navbar-toggler-icon"></span>
-          </button>
-       <div class="collapse navbar-collapse" id="menuhamburger">
-         <ul class="navbar-nav m-auto">
-           <!-- <li class="nav-item active">
-             <a href="#" class="nav-link">Accueil</a>
-           </li> -->
-           
-         </ul>
-<!-- 
-                  <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-primary invisible" type="submit">Envoyer</button>
-          </form>
- -->
-           <img src="images/user.png" width="50">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <img src="images/community.png" width="50" class="mx-4"> 
+  <a class="navbar-brand mx-4" href="index.php?page=accueil">Accueil</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Communauté</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profil</a>
+      </li>
+    </ul>
+    </div>
 
-       </div>
+    <form  method='post' class="form-group form-inline d-flex" action='index.php?page=communaute'>
+        <input class="form-control mr-sm-2 w-auto" type="search" name='recherchecommu' placeholder="Communauté" aria-label="Search">
+        <button name='cherchercommu' class="btn btn-outline-success my-2 my-sm-0 m-4" value='Chercher' type="submit">Search</button>
+    </form>
+
+
 </nav>

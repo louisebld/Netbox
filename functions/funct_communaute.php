@@ -61,9 +61,10 @@ function print_formulairecreationcommu() {
 
 function affiche_imagecommu($nomimage){
 
-	return $img = '<img src="./images/commu/' . $nomimage . '" alt="communaute" class="card-img-top pt-2 img-article-board"/>';
+	return $img = '<img src="./images/commu/' . $nomimage . '" alt="communaute" class="card-img-top pt-2 imagecommu img-article-board"/>';
 
 }
+
 
 
 
@@ -73,25 +74,32 @@ function affichecommun($tableaucommu){
 
 	// $tableaucommu : tableau associatif contenant les infos des communautés
 
-	echo"<div class='container'>";
+	echo"<div class='container images-wrapper d-flex'>";
 		echo "<div class='row'>";
 
 	foreach ($tableaucommu as $key => $value) {
 		//Affichage
-		echo "<div class='col-4 p-4 text-center' >";
-		echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
-		echo "<h5>" . $value["nom"]; "</h5>";
-		echo "<div class='col' id='centre'>";
-		// echo	"<img class='card-img-top pt-2 img-article-board' src='images/commu.png'>";
-		echo affiche_imagecommu($value['image']);
-		echo $value["description"];
-		echo "</div>";
+		echo "<div class='col-lg-4 col-md-12 mb-4 text-center width-auto'>";
+			echo '<div class="thumbnail">';
+			echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+					// echo	"<img class='card-img-top pt-2 img-article-board' src='images/commu.png'>";
+					echo affiche_imagecommu($value['image']);
+					echo '<div class="caption img-thumbnail">';
+						echo "<h5>" . $value["nom"] . "</h5>\n";
+						echo $value["description"];
+					echo "</div>";
+			echo "</div>";
+
 		echo "</div>";
 
 	}
-			echo "</div>";
 		echo "</div>";
+	echo "</div>";
 }
+
+
+
+
 
 
 function commenceparcommu($chaine) {
