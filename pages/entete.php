@@ -18,10 +18,14 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Communauté</a>
+        <a class="nav-link" href="index.php?page=communaute">Communauté</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Profil</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="index.php?page=publication">Publier</a>
       </li>
     </ul>
     </div>
