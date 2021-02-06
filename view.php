@@ -43,7 +43,17 @@
 			include('pages/pagecommunaute.php');
 
 
-		}else if ($_GET["page"] == "connexion"){
+		}
+		elseif (commenceparpost($_GET["page"])){
+
+			$post=savoirpost($_GET["page"]);
+			include ("pages/entete.php");
+			include('pages/pagepost.php');
+
+
+		}
+
+		else if ($_GET["page"] == "connexion"){
 
 			include ("pages/connexion.php");
 
@@ -53,6 +63,7 @@
 			
 		}
 		else if ($_GET["page"] == "publication"){
+			include ("pages/entete.php");
 			include ("pages/publication.php");
 
 		}
