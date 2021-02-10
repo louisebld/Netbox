@@ -3,6 +3,14 @@ $communaute= savoircommu($_GET["page"]);
 $donnecommunaute=recupdonnecommu($communaute);
 $idcommu = $donnecommunaute[0]['idcommu'];
 
+echo "<div class='container text-center mt-4'>";
+echo "<form method='post' action='index.php?page=communaute'>";
+echo  "<input id='idcommu' name='idcommu' type='hidden' value= ". $idcommu . ">";
+echo  "<input id='nomphoto' name='nomphoto' type='hidden' value= ". $donnecommunaute[0]['image'] . ">";
+echo "<input type='submit' name='delcommu' class='btn btn-danger' value='Supprimer la communauté'/>" . "</p>";
+echo  "</div>";
+
+
 $donnepost = recuppost($idcommu);
 
 // var_dump($donnecommunaute);
