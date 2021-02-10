@@ -121,3 +121,17 @@ if (isset($_POST['cherchercommu'])) {
 }
 
 
+// POUR supprimer une communaute
+
+if (isset($_POST['delcommu'])) {
+
+
+	$id = $_POST['idcommu'];
+	$photo = $_POST['nomphoto'];
+
+	supprime_commu($id);
+	supprimephotocommu($photo);
+
+	header("Location:index.php?page=communaute");
+
+	}
