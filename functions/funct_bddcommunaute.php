@@ -124,3 +124,10 @@ function recupecommu($com) {
 	$id=$resultat['idcommu'];
 	return $id;
 }
+
+
+function supprime_commu($idcommu) {
+		global $db;
+		// on supprime
+		mysqli_query($db, "DELETE FROM communaute WHERE idcommu = $idcommu");
+	}
