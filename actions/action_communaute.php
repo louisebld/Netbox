@@ -10,7 +10,6 @@ $tableaucommu = charge_commu();
 // Pour la création de communauté
 // si formulaire envoyé
 if (isset($_POST['creercommu'])) {
-	echo "ok";
 
 	$erreurcreatcommu=[];
 // nom vide
@@ -60,14 +59,12 @@ if (isset($_POST['creercommu'])) {
 		$file_name = $_FILES['imagecom']['name'];
 		$file_size =$_FILES['imagecom']['size'];
 		$file_tmp =$_FILES['imagecom']['tmp_name'];
-		var_dump($_FILES['imagecom']['type']);
 		if ($_FILES['imagecom']['type'] != '') {
 			$file_type=explode("/", $_FILES['imagecom']['type'])[1];
 		}else{
 			$file_type = "jpg";
 		}
 		
-		var_dump($file_type);
 
 		move_uploaded_file($file_tmp,"./images/commu/" . enleveespacemaj($nom) . ".".$file_type);//-------------------
 
