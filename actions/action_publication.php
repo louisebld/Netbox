@@ -62,6 +62,27 @@ if (isset($_POST['poster'])) {
 }
 
 
+// Pour la suppression de post
+
+if (isset($_POST['delpost'])) {
+
+
+	$id = $_POST['idpost'];
+	$photo = $_POST['nomphoto'];
+
+	supprime_post($id);
+	supprimephotopost($photo);
+
+	// pour rediriger sur la communaute
+	header("Location:index.php?page=commu" . $_POST['nomcommu'] . "");
+			//echo "<a class='stylelien' href=>";
+
+
+
+	}
+
+
+
 
 
 ?>
