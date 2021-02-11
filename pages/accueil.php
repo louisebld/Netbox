@@ -2,9 +2,8 @@
 
          ?>
 
-
 <div class="container-fluid bg-dark">
-	<div class="navbar-right">
+	<div class="navbar-right barre">
 		<?php
 
 			if (isset($_SESSION["id"])) {
@@ -72,10 +71,6 @@
 	</div>
 
 
-	<div class="fixed-bottom">
-		<button type="submit" name="inscription" value="Inscription" class="btn btn-primary">S'inscrire</button>
-	</div>
-	
 
 	<footer>
 		<div class="container-fluid bg-dark mt-5" style="height: 300px">
