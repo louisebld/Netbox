@@ -1,11 +1,30 @@
 <?php
+// ------------------------------------------------- RECUPERATION DES DONNEES
+// pour le numéro de post
 $nbpost= intval(savoirpost($_GET["page"]));
 $donnepost = recupdonnepost($nbpost);
 
-// var_dump($donnecommunaute);
-// var_dump($donnecommunaute[0]);
+$idpost = $donnepost[0]['idpost'];
+$idcommunaute = $donnepost[0]['idcommu'];
+$commucourante = recupdonnecommuparid($idcommunaute);
+
+
+
+// Pour supprimer un post
+echo "<div class='container text-center mt-4'>";
+echo "<form method='post' action='index.php?page=communaute'>";
+// l'id du post
+echo  "<input id='idpost' name='idpost' type='hidden' value= ". $idpost . ">";
+// le nom de la commu
+echo  "<input id='nomcommu' name='nomcommu' type='hidden' value= ". $commucourante[0]['nom'] . ">";
+// le nom de la photo
+echo  "<input id='nomphoto' name='nomphoto' type='hidden' value= ". $donnepost[0]['image'] . ">";
+echo "<input type='submit' name='delpost' class='btn btn-danger' value='Supprimer la publication'/>" . "</p>";
+echo  "</div>";
+
 
 ?>
+
 
 <div class="container">
 
