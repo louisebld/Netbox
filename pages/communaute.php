@@ -40,6 +40,7 @@
 
 
 <?php
+
 affichecommun($tableaucommu);
 
 ?>
