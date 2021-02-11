@@ -12,8 +12,6 @@ $tableaucommu = charge_commu();
 if (isset($_POST['creercommu'])) {
 
 	$erreurcreatcommu=[];
-
-
 // nom vide
 	if (empty($_POST["nom"]) || !trim($_POST['nom'])) {
 		$erreurcreatcommu[]="Nom vide";
@@ -27,10 +25,17 @@ if (isset($_POST['creercommu'])) {
 	}
 
 
-	if(empty($_FILES['imagecom']['name'])){
+	if(empty($_FILES['imagecom']['name']) || $_FILES['imagecom']['size'] ==0){
 		$erreurcreatcommu[]= "Fichier vide";
 
 
+	}
+	if($_FILES['imagecom']['size'] > 5000000){
+		$erreurcreatcommu[]= "L'image ne doit pas dépasser les 5Mo !";
+	}
+	
+	if (isset($_SESSION["id"]) == false) {
+		$erreurcreatcommu[]= "Il faut être connecté pour créer une communauté !";
 	}
 
 
@@ -46,7 +51,7 @@ if (isset($_POST['creercommu'])) {
 // on récupère les données
 		$nom = enleveespace(remplaceApo ($_POST['nom']));
 		$description = remplaceApo ($_POST['description']);
-		$createur = 1; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE
+		$createur = $_SESSION["id"];
 
 // création de la communauté dans la bdd
 
@@ -54,11 +59,16 @@ if (isset($_POST['creercommu'])) {
 		$file_name = $_FILES['imagecom']['name'];
 		$file_size =$_FILES['imagecom']['size'];
 		$file_tmp =$_FILES['imagecom']['tmp_name'];
-		$file_type=$_FILES['imagecom']['type'];
+		if ($_FILES['imagecom']['type'] != '') {
+			$file_type=explode("/", $_FILES['imagecom']['type'])[1];
+		}else{
+			$file_type = "jpg";
+		}
+		
 
-		move_uploaded_file($file_tmp,"./images/commu/" . enleveespacemaj($nom) . ".jpg");
+		move_uploaded_file($file_tmp,"./images/commu/" . enleveespacemaj($nom) . ".".$file_type);//-------------------
 
-		$nomimage = enleveespacemaj($nom) . ".jpg";
+		$nomimage = enleveespacemaj($nom) . ".".$file_type;
 
 		// $nom =$_FILES['imagecom']['name'];
 		// $taille = $_FILES['imagecom']['size'];
@@ -77,7 +87,9 @@ if (isset($_POST['creercommu'])) {
 
 		// mysqli_query($db, "INSERT INTO imagescommu (nom, taille, type, bin) VALUES ($nom, $taille, $type, file_get_contents($temp))");
 
-		insert_commu($nom, $description, $createur, $nomimage);
+		insert_commu($nom, $description, $createur, $nomimage);//-------------
+
+
 		// insert_image();
 		// global $db;
 		// $req=$db-> prepare("insert into imagescommu(nom, taille, type, bin) values(?,?,?,?)");
@@ -96,7 +108,7 @@ if (isset($_POST['creercommu'])) {
 
 
 // on redirige
-		header("Location:index.php?page=communaute");
+		header("Location:index.php?page=communaute");//-----
 // on enlève les variables de session
 		unset($_SESSION['erreurcreatcommu']);
 		unset($_SESSION['donnecreatcommu']);

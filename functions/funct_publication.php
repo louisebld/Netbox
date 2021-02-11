@@ -105,14 +105,30 @@ function recupdonnepost($idpost){
 
 }
 
+function affichebouttonpartage(){
+echo "
+<p>
+   Copiez cette adresse : 
+   <input type='url' id='lien' value=''/>
+   <button onclick='copierLien()'>Copier</button>
+</p>
+<script>
+	 document.getElementById('lien').value = window.location.href;
+</script>
+";
+}
+
 
 function affichemonpost($donnepost){
 
 	echo affiche_imagepost($donnepost[0]['image']);
 	echo $donnepost[0]['description'];
+	echo affichebouttonpartage();
 
 }
+
 
 function supprimephotopost($nomphoto){
 	unlink('images/post/' . $nomphoto);
 }
+

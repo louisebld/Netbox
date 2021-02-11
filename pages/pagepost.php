@@ -32,7 +32,7 @@ echo  "</div>";
 // css à regarder
 		echo affichemonpost($donnepost);
 ?>
-</div>
+</div> 
 
 
 
