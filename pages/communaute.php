@@ -15,8 +15,9 @@
 		if (isset($_SESSION['erreurcreatcommu'])) {
 			echo "<ul>";
 	// on affiche chaque erreur
-			foreach($_SESSION["erreurcreatcommu"] as $faute)
+			foreach($_SESSION["erreurcreatcommu"] as $faute){
 				echo "<li>$faute</li>";
+			}
 			echo "</ul>";
 
 		}

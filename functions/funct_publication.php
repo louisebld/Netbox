@@ -127,3 +127,8 @@ function affichemonpost($donnepost){
 
 }
 
+
+function supprimephotopost($nomphoto){
+	unlink('images/post/' . $nomphoto);
+}
+

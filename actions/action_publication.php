@@ -15,9 +15,13 @@ if (isset($_POST['poster'])) {
 	}
 
 
-	if(empty($_FILES['imagepost']['name'])){
+	if(empty($_FILES['imagepost']['name']) || $_FILES['imagepost']['size'] ==0){
 		$erreurpost[]= "Fichier vide";
 
+
+	}
+	if($_FILES['imagepost']['size'] > 5000000){
+		$erreurpost[]= "L'image ne doit pas dépasser les 5Mo !";
 	}
 
 
@@ -26,7 +30,7 @@ if (isset($_POST['poster'])) {
 // on stocke variable session
 		$_SESSION["erreurpost"]= $erreurpost;
 // on stocke les données pour les laisser dans le formulaire
-		$_SESSION["donnecreatpost"]= $_POST;
+		$_SESSION["donnecreatpost"]= $_POST; 
 	}
 
 	else {
@@ -41,13 +45,17 @@ if (isset($_POST['poster'])) {
 		$file_name = $_FILES['imagepost']['name'];
 		$file_size =$_FILES['imagepost']['size'];
 		$file_tmp =$_FILES['imagepost']['tmp_name'];
-		$file_type=$_FILES['imagepost']['type'];
+		if ($_FILES['imagepost']['type'] != '') {
+			$file_type=explode("/", $_FILES['imagepost']['type'])[1];
+		}else{
+			$file_type = "jpg";
+		}
 
 
 
 		$iddupost = insert_post($legende, $file_name, $createur, $idcommunaute);
-		$nomimage = "post". $iddupost . ".jpg";
-		move_uploaded_file($file_tmp,"./images/post/post" . $iddupost . ".jpg");
+		$nomimage = "post". $iddupost . ".".$file_type;
+		move_uploaded_file($file_tmp,"./images/post/post" . $iddupost . ".".$file_type);
 		changenomimage($iddupost, $nomimage);
 
 
@@ -60,6 +68,27 @@ if (isset($_POST['poster'])) {
 
 	}
 }
+
+
+// Pour la suppression de post
+
+if (isset($_POST['delpost'])) {
+
+
+	$id = $_POST['idpost'];
+	$photo = $_POST['nomphoto'];
+
+	supprime_post($id);
+	supprimephotopost($photo);
+
+	// pour rediriger sur la communaute
+	header("Location:index.php?page=commu" . $_POST['nomcommu'] . "");
+			//echo "<a class='stylelien' href=>";
+
+
+
+	}
+
 
 
 
