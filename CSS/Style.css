@@ -1,5 +1,5 @@
 .bruh {
-	background-color: #f6e58d;
+	background-color: #f2e9e4;
 	height:600px;
 
 }
@@ -18,7 +18,7 @@
 
 
 .communaute {
-	background-color: #b2bec3;
+	background-color: #f2e9e4;
 }
 
 .formulairegroupe {
@@ -36,13 +36,15 @@
 }
 
 
-
+.barre {
+	background-color: #22223B;
+}
 
 /*-------------------- Pour pagecommunaute*/
 
 .descriptioncommu {
 	height:200px;
-	background-color: #b2bec3;
+	background-color: #f2e9e4;
 	font-size:25px;
 }
 
@@ -80,4 +82,15 @@ size:50%;
 
 .bgYellow {
 	background-color: #f6e58d;
+}
+
+
+/*Pour les boutons ronds*/
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
 }
