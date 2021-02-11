@@ -111,7 +111,8 @@ function affichemonpost($donnepost){
 	echo affiche_imagepost($donnepost[0]['image']);
 	echo $donnepost[0]['description'];
 
+}
 
-
-
+function supprimephotopost($nomphoto){
+	unlink('images/post/' . $nomphoto);
 }
