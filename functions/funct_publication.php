@@ -63,7 +63,6 @@ function affichepost($tableaupost){
 						echo $value["description"];
 					echo "</div>";
 			echo "</div>";
-
 		echo "</div>";
 
 	}
@@ -73,7 +72,6 @@ function affichepost($tableaupost){
 
 
 function commenceparpost($chaine) {
-
   if(strpos($chaine, "post" ) === 0){
       return true;
   }else {
@@ -111,7 +109,24 @@ function affichemonpost($donnepost){
 	echo affiche_imagepost($donnepost[0]['image']);
 	echo $donnepost[0]['description'];
 
+	
+	$idcomu =  $donnepost[0]['idcommu'];
+	$idpost = $donnepost[0]['idpost'];
 
+	//if (isset($_SESSION['connected'])){
 
+		echo '<div class="commentaire">';
+		echo "<h2>Ajouter un commentaire :</h2>";
+		form_com ($idcomu, $idpost);
+		echo "</div>";
+		
+		$com = charge_com($idcomu, $idpost);
+		if (!empty($com)) {
+				echo '<div class="sectionCommentaire">';
+				echo "<h2>Commentaire: </h2></br>";	
+				print_com($com);
+				echo "</div>";
+		}
+	//}
 
 }
