@@ -1,7 +1,3 @@
-<?php
-
-         ?>
-
 
 <div class="container-fluid bg-dark">
 	<div class="navbar-right">
@@ -11,7 +7,8 @@
 				$data = recup_profil_id($_SESSION["id"])[0];
 				$nom = $data["nom"];
 				$prenom = $data["prenom"];
-
+				$_SESSION['pseudo'] = $data["pseudo"];
+				$_SESSION['id'] = $data["id"];
 				echo "<button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>$nom $prenom</button>";
 
 
