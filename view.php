@@ -70,6 +70,12 @@
 			include ("pages/publication.php");
 			include ("pages/barre.php");
 
+
+		}else if ($_GET["page"] == "profil"){
+			include ("pages/entete.php");
+			include ("pages/profil.php");
+			include ("pages/barre.php");
+
 		}
 
 		else{

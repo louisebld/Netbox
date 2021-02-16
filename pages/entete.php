@@ -24,7 +24,7 @@
         <a class="nav-link" href="index.php?page=communaute">Communauté</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Profil</a>
+        <a class="nav-link" href="index.php?page=profil">Profil</a>
       </li>
 
       <li class="nav-item">
