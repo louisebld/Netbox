@@ -4,5 +4,6 @@ include "actions/action_connection.php";
 
 include 'actions/action_communaute.php';
 include 'actions/action_publication.php';
+include 'actions/action_com.php';
 
  ?>
