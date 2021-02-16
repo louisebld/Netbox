@@ -131,3 +131,22 @@ function supprime_commu($idcommu) {
 		// on supprime
 		mysqli_query($db, "DELETE FROM communaute WHERE idcommu = $idcommu");
 	}
+
+
+
+function recupdonnecommuparid($id){
+
+	global $db;
+	$sql = "SELECT * FROM communaute WHERE idcommu = $id";
+	$result=  mysqli_query($db, $sql);
+
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+
+
+}

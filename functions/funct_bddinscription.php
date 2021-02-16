@@ -18,7 +18,7 @@ function recup_profil_pseudo($pseudo)
 function inscription($mail,$pseudo,$mdp,$nom,$prenom)
 {
 	global $db;
-	$sql = "INSERT INTO `profil`(`id`, `nom`, `prenom`, `pseudo`, `mail`, `mdp`) VALUES (null,'$nom','$prenom','$pseudo','$mail','$mdp')";
+	$sql = "INSERT INTO `profil`(`id`, `nom`, `prenom`, `pseudo`, `mail`, `mdp`, `picture`, `description`) VALUES (null,'$nom','$prenom','$pseudo','$mail','$mdp','profil.jpg',' ')";
 	$results = mysqli_query($db,$sql);
 	return $results;
 }

@@ -38,3 +38,12 @@ function recuppost($idcom){
 	return $tableau;
 
 }
+
+
+
+function supprime_post($idpost) {
+	// pour supprimer un post
+		global $db;
+		// on supprime
+		mysqli_query($db, "DELETE FROM publication WHERE idpost = $idpost");
+	}

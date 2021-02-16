@@ -103,17 +103,36 @@ function recupdonnepost($idpost){
 
 }
 
+function affichebouttonpartage(){
+echo "
+<p>
+   Copiez cette adresse : 
+   <input type='url' id='lien' value=''/>
+   <button onclick='copierLien()'>Copier</button>
+</p>
+<script>
+	 document.getElementById('lien').value = window.location.href;
+</script>
+";
+}
+
 
 function affichemonpost($donnepost){
 
 	echo affiche_imagepost($donnepost[0]['image']);
 	echo $donnepost[0]['description'];
+	echo affichebouttonpartage();
+
 
 	
 	$idcomu =  $donnepost[0]['idcommu'];
 	$idpost = $donnepost[0]['idpost'];
 
+}
+
+
 	//if (isset($_SESSION['connected'])){
+
 
 		echo '<div class="commentaire">';
 		echo "<h2>Ajouter un commentaire :</h2>";
@@ -129,4 +148,8 @@ function affichemonpost($donnepost){
 		}
 	//}
 
+function supprimephotopost($nomphoto){
+	unlink('images/post/' . $nomphoto);
 }
+
+

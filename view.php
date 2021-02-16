@@ -5,12 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bruh</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<!-- BootStrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
+	<script type="text/javascript" src="js/funct_partage.js"></script>
 
 
 	<main>
@@ -33,7 +34,7 @@
 			
 			include ("pages/entete.php");
 			include ("pages/communaute.php");
-
+			include ("pages/barre.php");
 		}
 
 		elseif (commenceparcommu($_GET["page"])){
@@ -41,6 +42,7 @@
 			$communaute=savoircommu($_GET["page"]);
 			include ("pages/entete.php");
 			include('pages/pagecommunaute.php');
+			include ("pages/barre.php");
 
 
 		}
@@ -49,6 +51,7 @@
 			$post=savoirpost($_GET["page"]);
 			include ("pages/entete.php");
 			include('pages/pagepost.php');
+			include ("pages/barre.php");
 
 
 		}
@@ -65,6 +68,13 @@
 		else if ($_GET["page"] == "publication"){
 			include ("pages/entete.php");
 			include ("pages/publication.php");
+			include ("pages/barre.php");
+
+
+		}else if ($_GET["page"] == "profil"){
+			include ("pages/entete.php");
+			include ("pages/profil.php");
+			include ("pages/barre.php");
 
 		}
 
