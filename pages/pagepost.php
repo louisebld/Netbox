@@ -13,7 +13,7 @@ $donnepost = recupdonnepost($nbpost);
 // css à regarder
 		echo affichemonpost($donnepost);
 ?>
-</div>
+
 
 
 
