@@ -53,7 +53,6 @@ function modalInscription(){
 					<div class="modal-body">
 						<!-- Possibilité de tout mettre dans une fonction
 							dans un funct_inscription-->
-
 							<form class="form-group" method="post" action="index.php?page=accueil">
 								<!-- Nom -->
 								<div class="mb-3">
@@ -80,7 +79,6 @@ function modalInscription(){
 									<label for="mdp" class="col-form-label">Mot de passe :</label>
 									<input name="mdp" type="password" class="form-control" id="mdp"></input>
 								</div>
-
 								<div class="mb-3">
 									<button type="submit" name="inscription" value="Inscription" class="btn btn-primary">S'inscrire</button>
 								</div>
@@ -88,13 +86,10 @@ function modalInscription(){
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-
 						</div>
 					</div>
 				</div>
 			</div>
-
-
 	<?php
 }
 
