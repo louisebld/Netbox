@@ -31,6 +31,19 @@ echo  "</div>";
 <?php
 // css à regarder
 		echo affichemonpost($donnepost);
+
+		echo '<div class="commentaire">';
+		echo "<h2>Ajouter un commentaire :</h2>";
+		form_com($idcommunaute, $idpost);
+		echo "</div>";
+		
+		$com = charge_com($idcommunaute, $idpost);
+		if (!empty($com)) {
+			echo '<div class="sectionCommentaire">';
+			echo "<h2>Commentaire: </h2></br>";	
+			print_com($com);
+			echo "</div>";
+		}
 ?>
 
 
