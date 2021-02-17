@@ -133,20 +133,20 @@ function affichemonpost($donnepost){
 
 	//if (isset($_SESSION['connected'])){
 
-
-		echo '<div class="commentaire">';
-		echo "<h2>Ajouter un commentaire :</h2>";
-		form_com ($idcomu, $idpost);
-		echo "</div>";
+// function affichecommentaire ($idcomu, $idpost){
+// 		echo '<div class="commentaire">';
+// 		echo "<h2>Ajouter un commentaire :</h2>";
+// 		form_com($idcomu, $idpost);
+// 		echo "</div>";
 		
-		$com = charge_com($idcomu, $idpost);
-		if (!empty($com)) {
-				echo '<div class="sectionCommentaire">';
-				echo "<h2>Commentaire: </h2></br>";	
-				print_com($com);
-				echo "</div>";
-		}
-	//}
+// 		$com = charge_com($idcomu, $idpost);
+// 		if (!empty($com)) {
+// 				echo '<div class="sectionCommentaire">';
+// 				echo "<h2>Commentaire: </h2></br>";	
+// 				print_com($com);
+// 				echo "</div>";
+// 		}
+// 	}
 
 function supprimephotopost($nomphoto){
 	unlink('images/post/' . $nomphoto);
