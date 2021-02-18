@@ -4,7 +4,7 @@ function form_com($idcomu, $idpost){
     //Fonction qui permet d'imprimer le formulaire pour les commentaires d'un post 
 	?>
 
-	<form method="post" class="formCommentaire" action="index.php?page=post8"> <!-- Chercher a prendre l'info sur quelle comu on est -->
+	<form method="post" class="formCommentaire" action="index.php?page=communaute"> <!-- Chercher a prendre l'info sur quelle comu on est -->
 
 		<p>
 			<textarea id="com" id="com" placeholder="Commentaire ..." name="com"
@@ -21,8 +21,9 @@ function form_com($idcomu, $idpost){
 				//Champs invisible qui contient le post sous lequel on commente
 			?>
 		</p>
-		<p><input type="submit" name="envoyer_com" id="envoyer_com" value="Enregistrer"/></p>
+		<p><input type="submit" class="btn btn-dark" name="envoyer_com" id="envoyer_com" value="Enregistrer"/></p>
 	</form>
+    <hr style="height: 100px;">
 	<?php	 
 }
 
