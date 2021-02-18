@@ -40,7 +40,7 @@ echo  "</div>";
 		$com = charge_com($idcommunaute, $idpost);
 		if (!empty($com)) {
 			echo '<div class="sectionCommentaire">';
-			echo "<h2>Commentaire: </h2></br>";	
+			echo "<h2>Commentaires: </h2></br>";	
 			print_com($com);
 			echo "</div>";
 		}
