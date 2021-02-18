@@ -35,7 +35,7 @@
 
     <form  method='post' class="form-group form-inline d-flex" action='index.php?page=communaute'>
         <input class="form-control mr-sm-2 w-auto" type="search" name='recherchecommu' placeholder="Communauté" aria-label="Search">
-        <button name='cherchercommu' class="btn btn-outline-success my-2 my-sm-0 m-4" value='Chercher' type="submit">Search</button>
+        <button name='cherchercommu' class="btn btn-outline-success my-2 my-sm-0 m-4" value='Chercher' type="submit">Chercher</button>
     </form>
 
 
