@@ -89,7 +89,11 @@ if (isset($_POST['delpost'])) {
 
 	}
 
-
+if (isset($_GET) && isset($_GET["idpost"]) && isset($_SESSION['id'])) {
+	$createur = $_SESSION['id']; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE 
+	like($_GET["idpost"],$createur);
+	header("Location: ./index.php?page=post" . $_GET['idpost']);
+}
 
 
 

@@ -123,6 +123,8 @@ function affichemonpost($donnepost){
 	echo $donnepost[0]['description'];
 	echo affichebouttonpartage();
 
+	echo nbLike(getLike(),$donnepost[0]['idpost']);
+	echo afficheLikeBouton($donnepost[0]['idpost']);
 
 	
 	$idcomu =  $donnepost[0]['idcommu'];
@@ -152,6 +154,60 @@ function affichemonpost($donnepost){
 
 function supprimephotopost($nomphoto){
 	unlink('images/post/' . $nomphoto);
+}
+
+//------------------------------------------------------------function gestion des likes
+
+function getLike(){
+    global $db;
+    $tab = [];
+    $sql = "select * from likes";
+    $result = mysqli_query($db,$sql);
+    
+    while($row = mysqli_fetch_assoc($result)){
+        $tab[] = $row;
+    }
+    return $tab;
+}
+function afficheLikeBouton($idpost){
+    $likeButton= "<button type='button' name='like' onclick=\"location.href='./index.php?page=commuJeusociete&idpost=$idpost'\">like</button>";
+    return $likeButton;
+}
+
+function dejaLike($idpost,$idUser){
+	global $db;
+    $sql="SELECT * FROM `likes` WHERE likes.idpost=$idpost;";
+    $tab = [];
+    $result = mysqli_query($db,$sql);
+    while($row = mysqli_fetch_assoc($result)){
+        $tab[] = $row;
+    }
+    $res=False;
+    foreach($tab as $key => $value){
+        if ($value['iduser']==$idUser){
+            $res=True;
+        }
+    }
+    return $res;
+}
+
+function like($idpost,$idUser){
+	global $db;
+    if (!dejaLike($idpost,$idUser)){
+        $sql="INSERT INTO `likes`(`idlike`, `idpost`, `iduser`) VALUES (NULL,$idpost,$idUser);";
+        var_dump($sql);
+	    mysqli_query($db, $sql); //on fait la requete
+    }  
+}
+
+function nbLike($like,$idpost){
+    $cptLike = 0;
+    foreach ($like as $key => $value){
+		if ($value['idpost']==$idpost){
+			$cptLike++;
+		}   
+    }
+    return $cptLike;
 }
 
 
