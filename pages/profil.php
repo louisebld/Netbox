@@ -11,7 +11,7 @@ if (isset($_SESSION['id'])) {
 			<div style="margin-left: 12.5%; width: 75%; margin-top: 50px;">
 				<form  method="post" action="index.php?page=profil&modif=all">
 					<p>Nom : <input type="text" name="nom" value="<?php echo $profil['nom']; ?>"></p>
-					<p>Prenom : <input type="text" name="prenom" value="<?php echo $profil['prenom']; ?>"></p>
+					<p>Prénom : <input type="text" name="prenom" value="<?php echo $profil['prenom']; ?>"></p>
 					<p>Pseudo : <input type="text" name="pseudo" value="<?php echo $profil['pseudo']; ?>"></p>
 					<p>E-mail : <input type="text" name="mail" value="<?php echo $profil['mail']; ?>"></p>
 					<p>Description : <input type="text" name="description" value="<?php echo $profil['description']; ?>"></p>
@@ -58,7 +58,7 @@ if (isset($_SESSION['id'])) {
 					<p>Choisir votre nouvelle image de Profil : </p>
 					<p><input type="file" name="img_profil" id="img_profil"></p>
 					
-					<input type="submit" name="modif" value="Sauvegerder" class="btn btn-light">
+					<input type="submit" name="modif" value="Sauvegarder" class="btn btn-light">
 				</form>
 				<hr>
 				<div>
