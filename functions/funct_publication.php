@@ -128,6 +128,8 @@ function affichemonpost($donnepost){
 	$idcomu =  $donnepost[0]['idcommu'];
 	$idpost = $donnepost[0]['idpost'];
 
+	
+
 }
 
 
