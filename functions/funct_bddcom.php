@@ -3,7 +3,7 @@
 
 function insert_com($autor, $com, $idcomu, $idpost, $date) {
 	global $db;
-	mysqli_query($db, "INSERT INTO com(idcomu, idpost, com, autor, date) VALUES ($idcomu, $idpost, '$com', '$autor', '$date')");
+	mysqli_query($db, "INSERT INTO com(idcomu, idpost, com, autor, date) VALUES ($idcomu, $idpost, '$com', '$autor', NOW())");
 	
 }
 
