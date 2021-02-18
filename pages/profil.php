@@ -89,7 +89,7 @@ if (isset($_SESSION['id'])) {
 		<hr>
 		<div style="display: flex;">
 			<div style="width: 49%; margin: 0;">Nom : <?php echo $profil['nom']; ?></div>
-			<div style="width: 49%; margin: 0;">Prenom : <?php echo $profil['prenom']; ?></div>
+			<div style="width: 49%; margin: 0;">Prénom : <?php echo $profil['prenom']; ?></div>
 		</div>
 		<hr>
 		<div style="display: flex;">
