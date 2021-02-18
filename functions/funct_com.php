@@ -53,8 +53,9 @@ function print_com ($com) {
                             //Affichage du commentaire
                             echo '<div class="commentary"><p>Commentaire: ' . $value["com"] . "</p></div>";
                             echo '<p>';
-                                echo '<a class="float-right btn btn-outline-dark ml-2"> <i class="fa fa-reply"></i> Reply</a>';
-                                echo '<a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>';
+                                //Pour plus tard
+                                //echo '<a class="float-right btn btn-outline-dark ml-2"> <i class="fa fa-reply"></i> Répondre</a>';
+                                //echo '<a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Aimer</a>';
                             echo '</p>';
                         echo '</div>';
                     echo '</div>';
