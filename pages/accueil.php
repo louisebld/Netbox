@@ -13,6 +13,8 @@
 
 				$_SESSION['pseudo'] = $data["pseudo"];
 				$_SESSION['id'] = $data["id"];
+				echo "<button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>$nom $prenom</button>";
+
 
 				echo "<a href='index.php?page=profil'><button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>$nom $prenom</button></a>";
 
@@ -87,7 +89,7 @@
 					<h5>Liens utiles</h5>
 					<ul class="list-unstyled">
 						<li>Accueil</li>
-						<li>Espace comunautaire</li>
+						<li>Espace communautaire</li>
 						<li>Mentions légales</li>
 					</ul>
 				</div>
