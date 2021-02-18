@@ -3,7 +3,7 @@
 	// ----------------------------- Ajoute de commentaire --------------------- 
     if (isset($_POST['envoyer_com'])){
 
-            echo "bjr";
+
             $autor = $_SESSION['pseudo'];
 
             $idcomu = $_POST['idcomu'];
@@ -19,6 +19,7 @@
 
             // on informe l'utilisateur qu'il a posté un commentaire
             // redirection vers la page projets
-            header("Location:index.php?page=post8");
+            $post = "post" . $idpost; 
+            header("Location:index.php?page=$post");
         }
 
