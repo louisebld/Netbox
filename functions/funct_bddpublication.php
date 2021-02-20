@@ -39,7 +39,14 @@ function recuppost($idcom){
 
 }
 
-
+function recupAuteur($idauteur){
+	//Recupere le nom de la personne qui a créé un post
+	global $db;
+	$sql = "SELECT pseudo FROM profil JOIN publication WHERE idauteur = $idauteur";
+	$result=  mysqli_query($db, $sql);
+	$row=mysqli_fetch_assoc($result);
+	return $row;
+}
 
 function supprime_post($idpost) {
 	// pour supprimer un post
