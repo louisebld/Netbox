@@ -4,40 +4,43 @@
  -->
 
 
-<div class="contener m-5 communaute p-4">
+
+
+<!-- Au cas ou on voudrais remettre le bouton pour creer une communauté dans la page principale  -->
+<!-- <div class="contener m-5 communaute p-4">
 
 	<h4>Créez votre communauté !</h4>
 	<div class="formulairegroupe m-auto">
 
 		<?php
+	
 
-		print_formulairecreationcommu();
-		if (isset($_SESSION['erreurcreatcommu'])) {
-			echo "<ul>";
-	// on affiche chaque erreur
-			foreach($_SESSION["erreurcreatcommu"] as $faute){
-				echo "<li>$faute</li>";
-			}
-			echo "</ul>";
+		// if (isset($_SESSION['erreurcreatcommu'])) {
+		// 	echo "<ul>";
+		// 	// on affiche chaque erreur
+		// 	foreach($_SESSION["erreurcreatcommu"] as $faute){
+		// 		echo "<li>$faute</li>";
+		// 	}
+		// 	echo "</ul>";
 
-		}
+		// }
 		?>
 	</div>
 
-</div>
+</div> -->
 
 <div class="contener m-5 communaute p-4">
 
-	<h4>Découvrez les communautés déjà existantes..</h4>
+	<h4 class="mb-4">Découvrez les communautés déjà existantes..</h4>
 
-	<div class='container mt-4'>
+	<!-- <div class='container mt-4'>
         <form method='post' class='form-group' action='index.php?page=communaute'>
           <input class='form-control mr-sm-2' name='recherchecommu' type='text' placeholder='Communauté' aria-label='Search'>
 
           <input type='submit' name='cherchercommu' class='btn btn-outline-primary' value='Chercher'/>
         </form>
    
-    </div>
+    </div> -->
 
 
 <?php
