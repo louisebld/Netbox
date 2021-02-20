@@ -7,8 +7,12 @@ function form_com($idcomu, $idpost){
 	<form method="post" class="formCommentaire" action="index.php?page=communaute"> <!-- Chercher a prendre l'info sur quelle comu on est -->
 
 		<p>
-			<textarea id="com" id="com" placeholder="Commentaire ..." name="com"
-			rows="10" cols="35"></textarea>
+			<!-- <textarea id="com" id="com" placeholder="Commentaire ..." name="com"
+			rows="10" cols="35"></textarea> -->
+            <div class="form-group">
+                <textarea class="form-control"  id="com" id="com" placeholder="Ajouter un Commentaire" name="com"
+			rows="3" cols="35"></textarea>
+            </div>
 		</p>
 
 		<p>
@@ -23,7 +27,6 @@ function form_com($idcomu, $idpost){
 		</p>
 		<p><input type="submit" class="btn btn-dark" name="envoyer_com" id="envoyer_com" value="Enregistrer"/></p>
 	</form>
-    <hr style="height: 100px;">
 	<?php	 
 }
 
@@ -32,7 +35,7 @@ function print_com ($com) {
         echo '<div class="container">';	
         
         foreach ($com as $key => $value) {
-            echo '<div class="card">';
+            echo '<div class="card ">';
                 echo '<div class="card-body">';
                     echo '<div class="row">';
                         echo '<div class="col-md-2">';
