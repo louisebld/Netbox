@@ -95,7 +95,9 @@
 
 	<!-- Pour le footer -->
 	<?php
-	include("pages/footer.php");
+	if (!($_GET["page"] == "accueil")){
+		include("pages/footer.php");
+	}
 	?>
 
 
