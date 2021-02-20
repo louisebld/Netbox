@@ -13,7 +13,7 @@
 
 				$_SESSION['pseudo'] = $data["pseudo"];
 				$_SESSION['id'] = $data["id"];
-				echo "<button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>Accueil</button>";
+				// echo "<button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>Accueil</button>";
 
 
 				echo "<a href='index.php?page=profil'><button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>Profil</button></a>";
