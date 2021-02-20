@@ -12,17 +12,27 @@
 <nav class="navbar navbar-expand-lg navbar-dark barre">
   <!-- <img src="images/community.png" width="50" class="mx-4">  -->
   <!-- <i class="bi bi-people-fill"></i> -->
-  <button type="button" name="people" value="people" class="btn btn-danger btn-xl bi-people-fill m-1"></button>
+  <!-- <button type="button" name="people" value="people" class="btn btn-danger btn-xl bi-people-fill m-1"></button> -->
 
-  <a class="navbar-brand mx-4" href="index.php?page=accueil">Accueil</a>
+  <a class="navbar-brand mx-4 .text-light" href="index.php?page=accueil">Accueil</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup"><?php modalCommunaute() ?>
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?page=communaute">Communauté</a>
-      </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Communauté
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item hText" href="index.php?page=communaute">Voir les Communautés</a></li>
+            <li><a class="dropdown-item hText" href="" data-bs-toggle="modal" data-bs-target="#commuBouton" data-bs-whatever="@getbootstrap"> Créer une Communauté</a></li>
+          </ul>
+        </li>
+
+
+
       <li class="nav-item">
         <a class="nav-link" href="index.php?page=profil">Profil</a>
       </li>
