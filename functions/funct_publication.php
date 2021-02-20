@@ -106,9 +106,12 @@ function recupdonnepost($idpost){
 function affichebouttonpartage(){
 echo "
 <p>
-   Copiez cette adresse : 
-   <input type='url' id='lien' value=''/>
-   <button onclick='copierLien()'>Copier</button>
+<h3>Partager ce post: </h3>
+   <div class='form-group d-flex mx-auto'>
+   	<input class='form-control w-auto d-flex mx-3 mt-2' type='url' id='lien' value=''/>
+	<button type='button' class='btn btn-dark' onclick='copierLien()'>Copier</button>
+   </div>
+   
 </p>
 <script>
 	 document.getElementById('lien').value = window.location.href;
@@ -120,11 +123,30 @@ echo "
 function affichemonpost($donnepost){
 
 	echo affiche_imagepost($donnepost[0]['image']);
-	echo $donnepost[0]['description'];
+	//Pour la description de la publi
+	$auteur = recupAuteur($donnepost[0]['idauteur']);
+	echo '<div class="container mt-2 mb-4 p-4">';
+		echo '<div class="card">';
+			echo '<div class="card-body">';
+				echo '<h5 class="card-title">' . $auteur['pseudo'] . "</h5>";
+				echo '<p class="card-text">' . $donnepost[0]['description'] . '</p>';
+				//Pour liker le post
+				echo '<div class="float-right">';
+					echo '<div class="container">';
+						echo '<div class="col-1 bg-light">';
+							echo nbLike(getLike(),$donnepost[0]['idpost']);
+							echo afficheLikeBouton($donnepost[0]['idpost']);
+						echo "</div>";
+					echo '</div>';
+				echo '</div>';
+			echo'</div>';
+		echo'</div>';
+		
+	echo "</div>";
+	//Lien de partage
 	echo affichebouttonpartage();
 
-	echo nbLike(getLike(),$donnepost[0]['idpost']);
-	echo afficheLikeBouton($donnepost[0]['idpost']);
+	
 
 	
 	$idcomu =  $donnepost[0]['idcommu'];
@@ -170,7 +192,8 @@ function getLike(){
     return $tab;
 }
 function afficheLikeBouton($idpost){
-    $likeButton= "<button type='button' name='like' onclick=\"location.href='./index.php?page=commuJeusociete&idpost=$idpost'\">like</button>";
+    //$likeButton= "<button type='button' class='btn btn-dark' name='like' onclick=\"location.href='./index.php?page=commuJeusociete&idpost=$idpost'\">like</button>";
+	$likeButton= '<button type="submit" name="like" value="like" class="btn btn-danger btn-xl bi-heart-half m-1"></button>';
     return $likeButton;
 }
 
