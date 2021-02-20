@@ -13,10 +13,10 @@
 
 				$_SESSION['pseudo'] = $data["pseudo"];
 				$_SESSION['id'] = $data["id"];
-				echo "<button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>$nom $prenom</button>";
+				echo "<button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>Accueil</button>";
 
 
-				echo "<a href='index.php?page=profil'><button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>$nom $prenom</button></a>";
+				echo "<a href='index.php?page=profil'><button type='button' class='btn btn-light btn-outline-dark border-light m-2' style='text-decoration: none;color: black;'>Profil</button></a>";
 
 
 
@@ -26,11 +26,15 @@
 
 				<?php
 
+				modalCommunaute();
+
 			} else {
 
 				modalInscription();
 
 				modalConnection();
+
+				
 
 			}
 
@@ -78,8 +82,8 @@
 
 
 
-	<footer>
-		<div class="container-fluid bg-dark mt-5" style="height: 300px">
+	<footer class="barre">
+		<div class="container-fluid mt-5" style="height: 300px">
 			<div class="row text-light text-center">
 				<div class="col-lg-4 mt-5">
 					<h5>A propos</h5>
