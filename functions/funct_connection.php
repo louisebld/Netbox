@@ -55,6 +55,7 @@ function modalInscription(){
 							dans un funct_inscription-->
 							<form class="form-group" method="post" action="index.php?page=accueil">
 								<!-- Nom -->
+								<p> Ne mettez pas d'accent(s) dans votre pseudo ! </p>
 								<div class="mb-3">
 									<label for="nom" class="col-form-label">Nom :</label>
 									<input type="text" class="form-control" id="name" name="nom">

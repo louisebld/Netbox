@@ -128,7 +128,7 @@ function affichemonpost($donnepost){
 	echo '<div class="container mt-2 mb-4 p-4">';
 		echo '<div class="card">';
 			echo '<div class="card-body">';
-				echo '<h5 class="card-title">' . $auteur['pseudo'] . "</h5>";
+				// echo '<h5 class="card-title">' . $auteur['pseudo'] . "</h5>";
 				echo '<p class="card-text">' . $donnepost[0]['description'] . '</p>';
 				//Pour liker le post
 				echo '<div class="float-right">';

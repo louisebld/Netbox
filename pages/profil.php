@@ -15,7 +15,7 @@ if (isset($_SESSION['id'])) {
 					<p>Pseudo : <input type="text" name="pseudo" value="<?php echo $profil['pseudo']; ?>"></p>
 					<p>E-mail : <input type="text" name="mail" value="<?php echo $profil['mail']; ?>"></p>
 					<p>Description : <input type="text" name="description" value="<?php echo $profil['description']; ?>"></p>
-					<input type="submit" name="modif" value="Sauvegerder" class="btn btn-light">
+					<input type="submit" name="modif" value="Sauvegarder" class="btn btn-light">
 				</form>
 				<hr>
 				<div>
@@ -32,7 +32,7 @@ if (isset($_SESSION['id'])) {
 				<form  method="post" action="index.php?page=profil&modif=mdp">
 					<p>Ancien Mot de Passe : <input type="password" name="A_mdp"></p>
 					<p>Nouveau Mot de Passe : <input type="password" name="N_mdp"></p>
-					<input type="submit" name="modif" value="Sauvegerder" class="btn btn-light">
+					<input type="submit" name="modif" value="Sauvegarder" class="btn btn-light">
 				</form>
 				<hr>
 				<div>
@@ -115,7 +115,12 @@ if (isset($_SESSION['id'])) {
 
 
 }else{
-	header('location:index.php?page=connexion');
+
+		echo '<script>alert("Vous devez être connecté(e) pour accéder à cette page");
+		window.location.href = "./index.php?page=connexion";</script>'; 
+  		exit();
+
+
 
 }
 

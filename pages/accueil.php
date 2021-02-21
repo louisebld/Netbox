@@ -82,8 +82,8 @@
 
 
 
-	<footer class="barre">
-		<div class="container-fluid mt-5" style="height: 300px">
+<!-- 	<footer class="barre">
+		<div class="container-fluid mt-5" style="height: 200px">
 			<div class="row text-light text-center">
 				<div class="col-lg-4 mt-5">
 					<h5>A propos</h5>
@@ -98,7 +98,7 @@
 					</ul>
 				</div>
 				<div class="col-lg-4 mt-5">
-					<h5>nous contacter</h5>
+					<h5>Nous contacter</h5>
 					<ul  class="list-unstyled">
 						<li>Formulaire de contact</li>
 						<li>Par mail à netbox@netbox.com</li>
@@ -107,7 +107,7 @@
 			</div>
 		</div>
 	</footer>
-
+ -->
 <!-- <div class="modal-footer">
 
 </div>

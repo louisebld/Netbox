@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bruh</title>
+	<title>NetBox</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -28,6 +28,8 @@
 	if (isset($_GET["page"])) {
 		if ($_GET["page"] == "accueil"){
 			include ("pages/accueil.php");
+			include("pages/footer.php");
+			
 		}
 
 		elseif ($_GET["page"] == "communaute"){
@@ -80,6 +82,8 @@
 
 		else{
 			include ("pages/accueil.php");
+			include("pages/footer.php");
+
 
 		}
 

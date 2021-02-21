@@ -53,6 +53,7 @@ if (isset($_POST['poster'])) {
 
 
 
+		$file_name="bruh";
 		$iddupost = insert_post($legende, $file_name, $createur, $idcommunaute);
 		$nomimage = "post". $iddupost . ".".$file_type;
 		move_uploaded_file($file_tmp,"./images/post/post" . $iddupost . ".".$file_type);

@@ -88,6 +88,7 @@ function modalCommunaute(){
 							<form method="post" action="index.php?page=communaute" enctype="multipart/form-data">
 								<!-- Nom de la communauté-->
 								<div class="mb-3">
+									<p> Ne mettez pas d'accent(s) dans le nom de votre communauté ! </p>
 									<label for="nom" class="col-form-label">Nom de la communauté:</label>
 									<input type="text" placeholder="Nom de votre communauté" class="form-control" name="nom"  value="<?php if (isset($_SESSION['donnecreatcommu']['nom'])) echo $_SESSION['donnecreatcommu']['nom']; ?>">
 								</div>
