@@ -43,12 +43,12 @@ function modalInscription(){
 	?>
 		
 		<!-- Button Inscription Modal -->
-		<button type="button" class="btn btn-light btn-outline-dark border-light m-2" data-bs-toggle="modal" data-bs-target="#inscritionButton" data-bs-whatever="@getbootstrap">S'inscrire</button>
+		<button type="button" class="btn btn-light btn-outline-dark border-light m-2" data-bs-toggle="modal" data-bs-target="#inscriptionButton" data-bs-whatever="@getbootstrap">S'inscrire</button>
 
 		<!-- Modal Inscription Pop Up-->
 		<!-- Remplir les liens -->
 
-		<div class="modal fade" id="inscritionButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="inscriptionButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -56,6 +56,12 @@ function modalInscription(){
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
+							<!-- Gere les erreurs -->
+							<?php
+								if(isset($_SESSION['errI'])){																
+									print_error($_SESSION['errI']);
+								}
+							?>
 						<!-- Possibilité de tout mettre dans une fonction
 							dans un funct_inscription-->
 							<form class="form-group" method="post" action="index.php?page=accueil">
@@ -116,7 +122,7 @@ function modalConnection(){
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-
+							<!-- Gere les erreurs -->
 							<?php
 								if(isset($_SESSION['errC'])){																
 									print_error($_SESSION['errC']);
