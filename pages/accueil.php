@@ -14,9 +14,7 @@
 
 		});
 </script>	
-<?php
-	var_dump($_SESSION['errI']);
-?>
+
 
 <div class="container-fluid bg-dark">
 	<div class="navbar-right barre">
