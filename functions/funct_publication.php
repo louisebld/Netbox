@@ -220,7 +220,12 @@ function like($idpost,$idUser){
     if (!dejaLike($idpost,$idUser)){
         $sql="INSERT INTO `likes`(`idlike`, `idpost`, `iduser`) VALUES (NULL,$idpost,$idUser);";
         var_dump($sql);
-	    mysqli_query($db, $sql); //on fait la requete
+	    mysqli_query($db, $sql); //on fait la requête pour l'ajouter à la liste de likes
+
+	    $NouvIntLike = nbLike(getLike(),$idpost);
+	    $sqlmaj="UPDATE `publication` SET `nblike` = $NouvIntLike WHERE `idpost` = $idpost; ";
+        var_dump($sqlmaj);
+	    mysqli_query($db, $sqlmaj); //on fait la requête pour mettre à jour le nombre de likes de la publication
     }  
 }
 
