@@ -192,8 +192,8 @@ function getLike(){
     return $tab;
 }
 function afficheLikeBouton($idpost){
-    //$likeButton= "<button type='button' class='btn btn-dark' name='like' onclick=\"location.href='./index.php?page=commuJeusociete&idpost=$idpost'\">like</button>";
-	$likeButton= '<button type="submit" name="like" value="like" class="btn btn-danger btn-xl bi-heart-half m-1"></button>';
+    $likeButton= "<button type='button' class='btn btn-dark' name='like' onclick=\"location.href='./index.php?page=commuJeusociete&idpost=$idpost'\">like</button>";
+	//$likeButton= '<button type="submit" name="like" value="like" class="btn btn-danger btn-xl bi-heart-half m-1"></button>';
     return $likeButton;
 }
 
