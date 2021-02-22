@@ -31,6 +31,11 @@ function recup_profil_id($id)
 	return $res;
 }
 
+function print_error($error){
+	echo $error;
+}
+
+
 /*_____________________________________________________*/
 
 function modalInscription(){
@@ -55,7 +60,6 @@ function modalInscription(){
 							dans un funct_inscription-->
 							<form class="form-group" method="post" action="index.php?page=accueil">
 								<!-- Nom -->
-								<p> Ne mettez pas d'accent(s) dans votre pseudo ! </p>
 								<div class="mb-3">
 									<label for="nom" class="col-form-label">Nom :</label>
 									<input type="text" class="form-control" id="name" name="nom">
@@ -113,7 +117,11 @@ function modalConnection(){
 						</div>
 						<div class="modal-body">
 
-
+							<?php
+								if(isset($_SESSION['errC'])){																
+									print_error($_SESSION['errC']);
+								}
+							?>
 							<form class="form-group" method="post" action="index.php?page=accueil">
 								<!-- Mail -->
 								<div class="mb-3">
@@ -130,9 +138,6 @@ function modalConnection(){
 									<button type="submit" name="connexion" value="Connexion" class="btn btn-primary">Connexion</button>
 								</div>
 							</form>
-
-
-
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -146,10 +151,4 @@ function modalConnection(){
 	<?php
 }
 
-
-
-
-
-
 ?>
-
