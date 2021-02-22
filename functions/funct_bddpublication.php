@@ -13,8 +13,6 @@ function insert_post($description, $nomimage, $auteur, $commu) {
 
 
 
-
-
 function changenomimage($idpost, $nomimage) {
 	global $db;
 	mysqli_query($db, "UPDATE publication SET image = '$nomimage' WHERE idpost = $idpost");
@@ -26,7 +24,7 @@ function changenomimage($idpost, $nomimage) {
 function recuppost($idcom){
 // récupère les posts d'une communauté
 	global $db;
-	$sql = "SELECT * FROM publication WHERE idcommu = $idcom";
+	$sql = "SELECT * FROM publication WHERE idcommu = $idcom ORDER BY nblike DESC,idpost DESC";
 	$result=  mysqli_query($db, $sql);
 
 	//on met dans un tableau
