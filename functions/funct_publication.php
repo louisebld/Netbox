@@ -59,6 +59,7 @@ function affichepost($tableaupost){
 			echo '<div class="thumbnail">';
 			echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 					echo affiche_imagepost($value['image']);
+					echo nbLike(getLike(),$value['idpost']) . " Likes"; 
 					echo '<div class="caption img-thumbnail">';
 						echo $value["description"];
 					echo "</div>";

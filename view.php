@@ -43,7 +43,7 @@
 
 			$communaute=savoircommu($_GET["page"]);
 			include ("pages/entete.php");
-			include('pages/pagecommunaute.php');
+			include ('pages/pagecommunaute.php');
 			include ("pages/barre.php");
 
 
