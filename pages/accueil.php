@@ -8,9 +8,15 @@
 			if (<?php echo trim($_SESSION['errC'])?'true':'false'; ?>) {
 				$("#connexionButton").modal('show');
 			}
+			if (<?php echo trim($_SESSION['errI'])?'true':'false'; ?>) {
+				$("#inscriptionButton").modal('show');
+			}
 
 		});
 </script>	
+<?php
+	var_dump($_SESSION['errI']);
+?>
 
 <div class="container-fluid bg-dark">
 	<div class="navbar-right barre">
