@@ -38,7 +38,7 @@ if (isset($_POST['poster'])) {
 		var_dump($_POST['communaute']);
 		$idcommunaute = recupecommu($_POST['communaute']);
 		$legende = remplaceApo ($_POST['description']);
-		$createur = 1; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE
+		$createur = $_SESSION['id']; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE
 
 // création du post dans la bdd
 

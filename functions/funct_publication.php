@@ -124,19 +124,18 @@ function affichemonpost($donnepost){
 
 	echo affiche_imagepost($donnepost[0]['image']);
 	//Pour la description de la publi
-	$auteur = recupAuteur($donnepost[0]['idauteur']);
+	$auteur = recupAuteur(intval(($donnepost[0]['idauteur'])));
 	echo '<div class="container mt-2 mb-4 p-4">';
 		echo '<div class="card">';
 			echo '<div class="card-body">';
-				// echo '<h5 class="card-title">' . $auteur['pseudo'] . "</h5>";
+				echo '<h5 class="card-title">' . $auteur['pseudo'] . "</h5>";
 				echo '<p class="card-text">' . $donnepost[0]['description'] . '</p>';
+
 				//Pour liker le post
-				echo '<div class="float-right">';
+				echo '<div class="text-end">';
 					echo '<div class="container">';
-						echo '<div class="col-1 bg-light">';
 							echo nbLike(getLike(),$donnepost[0]['idpost']);
 							echo afficheLikeBouton($donnepost[0]['idpost']);
-						echo "</div>";
 					echo '</div>';
 				echo '</div>';
 			echo'</div>';
