@@ -1,6 +1,16 @@
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
+<!-- JS permettant de gerer les erreurs avec les modaux, si une erreur existe; alors on ouvre le modal quand on refresh la page -->
+<script>
+		$(document).ready(function() {
+			if (<?php echo trim($_SESSION['errC'])?'true':'false'; ?>) {
+				$("#connexionButton").modal('show');
+			}
 
+		});
+</script>	
 
 <div class="container-fluid bg-dark">
 	<div class="navbar-right barre">
@@ -29,9 +39,8 @@
 				modalCommunaute();
 
 			} else {
-
+				
 				modalInscription();
-
 				modalConnection();
 
 				
@@ -82,8 +91,8 @@
 
 
 
-<!-- 	<footer class="barre">
-		<div class="container-fluid mt-5" style="height: 200px">
+	<footer class="barre">
+		<div class="container-fluid mt-5" style="height: 300px">
 			<div class="row text-light text-center">
 				<div class="col-lg-4 mt-5">
 					<h5>A propos</h5>
@@ -98,7 +107,7 @@
 					</ul>
 				</div>
 				<div class="col-lg-4 mt-5">
-					<h5>Nous contacter</h5>
+					<h5>nous contacter</h5>
 					<ul  class="list-unstyled">
 						<li>Formulaire de contact</li>
 						<li>Par mail à netbox@netbox.com</li>
@@ -107,7 +116,7 @@
 			</div>
 		</div>
 	</footer>
- -->
+
 <!-- <div class="modal-footer">
 
 </div>
