@@ -6,9 +6,11 @@
 <script>
 		$(document).ready(function() {
 			if (<?php echo trim($_SESSION['errC'])?'true':'false'; ?>) {
+
 				$("#connexionButton").modal('show');
 			}
 			if (<?php echo trim($_SESSION['errI'])?'true':'false'; ?>) {
+
 				$("#inscriptionButton").modal('show');
 			}
 
