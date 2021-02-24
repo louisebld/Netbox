@@ -37,6 +37,18 @@
 			include ("pages/entete.php");
 			include ("pages/communaute.php");
 			include ("pages/barre.php");
+
+			// if (!isset($_SESSION['id'])) {
+
+
+			// echo '<script>alert("Vous devez être connecté(e) pour accéder à cette page");
+			// window.location.href = "./index.php?page=connexion";</script>'; 
+	  // 		exit();
+
+
+			// }
+
+
 		}
 
 		elseif (commenceparcommu($_GET["page"])){
