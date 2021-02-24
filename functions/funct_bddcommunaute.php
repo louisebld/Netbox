@@ -150,3 +150,19 @@ function recupdonnecommuparid($id){
 
 
 }
+
+
+function recupdonneauteurcommu($idcommu) {
+
+	global $db;
+	$sql = "SELECT * FROM profil INNER JOIN communaute ON profil.id = communaute.idcreateur WHERE  communaute.idcommu=$idcommu";
+	$result=  mysqli_query($db, $sql);
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+
+}

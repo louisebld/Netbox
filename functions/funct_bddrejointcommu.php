@@ -1,0 +1,89 @@
+<?php
+
+
+function joincommu($iduser, $idcommu) {
+	global $db;
+	$query = "INSERT INTO joincommu(iduser, idcommu) VALUES ($iduser, $idcommu)";
+	mysqli_query($db, $query);
+}
+
+function selectcommu($iduser) {
+		//selectionne les communautés de l'utilisateur
+	global $db;
+	$sql = "SELECT * FROM communaute INNER JOIN joincommu ON communaute.idcommu = joincommu.idcommu WHERE  joincommu.iduser=$iduser";
+	$result=  mysqli_query($db, $sql);
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}
+
+
+
+function estdanscommu($iduser, $idcommu) {
+
+global $db;
+
+	$result = mysqli_query($db, "SELECT * FROM joincommu WHERE iduser=$iduser AND idcommu=$idcommu ");
+	// on compte le nombre de lignes
+	$compteur = mysqli_num_rows($result);
+	// si on a trouvé un compte qui correspond : >0 : true
+	if ($compteur>0) {
+		return true;
+	}
+	else {
+	// sinon faux
+		return false;
+
+}
+}
+
+
+function selectusercommu($idcommu) {
+		//selectionne les communautés de l'utilisateur
+	global $db;
+	$sql = "SELECT * FROM profil INNER JOIN joincommu ON profil.id = joincommu.iduser WHERE  joincommu.idcommu=$idcommu";
+	$result=  mysqli_query($db, $sql);
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}
+
+
+
+function chargeplusactifpost($idcommu) {
+
+	global $db;
+	$sql = "SELECT * FROM profil INNER JOIN publication ON profil.id = publication.idauteur WHERE publication.idcommu=$idcommu GROUP BY publication.idauteur LIMIT 3";
+	$result=  mysqli_query($db, $sql);
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+
+}
+
+function chargeplusactifcomment($idcommu) {
+
+	global $db;
+	$sql = "SELECT * FROM profil INNER JOIN com ON profil.pseudo = com.autor WHERE com.idcomu=$idcommu GROUP BY com.autor LIMIT 3";
+	$result=  mysqli_query($db, $sql);
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+
+}
