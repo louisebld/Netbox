@@ -4,7 +4,7 @@ function insert_post($description, $nomimage, $auteur, $commu) {
 	global $db;
 	// mysqli_query($db, "INSERT INTO publication(description, image, idauteur, idcommu) VALUES ('$description', '$nomimage', $auteur, $commu)");
 
-	$query = "INSERT INTO publication(description, image, idauteur, idcommu) VALUES ('$description', '$nomimage', $auteur, $commu)";
+	$query = "INSERT INTO publication(description, image, idauteur, idcommu, nblike) VALUES ('$description', '$nomimage', $auteur, $commu, 0)";
 	$db->query($query);
 	$idpost = $db->insert_id;
 	return $idpost;
