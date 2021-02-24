@@ -3,9 +3,11 @@ $communaute= savoircommu($_GET["page"]);
 $donnecommunaute=recupdonnecommu($communaute);
 $idcommu = $donnecommunaute[0]['idcommu'];
 
-
+$membrecommu = selectusercommu($idcommu);
 
 $donnepost = recuppost($idcommu);
+$createur = recupdonneauteurcommu($idcommu);
+
 
 
 ?>
@@ -26,20 +28,61 @@ $donnepost = recuppost($idcommu);
 			?>
 		</div>
 
-		<div class="container descriptioncommu caption img-thumbnail">
+		<div class="container descriptioncommu caption img-thumbnail mt-4">
 			<?php
 				//Affichage de la description
 				echo '<p class="mx-4">' . $donnecommunaute[0]['description'] .  "</p>";
+
+				echo "<h4> Créateur : ";
+
+			affichemembre($createur);
+
+			echo "</h4>";
+
+			echo "<h4> Membres qui publie le plus : ";
+			affichemembre(chargeplusactifpost($idcommu));
+			echo " </h4>";
+
+			echo "<h4> Membres qui commentent le plus : ";
+			affichemembre(chargeplusactifcomment($idcommu));
+			echo " </h4>";
+
+			
+
 			?>
 		</div>
+
+		<div class="container descriptioncommu caption img-thumbnail mt-4">
+
+		<h4> Voici les membres de la communauté : </h4>
+		<?php
+				affichemembre ($membrecommu);
+		?>
+		</div>
 	</div>
+
+
+<form class="form-group" method="post" action="index.php?page=accueil">
+			
+								<input type="hidden" name="commu" value= "<?php echo $communaute; ?>">
+
+								<div class="mb-3 text-center">
+									<button type="submit" name="telechargerpost" value="telechargerpost" class="btn btn-success">Télécharger</button>
+								</div>
+							</form>
+
+
+
+
+
+
+
 	</div>
 
 	<div class="container">
 		<h2 class="mt-5 mb-5 mx-3 text-center">Decouvrez les posts des utilisateurs fan de cette Communauté:</h2>
 		<?php	
 			affichepost($donnepost);
-		
 			//Supprimer une communauté 
 			echo "<div class='container text-center mt-4'>";
 			echo "<form method='post' action='index.php?page=communaute'>";

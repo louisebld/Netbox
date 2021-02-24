@@ -139,25 +139,32 @@ function affichecommun($tableaucommu){
 		//Affichage
 		echo "<div class='col-lg-4 col-md-12 mb-4 d-flex text-center height-auto width-auto'>";
 
+
 		echo '<div class="thumbnail d-flex">';
+
+		// echo '<div class="bg-light">';
 		echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
 		// echo	"<img class='card-img-top pt-2 img-article-board' src='images/commu.png'>";
+		if (isset($_SESSION['id'])) {
+		 if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
+		 $communaute= $value['idcommu'];
+		formulairerejointcommu($communaute);
+		}
+		 }
+
 		echo affiche_imagecommu($value['image']);
 		echo '<div class="caption img-thumbnail">';
 		echo "<h5>" . $value["nom"] . "</h5>\n";
 		echo $value["description"];
 		echo "</div>";
 		echo "</div>";
-
+		echo "</a>";
 		echo "</div>";
-
+		// echo "</div>";
 	}
 	echo "</div>";
 	echo "</div>";
 }
-
-
-
 
 
 

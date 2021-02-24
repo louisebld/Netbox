@@ -31,6 +31,28 @@
 
 <div class="contener m-5 communaute p-4">
 
+	<h4 class="mb-4">Mes communautés</h4>
+
+
+<?php
+if (isset($_SESSION['id'])) {
+$mescommu = selectcommu($_SESSION['id']);
+affichecommun($mescommu);
+}
+?>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="contener m-5 communaute p-4">
+
 	<h4 class="mb-4">Découvrez les communautés déjà existantes..</h4>
 
 	<!-- <div class='container mt-4'>
