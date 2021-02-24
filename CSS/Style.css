@@ -44,7 +44,7 @@
 /*-------------------- Pour pagecommunaute*/
 
 .descriptioncommu {
-	height:200px;
+	height:80%;
 	background-color: #FAE5D3;
 	font-size:25px;
 }
@@ -110,4 +110,24 @@
 
 .hLinkFooter:hover{
 	color : #A7A7A7;
+}
+
+
+
+
+/*Pour afficher photo profil*/
+
+.imageronde {
+	width:200px;
+   clip-path:ellipse(50% 50%);
+}
+
+
+.roundedImage{
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:90px;
+    height:90px;
 }
