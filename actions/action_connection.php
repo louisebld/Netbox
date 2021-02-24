@@ -27,6 +27,10 @@ if (isset($_POST['mail']) && isset($_POST['pseudo']) && isset($_POST['mdp']) && 
 		$err = $err . "<p>Le prenom rentré est invalid</p>\n";
 	}
 
+	if (isset($_SESSION['errC']) && trim($_SESSION['errC'])){
+		$_SESSION['errC'] = '';
+	}
+
 	if ($err == "") {
 		$mdp = password_hash($mdp, PASSWORD_DEFAULT);
 		$res = inscription($mail,$pseudo,$mdp,$nom,$prenom);
@@ -40,7 +44,11 @@ if (isset($_POST['mail']) && isset($_POST['mdp']) && isset($_POST['connexion']) 
 	
 	$mdp = $_POST['mdp'];
 	$email = $_POST['mail'];
-
+	
+	if (isset($_SESSION['errI']) && trim($_SESSION['errI'])){
+		$_SESSION['errI'] = '';
+	}
+	
 	$err = "";
 	if(est_utilise_mail($email)){
 		$profil = recup_profil_email($email);
