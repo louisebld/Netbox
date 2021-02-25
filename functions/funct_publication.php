@@ -127,9 +127,9 @@ function affichemonpost($donnepost){
 	//Pour la description de la publi
 	$auteur = recupAuteur(intval(($donnepost[0]['idauteur'])));
 	echo '<div class="container mt-2 mb-4 p-4">';
-		echo '<div class="card">';
-			echo '<div class="card-body">';
-				echo '<h5 class="card-title">' . $auteur['pseudo'] . "</h5>";
+				//$createur = recupdonneauteurcommu($idcommu);
+				$createur = recupdonneauteurpost($donnepost[0]["idpost"]);
+				echo '<h5 class="card-title">' . affichemembre ($createur) . "</h5>";
 				echo '<p class="card-text">' . $donnepost[0]['description'] . '</p>';
 
 				//Pour liker le post
@@ -137,8 +137,6 @@ function affichemonpost($donnepost){
 					echo '<div class="container">';
 							echo nbLike(getLike(),$donnepost[0]['idpost']);
 							echo afficheLikeBouton($donnepost[0]['idpost']);
-					echo '</div>';
-				echo '</div>';
 			echo'</div>';
 		echo'</div>';
 		

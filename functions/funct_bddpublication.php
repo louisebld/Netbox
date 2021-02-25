@@ -52,3 +52,32 @@ function supprime_post($idpost) {
 		// on supprime
 		mysqli_query($db, "DELETE FROM publication WHERE idpost = $idpost");
 	}
+
+
+function recupdonneauteurpost($idpost) {
+
+	global $db;
+	$sql = "SELECT * FROM profil INNER JOIN publication ON profil.id = publication.idauteur WHERE  publication.idpost=$idpost";
+	$result=  mysqli_query($db, $sql);
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+
+}
+
+function recupdonneecompte($idcompte){
+	global $db;
+	$sql = "SELECT * FROM profil INNER JOIN com ON profil.pseudo = com.autor";
+	$result=  mysqli_query($db, $sql);
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}

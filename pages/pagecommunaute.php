@@ -11,7 +11,7 @@ $createur = recupdonneauteurcommu($idcommu);
 
 
 ?>
-<div class="contener m-5 communaute p-4">
+<div class="contener l-5 m-5 communaute p-4">
 	<div class="container mt-4">
 
 		<?php
@@ -34,7 +34,6 @@ $createur = recupdonneauteurcommu($idcommu);
 				echo '<p class="mx-4">' . $donnecommunaute[0]['description'] .  "</p>";
 
 				echo "<h4> Créateur : ";
-
 			affichemembre($createur);
 
 			echo "</h4>";
@@ -60,6 +59,7 @@ $createur = recupdonneauteurcommu($idcommu);
 		?>
 		</div>
 	</div>
+
 
 
 <form class="form-group" method="post" action="index.php?page=accueil">

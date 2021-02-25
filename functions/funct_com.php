@@ -11,7 +11,7 @@ function form_com($idcomu, $idpost){
 			rows="10" cols="35"></textarea> -->
             <div class="form-group">
                 <textarea class="form-control"  id="com" id="com" placeholder="Ajouter un Commentaire" name="com"
-			rows="3" cols="35"></textarea>
+			rows="2" cols="25"></textarea>
             </div>
 		</p>
 
@@ -32,13 +32,14 @@ function form_com($idcomu, $idpost){
 
 function print_com ($com) {
     //Fonction qui affiche les commentaires 
-        echo '<div class="container">';	
+        echo '<div class="container col-10">';	
         
         foreach ($com as $key => $value) {
             echo '<div class="card ">';
                 echo '<div class="card-body">';
                     echo '<div class="row">';
                         echo '<div class="col-md-2">';
+
                             echo '<img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>';
                             echo '<p class="text-secondary text-center">' . $value["date"] . "</p>";
                         echo '</div>';
