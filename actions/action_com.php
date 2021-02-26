@@ -4,7 +4,7 @@
     if (isset($_POST['envoyer_com'])){
 
 
-            $autor = $_SESSION['pseudo'];
+            $autor = $_SESSION['id'];
 
             $idcomu = $_POST['idcomu'];
             $idpost = $_POST['idpost'];

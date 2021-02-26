@@ -1,9 +1,9 @@
 <?php
 
 
-function insert_com($autor, $com, $idcomu, $idpost, $date) {
+function insert_com($idauteur, $com, $idcomu, $idpost, $date) {
 	global $db;
-	mysqli_query($db, "INSERT INTO com(idcomu, idpost, com, autor, date) VALUES ($idcomu, $idpost, '$com', '$autor', NOW())");
+	mysqli_query($db, "INSERT INTO com(idcomu, idpost, com, idauteur, date) VALUES ($idcomu, $idpost, '$com', $idauteur, NOW())");
 	
 }
 
@@ -19,7 +19,7 @@ function charge_com($idcomu, $idpost){
     // Fonction qui permet de charger les commentaires d'un post 
 
 	global $db;
-	$sql = "SELECT id, idcomu, idpost, com, autor, date FROM com WHERE idcomu = $idcomu AND idpost = $idpost";
+	$sql = "SELECT id, idcomu, idpost, com, idauteur, date FROM com WHERE idcomu = $idcomu AND idpost = $idpost";
 	$result=  mysqli_query($db, $sql);
 
 	$tableau = [];
