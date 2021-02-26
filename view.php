@@ -83,6 +83,14 @@
 
 		}
 
+		elseif ($_GET["page"] == "likes"){
+			
+			include ("pages/entete.php");
+			include ("pages/meslikes.php");
+			include ("pages/barre.php");
+		}
+
+
 		else if ($_GET["page"] == "connexion"){
 
 			include ("pages/connexion.php");
