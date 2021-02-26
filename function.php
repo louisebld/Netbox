@@ -8,8 +8,7 @@ include 'functions/funct_profil.php';
 include 'functions/funct_publication.php';
 include 'functions/funct_profilpersonne.php';
 
-
-
+include 'functions/funct_bddlike.php';
 include 'functions/funct_bddcommunaute.php';
 include 'functions/funct_bddinscription.php';
 include 'functions/funct_bddpublication.php';
