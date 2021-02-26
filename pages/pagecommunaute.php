@@ -21,7 +21,7 @@ $_SESSION['donnepost'] = $donnepost;
 				<a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Stats</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Abonné</a>
+				<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Abonnés</a>
 			</li>
 		</ul>
 		<div class="container col-lg-8">
@@ -49,14 +49,14 @@ $_SESSION['donnepost'] = $donnepost;
 						echo '<p class="mx-4">' . $donnecommunaute[0]['description'] .  "</p>";
 						echo "<h4> Créateur : ";
 							affichemembre($createur, "id");
-							var_dump($createur);
+							// var_dump($createur);
 						echo "</h4>";
 					echo "<h4> Membres qui publie le plus : ";
 						affichemembre(chargeplusactifpost($idcommu), "idauteur");
 					echo " </h4>";
-					// echo "<h4> Membres qui commentent le plus : ";
-					// affichemembre(chargeplusactifcomment($idcommu), "autor");
-					// echo " </h4>";
+					echo "<h4> Membres qui commentent le plus : ";
+					affichemembre(chargeplusactifcomment($idcommu), "idauteur");
+					echo " </h4>";
 					?>
 				</div>
 			</div>
