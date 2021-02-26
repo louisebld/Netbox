@@ -29,3 +29,18 @@ function charge_com($idcomu, $idpost){
 
 	return $tableau;
 }
+
+function recupdonneauteurcom($idcom) {
+
+	global $db;
+	$sql = "SELECT * FROM profil INNER JOIN com ON profil.id = com.idauteur WHERE  com.id=$idcom";
+	$result=  mysqli_query($db, $sql);
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+
+}

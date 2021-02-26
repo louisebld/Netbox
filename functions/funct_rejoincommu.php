@@ -65,3 +65,17 @@ function affichemembre ($membrecommu, $namedatabase) {
 			// echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
 }
 }
+
+function affichephotomembre($membre){
+	foreach ($membre as $key => $value) {
+		?>
+		<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+		<?php
+	}
+}
+
+function affichepseudomembre($membre, $namedatabase){
+	foreach ($membre as $key => $value) {
+		echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+	}
+}

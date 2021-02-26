@@ -32,21 +32,25 @@ function form_com($idcomu, $idpost){
 
 function print_com ($com) {
     //Fonction qui affiche les commentaires 
+        
         echo '<div class="container col-10">';	
         
         foreach ($com as $key => $value) {
+            $createur = recupdonneauteurcom($value['id']);
+            
             echo '<div class="card ">';
                 echo '<div class="card-body">';
                     echo '<div class="row">';
                         echo '<div class="col-md-2">';
 
-                            echo '<img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>';
+                            
+                            affichephotomembre($createur);
                             echo '<p class="text-secondary text-center">' . $value["date"] . "</p>";
                         echo '</div>';
                         echo '<div class="col-md-10">';
                             echo '<p>';
-                                // Affichage du nom de la personne 
-                                echo '<a class ="float-left" href="#"><strong>' . $value["autor"] . '</strong></a>';                                                              
+                                // Affichage du nom de la personne  
+                                echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "id") . '</strong></a>';                                                              
                                 echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
                                 echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
                                 echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
@@ -67,3 +71,5 @@ function print_com ($com) {
             echo '</div>';
         }
 }
+
+
