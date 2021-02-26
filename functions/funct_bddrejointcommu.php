@@ -76,7 +76,7 @@ function chargeplusactifpost($idcommu) {
 function chargeplusactifcomment($idcommu) {
 
 	global $db;
-	$sql = "SELECT * FROM profil INNER JOIN com ON profil.pseudo = com.autor WHERE com.idcomu=$idcommu GROUP BY com.autor LIMIT 3";
+	$sql = "SELECT * FROM profil INNER JOIN com ON profil.id = com.idauteur WHERE com.idcomu=$idcommu GROUP BY com.idauteur LIMIT 3";
 	$result=  mysqli_query($db, $sql);
 	//on met dans un tableau
 	$tableau = [];
