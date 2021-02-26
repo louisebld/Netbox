@@ -7,7 +7,7 @@ $membrecommu = selectusercommu($idcommu);
 
 $donnepost = recuppost($idcommu);
 $createur = recupdonneauteurcommu($idcommu);
-
+$_SESSION['donnepost'] = $donnepost;
 
 
 ?>
@@ -34,17 +34,17 @@ $createur = recupdonneauteurcommu($idcommu);
 				echo '<p class="mx-4">' . $donnecommunaute[0]['description'] .  "</p>";
 
 				echo "<h4> Créateur : ";
-			affichemembre($createur);
+			affichemembre($createur, "id");
 
 			echo "</h4>";
 
 			echo "<h4> Membres qui publie le plus : ";
-			affichemembre(chargeplusactifpost($idcommu));
+			affichemembre(chargeplusactifpost($idcommu), "idauteur");
 			echo " </h4>";
 
-			echo "<h4> Membres qui commentent le plus : ";
-			affichemembre(chargeplusactifcomment($idcommu));
-			echo " </h4>";
+			// echo "<h4> Membres qui commentent le plus : ";
+			// affichemembre(chargeplusactifcomment($idcommu), "autor");
+			// echo " </h4>";
 
 			
 
@@ -55,7 +55,7 @@ $createur = recupdonneauteurcommu($idcommu);
 
 		<h4> Voici les membres de la communauté : </h4>
 		<?php
-				affichemembre ($membrecommu);
+				affichemembre ($membrecommu, "iduser");
 		?>
 		</div>
 	</div>
@@ -66,8 +66,8 @@ $createur = recupdonneauteurcommu($idcommu);
 			
 								<input type="hidden" name="commu" value= "<?php echo $communaute; ?>">
 
-								<div class="mb-3 text-center">
-									<button type="submit" name="telechargerpost" value="telechargerpost" class="btn btn-success">Télécharger</button>
+								<div class="m-3 text-center">
+									<button type="submit" name="telechargerpost" value="telechargerpost" class="btn btn-success bi-download"> Télécharger</button>
 								</div>
 							</form>
 

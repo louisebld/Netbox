@@ -59,7 +59,7 @@ function affichepost($tableaupost){
 			echo '<div class="thumbnail">';
 			echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 					echo affiche_imagepost($value['image']);
-					echo nbLike(getLike(),$value['idpost']) . " Likes"; 
+					echo "<div class='text-start'>" . nbLike(getLike(),$value['idpost']) . " ♥" . "</div>"; 
 					echo '<div class="caption img-thumbnail">';
 						echo $value["description"];
 					echo "</div>";
@@ -129,7 +129,7 @@ function affichemonpost($donnepost){
 	echo '<div class="container mt-2 mb-4 p-4">';
 				//$createur = recupdonneauteurcommu($idcommu);
 				$createur = recupdonneauteurpost($donnepost[0]["idpost"]);
-				echo '<h5 class="card-title">' . affichemembre ($createur) . "</h5>";
+				echo '<h5 class="card-title">' . affichemembre ($createur, "id") . "</h5>";
 				echo '<p class="card-text">' . $donnepost[0]['description'] . '</p>';
 
 				//Pour liker le post
