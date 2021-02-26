@@ -50,7 +50,7 @@ function print_com ($com) {
                         echo '<div class="col-md-10">';
                             echo '<p>';
                                 // Affichage du nom de la personne  
-                                echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "id") . '</strong></a>';                                                              
+                                echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';                                                              
                                 echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
                                 echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
                                 echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
