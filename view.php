@@ -74,6 +74,15 @@
 
 		}
 
+		elseif(commenceparpersonne($_GET["page"])) {
+			$idpersonne = savoirpersonne($_GET["page"]);
+			include ("pages/entete.php");
+			include ("pages/profilpersonne.php");
+			include ("pages/barre.php");
+			
+
+		}
+
 		else if ($_GET["page"] == "connexion"){
 
 			include ("pages/connexion.php");
