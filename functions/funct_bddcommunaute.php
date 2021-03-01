@@ -6,6 +6,13 @@ function insert_commu($nom, $description, $createur, $nomimage) {
 
 }
 
+// modératuib
+
+function insert_modo($iduser, $idcommu) {
+	global $db;
+		mysqli_query($db, "INSERT INTO moderateur(iduser, idcommu) VALUES ($iduser, $idcommu)");
+}
+
 function nomcommuutilise($nomcommu) {
 
 	global $db;
@@ -166,3 +173,4 @@ function recupdonneauteurcommu($idcommu) {
 	return $tableau;
 
 }
+
