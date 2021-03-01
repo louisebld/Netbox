@@ -38,18 +38,14 @@
 
       <?php
       if (isset($_SESSION['id'])) {
-
-      ?>
-      if (isset($_SESSION['id'])) {
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?page=profil">Profil</a>
+        echo "
+      <li class='nav-item'>
+        <a class='nav-link' href='index.php?page=profil'>Profil</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?page=publication">Publier</a>
-      </li>
-
-      <?php
+      <li class='nav-item'>
+        <a class='nav-link' href='index.php?page=publication'>Publier</a>
+      </li>";
       }
       ?>
       
