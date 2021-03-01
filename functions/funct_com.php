@@ -13,6 +13,7 @@ function form_com($idcomu, $idpost){
                 <textarea class="form-control"  id="com" id="com" placeholder="Ajouter un Commentaire" name="com"
 			rows="2" cols="25"></textarea>
             </div>
+
 		</p>
 
 		<p>
@@ -33,7 +34,7 @@ function form_com($idcomu, $idpost){
 function print_com ($com) {
     //Fonction qui affiche les commentaires 
         
-        echo '<div class="container col-10">';	
+        echo '<div class="container col-10 mt-5">';	
         
         foreach ($com as $key => $value) {
             $createur = recupdonneauteurcom($value['id']);
@@ -62,8 +63,14 @@ function print_com ($com) {
                             echo '<div class="commentary"><p>Commentaire: ' . $value["com"] . "</p></div>";
                             echo '<p>';
                                 //Pour plus tard
+                                $idcomu =   $value['idcomu'];
+                                $idpost = $value['idpost'];
+                                $idcom = $value['id'];
+                                form_rep($idcomu, $idpost, $idcom);
                                 //echo '<a class="float-right btn btn-outline-dark ml-2"> <i class="fa fa-reply"></i> Répondre</a>';
                                 //echo '<a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Aimer</a>';
+                                $rep = charge_rep($idcomu, $idpost, $idcom);
+                                print_rep ($rep);
                             echo '</p>';
                         echo '</div>';
                     echo '</div>';
