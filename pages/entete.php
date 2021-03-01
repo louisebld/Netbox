@@ -27,12 +27,20 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item hText" href="index.php?page=communaute">Voir les Communautés</a></li>
-            <li><a class="dropdown-item hText" href="" data-bs-toggle="modal" data-bs-target="#commuBouton" data-bs-whatever="@getbootstrap"> Créer une Communauté</a></li>
+            <?php
+            if (isset($_SESSION['id'])) {
+              echo "<li><a class='dropdown-item hText' href='' data-bs-toggle='modal' data-bs-target='#commuBouton' data-bs-whatever='@getbootstrap'> Créer une Communauté</a></li>";
+            }
+            ?>
+            
           </ul>
         </li>
 
+      <?php
+      if (isset($_SESSION['id'])) {
 
-
+      ?>
+      if (isset($_SESSION['id'])) {
       <li class="nav-item">
         <a class="nav-link" href="index.php?page=profil">Profil</a>
       </li>
@@ -40,6 +48,11 @@
       <li class="nav-item">
         <a class="nav-link" href="index.php?page=publication">Publier</a>
       </li>
+
+      <?php
+      }
+      ?>
+      
     </ul>
     </div>
 
