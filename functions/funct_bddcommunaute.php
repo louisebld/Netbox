@@ -98,15 +98,15 @@ function recupdonnecommu($commu){
 
 function listederoulcommu() {
 // Afficher une liste déroulante des communautés
-	global $tableaucommu;
+	global $tableaumescommu;
 // on prend la variable dans lequel sont stockées les données des métiers
 ?>
 	<select name="communaute" class="form-control" size="1">
 <?php
 // pour chacun des métiers on le met dans une "case"
 
-for ($i = 0; $i < count($tableaucommu); $i++){
-	$commucourante = $tableaucommu[$i];
+for ($i = 0; $i < count($tableaumescommu); $i++){
+	$commucourante = $tableaumescommu[$i];
 
 	echo "<option>" . $commucourante['nom'];
 }

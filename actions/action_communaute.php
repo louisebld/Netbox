@@ -1,6 +1,9 @@
 <?php
-
 $tableaucommu = charge_commu();
+if (isset($_SESSION['id'])) {
+	$tableaumescommu = selectcommu($_SESSION['id']);
+}
+
 // var_dump($_POST['creercommu']);
 
 // var_dump($_POST['nom']);

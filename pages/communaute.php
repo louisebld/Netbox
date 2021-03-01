@@ -29,18 +29,23 @@
 
 </div> -->
 
+
 <div class="contener m-5 communaute p-4">
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 		<li class="nav-item">
 			<a class="nav-link active" id="lescommu-tab" data-toggle="tab" href="#commu" role="tab" aria-controls="commu" aria-selected="true"><h7 class="" id="lesCommu">Découvrez les communautés déjà existantes..</h7></a>
 		</li>
 		<?php
-		$mescommu = selectcommu($_SESSION['id']);
-		if (!empty($mescommu)){
-			echo '<li class="nav-item">';
-				echo '<a class="nav-link" id="mescommu-tab" data-toggle="tab" href="#mescommu" role="tab" aria-controls="mescommu" aria-selected="false"><h7 class="" id="lesCommu">Mes Communautés</h7></a>';
-			echo '</li>';
+		
+		if (isset($_SESSION['id'])) {
+			$mescommu = selectcommu($_SESSION['id']);
+			if (!empty($mescommu)){
+				echo '<li class="nav-item">';
+					echo '<a class="nav-link" id="mescommu-tab" data-toggle="tab" href="#mescommu" role="tab" aria-controls="mescommu" aria-selected="false"><h7 class="" id="lesCommu">Mes Communautés</h7></a>';
+				echo '</li>';
+			}
 		}
+			
 		?>
 	</ul>
 		<div class="tab-content" id="myTabContent">
