@@ -4,12 +4,10 @@
 function insert_com($idauteur, $com, $idcomu, $idpost, $date) {
 	global $db;
 	mysqli_query($db, "INSERT INTO com(idcomu, idpost, com, idauteur, date) VALUES ($idcomu, $idpost, '$com', $idauteur, NOW())");
-	
 }
 
 function supprime_com($idcom) {
 	// fonction pour supprimer un avis d'un commentaire
-
 	global $db;
 	// on supprime
 	mysqli_query($db, "DELETE FROM com WHERE id = $idcom");

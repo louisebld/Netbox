@@ -90,12 +90,15 @@ if (isset($_POST['delpost'])) {
 
 	}
 
-if (isset($_GET) && isset($_GET["idpost"]) && isset($_SESSION['id'])) {
-	$createur = $_SESSION['id']; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE 
-	like($_GET["idpost"],$createur);
-	header("Location: ./index.php?page=post" . $_GET['idpost']);
+if (isset($_POST) && isset($_POST["like"]) && isset($_SESSION['id'])) {
+	$createur = $_SESSION['id']; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE && isset($_POST['like'])
+	like($_POST["idpost"],$createur);
+	header("Location: ./index.php?page=post" . $_POST['idpost']);
 }
-
-
+if (isset($_POST) && isset($_POST["unlike"]) && isset($_SESSION['id'])) {
+	$createur = $_SESSION['id']; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE && isset($_POST['like'])
+	unlike($_POST["idpost"],$createur);
+	header("Location: ./index.php?page=post" . $_POST['idpost']);
+}
 
 ?>
