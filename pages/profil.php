@@ -22,7 +22,6 @@ if (isset($_SESSION['id'])) {
 					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Retour</button></a>
 					<a href="index.php?page=profil&modif=img"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Image de Profil</button></a>
 					<a href="index.php?page=profil&modif=mdp"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Mot de Passe</button></a>
-					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Mot de Passe Oublié !</button></a>
 				</div>
 			</div>
 			<?php
@@ -39,7 +38,6 @@ if (isset($_SESSION['id'])) {
 					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Retour</button></a>
 					<a href="index.php?page=profil&modif=all"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Information</button></a>
 					<a href="index.php?page=profil&modif=img"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Image de Profil</button></a>
-					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Mot de Passe Oublié !</button></a>
 				</div>
 				<div class="err">
 					<?php 
@@ -65,7 +63,6 @@ if (isset($_SESSION['id'])) {
 					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Retour</button></a>
 					<a href="index.php?page=profil&modif=all"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Information</button></a>
 					<a href="index.php?page=profil&modif=mdp"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Mot de Passe</button></a>
-					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Mot de Passe Oublié !</button></a>
 				</div>
 				<div class="err">
 					<?php 
