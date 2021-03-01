@@ -137,6 +137,8 @@ function affichemonpost($donnepost){
 					echo '<div class="container">';
 							echo nbLike(getLike(),$donnepost[0]['idpost']);
 							echo afficheLikeBouton($donnepost[0]['idpost']);
+							echo nbUnlike(getUnlike(),$donnepost[0]['idpost']);
+							echo afficheUnlikeBouton($donnepost[0]['idpost']);
 			echo'</div>';
 		echo'</div>';
 		
