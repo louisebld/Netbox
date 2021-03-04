@@ -1,6 +1,8 @@
 <?php 
 include 'functions/funct_rep.php';
 
+include 'functions/funct_tag.php';
+
 include 'functions/funct_com.php';
 include 'functions/funct_rejoincommu.php';
 include 'functions/funct_communaute.php';
