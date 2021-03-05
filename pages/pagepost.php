@@ -14,18 +14,18 @@ echo '<div class="contener  m-5 communaute p-4">';
 	<div class="container col-lg-6">
 		<div class="card bg-light">
 			<div class="card-header"></div>
-			<div class="card-body">
-				<?php echo affichemonpost($donnepost); ?>
-			</div>
-			<?php
+				<div class="card-body">
+					<?php echo affichemonpost($donnepost); ?>
+				</div>
+				<?php
 
-			echo '<li class="list-group-item"><div class="contenercommentaire ">';
+				echo '<li class="list-group-item"><div class="contenercommentaire ">';
 				echo '<h2 class="mt-2">Ajouter un commentaire :</h2>';
 				form_com($idcommunaute, $idpost);
 			echo "</div>";				
 			$com = charge_com($idcommunaute, $idpost);
 			if (!empty($com)) {
-				echo '<div class="sectionCommentaire mb-5">';
+				echo '<div class="sectionCommentaire col-sm-12">';
 					echo "<h2>Commentaires: </h2></br>";	
 					print_com($com);
 				echo "</div></li>";
