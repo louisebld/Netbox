@@ -19,7 +19,7 @@ function afficheLikeBouton($idpost){
 	//affiche le bouton like
 	$likeButton= '<form action="index.php?page=post'.$idpost.'" method="post">
 						<input type="hidden" value="'.$idpost.'" id="idpost" name="idpost">
-						<input type="submit" value="like" id="like" name="like" class="btn btn-danger btn-xl bi-heart-half m-1">
+						<button type="submit" value="like" id="like" name="like" class="btn btn-danger btn-xl bi-hand-thumbs-up m-1"></button>
    					</form>';
     return $likeButton;
 }
@@ -133,7 +133,7 @@ function afficheUnlikeBouton($idpost){
 	//affiche le bouton unlike
     $unlikeButton= '<form action="index.php?page=post'.$idpost.'" method="post">
 						<input type="hidden" value="'.$idpost.'" id="idpost" name="idpost">
-						<input type="submit" value="unlike" id="unlike" name="unlike" class="btn btn-dark">
+						<button type="submit" value="unlike" id="unlike" name="unlike" class="btn btn-dark bi-hand-thumbs-down"></button>
    					</form>';
 	//$unlikeButton= '<button type="submit" name="like" value="like" class="btn btn-danger btn-xl bi-heart-half m-1"></button>';
     return $unlikeButton;
