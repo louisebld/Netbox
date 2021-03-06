@@ -45,7 +45,8 @@
 
 .descriptioncommu {
 	height:80%;
-	background-color: #FAE5D3;
+	/*background-color: #FAE5D3;*/
+	background-color: white;
 	font-size:25px;
 }
 
@@ -130,4 +131,21 @@
     border-radius:50px;
     width:90px;
     height:90px;
+}
+
+
+/*Affichage membre admin*/
+
+.global
+{
+    width:100%;
+}
+
+
+.global .gauche {
+    float:left;
+    width:60%;
+}
+.global .droite {
+    margin-left:60%   
 }
