@@ -32,6 +32,7 @@ echo '<div class="contener  m-5 communaute p-4">';
 			}
 
 
+			if (estmodo($_SESSION['id'], $idcommunaute)) {
 
 			// Pour supprimer un post
 			echo "<div class='container text-center mt-4'>";
@@ -44,7 +45,7 @@ echo '<div class="contener  m-5 communaute p-4">';
 				echo  "<input id='nomphoto' name='nomphoto' type='hidden' value= ". $donnepost[0]['image'] . ">";
 				echo "<input type='submit' name='delpost' class='btn btn-danger' value='Supprimer la publication'/>" . "</p>";
 			echo  "</div>";
-
+			}
 			?>
 
 		</div>
