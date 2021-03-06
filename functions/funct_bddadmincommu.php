@@ -26,7 +26,8 @@ function recupmodocommu($idcommu) {
 // variable globale base de donnée
 	global $db;
 
-	$modo = mysqli_query($db, "SELECT * FROM moderateur WHERE  idcommu = $idcommu");
+	$modo = mysqli_query($db, "SELECT * FROM profil INNER JOIN moderateur ON profil.id = moderateur.iduser WHERE  moderateur.idcommu=$idcommu");
+
 	// on compte le nombre de lignes
 	//on met dans un tableau
 	$tableau = [];
@@ -36,8 +37,20 @@ function recupmodocommu($idcommu) {
 
 	return $tableau;
 
+}
+
+function ajoutemodo($iduser, $idcommu) {
+	global $db;
+	mysqli_query($db, "INSERT INTO moderateur(iduser, idcommu) VALUES ($iduser, $idcommu)");
 
 }
+
+function enlevemodo($iduser, $idcommu) {
+	global $db;
+	mysqli_query($db, "DELETE FROM moderateur WHERE iduser=$iduser AND idcommu=$idcommu");
+
+}
+
 
 
 
