@@ -25,7 +25,7 @@
 
 		?>
 		<div>
-			<h1>Comunauté !</h1><ol>
+			<h1>Communautés !</h1><ol>
 		<?php //comunauté
 		for ($i=0; $i < count($data[0]); $i++) { 
 			echo "<li><div style='border:1px solid black;margin-left: 15%;width: 70%;'>";
@@ -42,7 +42,7 @@
 
 		?>
 		<div>
-			<h1>Publication !</h1><ol>
+			<h1>Publications !</h1><ol>
 		<?php //publication
 		for ($i=0; $i < count($data[1]); $i++) { 
 			echo "<li><div style='border:1px solid black;margin-left: 15%;width: 70%;'>";
@@ -59,7 +59,7 @@
 
 		?>
 		<div>
-			<h1>Commentaire !</h1><ol>
+			<h1>Commentaires !</h1><ol>
 		<?php //commentaire
 		for ($i=0; $i < count($data[2]); $i++) { 
 			echo "<li><div style='border:1px solid black;margin-left: 15%;width: 70%;'>";
@@ -76,7 +76,7 @@
 
 		?>
 		<div>
-			<h1>Reponse !</h1><ol>
+			<h1>Réponses !</h1><ol>
 		<?php //reponse
 		for ($i=0; $i < count($data[3]); $i++) { 
 			echo "<li><div style='border:1px solid black;margin-left: 15%;width: 70%;'>";
