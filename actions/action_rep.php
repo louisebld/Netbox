@@ -3,13 +3,17 @@
 // ----------------------------- Ajoute de commentaire --------------------- 
 if (isset($_POST['envoyer_rep'])){
 
-    var_dump($_POST);
-    var_dump($_SESSION);
+    // var_dump($_POST);
+    // var_dump($_SESSION);
     $autor = $_SESSION['id'];
 
     $idcomu = intval($_POST['idcomu']);
     $idpost = intval($_POST['idpost']);
     $idcom = intval($_POST['idcom']);
+
+// Vérifier si réponse pas vide 
+
+
     $rep = remplaceApo($_POST["rep"]);
 
     //recuperation de l'id du projet, pour savoir a quel projet correspond le commentaire
