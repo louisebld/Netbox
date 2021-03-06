@@ -38,13 +38,11 @@ function print_com ($com) {
         
         foreach ($com as $key => $value) {
             $createur = recupdonneauteurcom($value['id']);
-            
-            echo '<div class="card ">';
+            echo '<div class= "col-lg-12">';
+            echo '<div class="card col-sm-12">';
                 echo '<div class="card-body">';
                     echo '<div class="row">';
                         echo '<div class="col-md-2">';
-
-                            
                             affichephotomembre($createur);
                             echo '<p class="text-secondary text-center">' . $value["date"] . "</p>";
                         echo '</div>';
@@ -52,12 +50,8 @@ function print_com ($com) {
                             echo '<p>';
                                 // Affichage du nom de la personne  
                                 echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';                                                              
-                                echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
-                                echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
-                                echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
-                                echo '<span class="float-right"><i class="text-warning fa fa-star"></i></span>';
-
                             echo '</p>';
+                        echo '</div>';
                         echo '<div class="clearfix"></div>';
                             //Affichage du commentaire
                             echo '<div class="commentary"><p>Commentaire: ' . $value["com"] . "</p></div>";
@@ -72,11 +66,13 @@ function print_com ($com) {
                                 $rep = charge_rep($idcomu, $idpost, $idcom);
                                 print_rep ($rep);
                             echo '</p>';
+                            echo '</div>';
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';
             echo '</div>';
         }
+        echo '</div>';
 }
 
 

@@ -36,4 +36,5 @@ function recup_profil_email($email)
 
 	return $res;
 }
+
  ?>

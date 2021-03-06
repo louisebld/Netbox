@@ -53,6 +53,21 @@
 			// }
 
 
+		}elseif($_GET["page"] == "tag"){
+			include ("pages/entete.php");
+			include ("pages/tag.php");
+			include ("pages/barre.php");
+
+		}elseif($_GET["page"] == "tag-ls"){
+			include ("pages/entete.php");
+			include ("pages/tag-ls.php");
+			include ("pages/barre.php");
+
+		}elseif($_GET["page"] == "tag-res"){
+			include ("pages/entete.php");
+			include ("pages/tag-res.php");
+			include ("pages/barre.php");
+
 		}
 
 		elseif (commenceparcommu($_GET["page"])){

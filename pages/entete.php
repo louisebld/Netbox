@@ -48,6 +48,10 @@
       </li>";
       }
       ?>
+
+      <li class='nav-item'>
+        <a class='nav-link' href='index.php?page=tag'>Tag</a>
+      </li>
       
     </ul>
     </div>

@@ -3,20 +3,16 @@
 function form_rep($idcomu, $idpost, $idcom){
     //Fonction qui permet d'imprimer le formulaire pour les commentaires d'un post 
 	?>
-    <p>
-        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#reponseCollapse" aria-expanded="false" aria-controls="reponseCollapse">
-            Commenter...
-        </button>
-    </p>
 
 
-    <div class="collapse" id="reponseCollapse">
-        <div class="card card-body">
+
+
+
             <form method="post" class="formReponses" action="index.php?page=communaute"> <!-- Chercher a prendre l'info sur quelle comu on est -->
 
                 <p>
                     <div class="form-group">
-                        <textarea class="form-control"  id="rep" placeholder="Ajouter un Commentaire" name="rep"
+                        <textarea class="form-control"  id="rep" placeholder="Ajouter un Réponse" name="rep"
                     rows="2" cols="25"></textarea>
                     </div>
                 </p>
@@ -34,10 +30,10 @@ function form_rep($idcomu, $idpost, $idcom){
                         //Champs invisible qui contient le com sous lequel on commente
                     ?>
                 </p>
-                <p><input type="submit" class="btn btn-dark" name="envoyer_rep" id="envoyer_rep" value="Enregistrer"/></p>
+                <p><input type="submit" class="btn btn-dark" name="envoyer_rep" id="envoyer_rep" value="Répondre"/></p>
             </form>
-        </div>
-    </div>
+
+
 	<?php	 
 }
 
