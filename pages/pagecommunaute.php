@@ -52,16 +52,13 @@ $moderationcommu = recupmodocommu($idcommu);
 				<div class="container descriptioncommu caption img-thumbnail mt-4">
 					<?php
 						//Affichage de la description
-					echo "<h4> Créateur : ";
+					echo "<h4 class='m-2'> Créateur : </h4>";
 					affichemembre($createur, "id");
 							// var_dump($createur);
-					echo "</h4>";
-					echo "<h4> Membres qui publie le plus : ";
+					echo "<h4 class='m-2'> Membres qui publient le plus : </h4>";
 					affichemembre(chargeplusactifpost($idcommu), "idauteur");
-					echo " </h4>";
-					echo "<h4> Membres qui commentent le plus : ";
+					echo "<h4 class='m-2'> Membres qui commentent le plus : </h4>";
 					affichemembre(chargeplusactifcomment($idcommu), "idauteur");
-					echo " </h4>";
 					?>
 				</div>
 			</div>
@@ -76,7 +73,9 @@ $moderationcommu = recupmodocommu($idcommu);
 
 			<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="contact-tab">
 				<div class="container descriptioncommu caption img-thumbnail mt-4">
+				
 					<?php
+					affichebarreadmin();
 							//Supprimer une communauté 
 					echo "<div class='container text-center mt-4'>";
 					echo "<form method='post' action='index.php?page=communaute'>";
@@ -84,14 +83,19 @@ $moderationcommu = recupmodocommu($idcommu);
 					echo  "<input id='nomphoto' name='nomphoto' type='hidden' value= ". $donnecommunaute[0]['image'] . ">";
 					echo "<input type='submit' name='delcommu' class='btn btn-danger' value='Supprimer la communauté'/>" . "</p>";
 					echo  "</div>";
+					echo "<div id='membres'>";
 					echo "<h4> Membre de la communauté : </h4>";
-					affichemembre ($membrecommu, "iduser");
+					affichemembrenonmodo($membrecommu, "iduser", $idcommu, $communaute);
+					affichemembrecollapse($membrecommu, $idcommu, $communaute);
+					echo "</div>";
 
+					echo "<div id='moderation'>";
 					echo "<h4> Modérateur : </h4>";
-					affichemembre($moderationcommu, "id");
-
+					affichemembremodo($membrecommu, "iduser", $idcommu, $communaute);
+					echo "</div>";
 					?>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
