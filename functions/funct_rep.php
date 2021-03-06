@@ -8,7 +8,7 @@ function form_rep($idcomu, $idpost, $idcom){
 
 
 
-            <form method="post" class="formReponses" action="index.php?page=communaute"> <!-- Chercher a prendre l'info sur quelle comu on est -->
+            <form method="post" class="formReponses" action="#"> <!-- Chercher a prendre l'info sur quelle comu on est -->
 
                 <p>
                     <div class="form-group">
