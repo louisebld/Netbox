@@ -8,6 +8,14 @@ $idpost = $donnepost[0]['idpost'];
 $idcommunaute = $donnepost[0]['idcommu'];
 $commucourante = recupdonnecommuparid($idcommunaute);
 
+if (!estdejaawarenesspost($_SESSION['id'], $idpost)) {
+
+	insertawarenesspost($_SESSION['id'], $idpost);
+
+}
+
+
+
 echo '<div class="contener  m-5 communaute p-4">';
 if (estdanscommu($_SESSION['id'], $idcommunaute)) {
 
