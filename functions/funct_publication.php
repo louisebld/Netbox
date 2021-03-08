@@ -37,7 +37,7 @@ function print_formulairecreationpost() {
 
 function affiche_imagepost($nomimage){
 
-	return $img = '<img src="./images/post/' . $nomimage . '" alt="post" class="card-img-top pt-2 img-article-board"/>';
+	return $img = '<div class="center-cropped"><img src="./images/post/' . $nomimage . '" alt="post" class=" center-cropped card-img-top pt-2 img-article-board"/></div>';
 
 }
 
@@ -133,19 +133,12 @@ function affichemonpost($donnepost){
 				echo '<p class="card-text">' . $donnepost[0]['description'] . '</p>';
 
 				//Pour liker le post
-				echo '<div class="text-center">';
-					echo '<div class="container d-flex global">';
-					echo '<div class="gauche">';
-
+				echo '<div class="text-end">';
+					echo '<div class="container">';
 							echo nbLike(getLike(),$donnepost[0]['idpost']);
 							echo afficheLikeBouton($donnepost[0]['idpost']);
-					echo '</div>';
-					echo '<div class="droite">';
-
 							echo nbUnlike(getUnlike(),$donnepost[0]['idpost']);
 							echo afficheUnlikeBouton($donnepost[0]['idpost']);
-					echo '</div>';
-
 			echo'</div>';
 		echo'</div>';
 		

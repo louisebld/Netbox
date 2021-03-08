@@ -50,9 +50,9 @@
 	</ul>
 		<div class="tab-content" id="myTabContent">
 			<div class="tab-pane fade show active" id="commu" role="tabpanel" aria-labelledby="lescommu-tab">
-				<h4 class="mb-3 mt-4">Mes communautés</h4>	
+				<h4 class="mb-3 mt-4">Les communautés à découvrir ...</h4>	
 				<?php
-
+          
 					affichecommun($tableaucommu);
 
 				?>
@@ -66,7 +66,7 @@
 				?>    
 			</div>
 	</div>
-</div>
+	
 
 
 

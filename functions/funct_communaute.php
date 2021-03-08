@@ -133,36 +133,33 @@ function affichecommun($tableaucommu){
 	// $tableaucommu : tableau associatif contenant les infos des communautés
 
 	echo"<div class='container images-wrapper d-flex'>";
-	echo "<div class='row d-flex '>";
+		echo "<div class='card-columns'>";
 
-	foreach ($tableaucommu as $key => $value) {
-		//Affichage
-		echo "<div class='col-lg-4 col-md-12 mb-4 d-flex text-center height-auto width-auto'>";
-
-
-		echo '<div class="thumbnail d-flex">';
-
-		// echo '<div class="bg-light">';
-		echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
-		// echo	"<img class='card-img-top pt-2 img-article-board' src='images/commu.png'>";
-		if (isset($_SESSION['id'])) {
-		 if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
-		 $communaute= $value['idcommu'];
-		formulairerejointcommu($communaute);
+		foreach ($tableaucommu as $key => $value) {
+			//Affichage
+			
+				echo '<div class="card" style="width: 18rem;">';
+					if (isset($_SESSION['id'])) {
+						if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
+						echo '<h5 class="card-header">';
+						$communaute= $value['idcommu'];
+						formulairerejointcommu($communaute);
+						echo '</h5>';
+						}
+					}
+				
+					echo '<h5 class="card-title">';
+					echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+					echo '</h5>';
+					echo '<div class="image_button_superposed">';
+						echo affiche_imagecommu($value['image']);
+					echo '</div>';
+					echo '<div class="card-body">';
+						echo '<p class="card-text"><h5>' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
+					echo '</div>';
+				echo '</div>';
 		}
-		 }
-
-		echo affiche_imagecommu($value['image']);
-		echo '<div class="caption img-thumbnail">';
-		echo "<h5>" . $value["nom"] . "</h5>\n";
-		echo $value["description"];
 		echo "</div>";
-		echo "</div>";
-		echo "</a>";
-		echo "</div>";
-		// echo "</div>";
-	}
-	echo "</div>";
 	echo "</div>";
 }
 
@@ -185,4 +182,10 @@ function savoircommu($chaine){
 
 function supprimephotocommu($nomphoto){
 	unlink('images/commu/' . $nomphoto);
+}
+
+function new_commu (){
+	echo '<div class="d-flex justify-content-end">';
+	echo '<button type="button" class="button_fplan btn btn-danger btn-lg" disabled>New</button>';
+	echo '</div>';
 }
