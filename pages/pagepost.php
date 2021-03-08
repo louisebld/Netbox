@@ -9,6 +9,7 @@ $idcommunaute = $donnepost[0]['idcommu'];
 $commucourante = recupdonnecommuparid($idcommunaute);
 
 echo '<div class="contener  m-5 communaute p-4">';
+if (estdanscommu($_SESSION['id'], $idcommunaute)) {
 
 	?>
 	<div class="container col-lg-6">
@@ -82,7 +83,14 @@ echo '<div class="contener  m-5 communaute p-4">';
 	</div>
 </div>
 
+<?php }
+else {
+		echo '<script>alert("Vous devez être membre de la communauté pour accéder");
+	window.location.href = "./index.php?page=communaute";</script>'; 
+  	exit();
+}
 
+?>
 
 
  
