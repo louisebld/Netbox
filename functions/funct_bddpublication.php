@@ -81,3 +81,19 @@ function recupdonneecompte($idcompte){
 
 	return $tableau;
 }
+
+function recupnbpost($iduser, $idcommu){
+
+	global $db;
+	$sql = "SELECT * FROM publication WHERE idcommu = $idcommu AND idauteur=$iduser";
+	$result=  mysqli_query($db, $sql);
+
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return count($tableau);
+
+}
