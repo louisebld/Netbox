@@ -145,6 +145,9 @@ function affichecommun($tableaucommu){
 			//Affichage
 			
 				echo '<div class="card" style="width: 18rem;">';
+
+				if (!estbannicommu($_SESSION['id'], $value['idcommu'])) {
+
 					if (isset($_SESSION['id'])) {
 						if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
 						echo '<h5 class="card-header">';
@@ -164,6 +167,7 @@ function affichecommun($tableaucommu){
 						echo '<p class="card-text"><h5>' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
 					echo '</div>';
 				echo '</div>';
+			}
 		}
 		echo "</div>";
 	echo "</div>";
