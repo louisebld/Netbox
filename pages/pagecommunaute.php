@@ -66,7 +66,7 @@ if (estdanscommu($_SESSION['id'], $idcommu)) {
 					affichemembre($createur, "id");
 							// var_dump($createur);
 					echo "<h4 class='m-2'> Membres qui publient le plus : </h4>";
-					affichemembre(chargeplusactifpost($idcommu), "idauteur");
+					affichemembrepublieleplus(chargeplusactifpost($idcommu), "idauteur", $idcommu);
 					echo "<h4 class='m-2'> Membres qui commentent le plus : </h4>";
 					affichemembre(chargeplusactifcomment($idcommu), "idauteur");
 					?>
