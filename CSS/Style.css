@@ -185,3 +185,17 @@ div.center-cropped img {
 	.card-columns{-webkit-column-count:3;-moz-column-count:3;column-count:3;-webkit-column-gap:1.25rem;-moz-column-gap:1.25rem;column-gap:1.25rem}
 	.card-columns .card{display:inline-block;width:100%}
 }
+
+
+.boutonnew {position:absolute;
+/*	color:white;*/
+	justify-content: flex-end;
+	/*flex-flow: row-reverse**/
+	z-index:1;
+	/*position : absolute;*/
+    border:none;
+    margin-top: 20px;
+    margin-left:130px;
+        display: inline-block;
+
+}
