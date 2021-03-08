@@ -97,23 +97,30 @@ function recupdonnecommu($commu){
 
 
 function listederoulcommu() {
+
 // Afficher une liste déroulante des communautés
-	global $tableaumescommu;
+
+	
 // on prend la variable dans lequel sont stockées les données des métiers
-?>
-	<select name="communaute" class="form-control" size="1">
-<?php
+global $tableaumescommu;
+
+echo "<div class='form-group'>
+<div class='form-check form-switch'>";
 // pour chacun des métiers on le met dans une "case"
 
 for ($i = 0; $i < count($tableaumescommu); $i++){
 	$commucourante = $tableaumescommu[$i];
 
-	echo "<option>" . $commucourante['nom'];
+	echo "
+	
+	<input class='form-check-input' id='flexSwitchCheckDefault' type='checkbox' name='communaute[]' value='".$commucourante['nom']."'>".$commucourante['nom']."<br/>";
+    
 }
-?>
-</select>
 
-<?php
+echo "</div>
+	</div>";
+
+
 }
 
 // pour récupérer l'id de la commu à partir de son nom
@@ -129,6 +136,7 @@ function recupecommu($com) {
 	$resultat = mysqli_fetch_assoc($commu);
 	// on retourne l'id
 	$id=$resultat['idcommu'];
+
 	return $id;
 }
 
@@ -173,5 +181,4 @@ function recupdonneauteurcommu($idcommu) {
 	return $tableau;
 
 }
-
 
