@@ -221,3 +221,26 @@ function affichemembredeban($membre, $namedatabase, $idcommu, $nomcommu) {
 			echo "</div>";
 
 }
+
+
+function affichemembrepublieleplus ($membrecommu, $namedatabase, $idcommu) {
+	echo "<div class='row'>";
+	foreach ($membrecommu as $key => $value) {
+		//Affichage des commentaires
+			?>
+			<div class='col-lg-4 col-md-12 mb-4 text-center width-auto'>
+			<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+<?php
+			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+			echo "<p>";
+			echo "<div class='bi-file-earmark-richtext'> " . recupnbpost($value[$namedatabase], $idcommu) . "</div>";
+			echo "</p>";
+			echo "</div>";
+
+
+			// echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+}
+	echo "</div>";
+
+}
+
