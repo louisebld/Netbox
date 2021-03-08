@@ -26,3 +26,5 @@ include 'functions/funct_bddpublication.php';
 include 'functions/funct_bddcom.php';
 include 'functions/funct_bddrejointcommu.php';
 include 'functions/funct_bddadmincommu.php';
+include 'functions/funct_bddawarenesspost.php';
+
