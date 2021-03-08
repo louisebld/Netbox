@@ -10,7 +10,7 @@ if (isset($_POST['poster'])) {
 
 // nom vide
 
-	if (empty($_POST["description"]) || !trim($_POST['description'])) {
+	if(empty($_POST["description"]) || !trim($_POST['description'])) {
 		$erreurpost[]="Légende vide";
 	}
 
@@ -18,8 +18,13 @@ if (isset($_POST['poster'])) {
 	if(empty($_FILES['imagepost']['name']) || $_FILES['imagepost']['size'] ==0){
 		$erreurpost[]= "Fichier vide";
 
+	}
+
+	if(empty($_POST['communaute'])){
+	$erreurpost[]= "Pas de communauté selectionnée";
 
 	}
+
 	if($_FILES['imagepost']['size'] > 5000000){
 		$erreurpost[]= "L'image ne doit pas dépasser les 5Mo !";
 	}
@@ -34,9 +39,13 @@ if (isset($_POST['poster'])) {
 	}
 
 	else {
+
+// On répète autant de fois pour chaque communauté 
+	
+
 // on récupère les données
-		var_dump($_POST['communaute']);
-		$idcommunaute = recupecommu($_POST['communaute']);
+		var_dump($_POST);
+		
 		$legende = remplaceApo ($_POST['description']);
 		$createur = $_SESSION['id']; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE
 
@@ -51,14 +60,20 @@ if (isset($_POST['poster'])) {
 			$file_type = "jpg";
 		}
 
+	$premierPassage = true;
+	foreach ($_POST['communaute'] as $value) {
+		$idcommunaute = recupecommu($value);
 
 
-		$file_name="bruh";
 		$iddupost = insert_post($legende, $file_name, $createur, $idcommunaute);
-		$nomimage = "post". $iddupost . ".".$file_type;
 		move_uploaded_file($file_tmp,"./images/post/post" . $iddupost . ".".$file_type);
+		if ($premierPassage){
+			$premierPassage = false;
+			$iddupostpourlimage = $iddupost;
+		}
+		$nomimage = "post". $iddupostpourlimage . ".".$file_type;
 		changenomimage($iddupost, $nomimage);
-
+	}
 
 
 // on redirige
@@ -83,7 +98,7 @@ if (isset($_POST['delpost'])) {
 	supprimephotopost($photo);
 
 	// pour rediriger sur la communaute
-	header("Location:index.php?page=commu" . $_POST['nomcommu'] . "");
+	//header("Location:index.php?page=commu" . $_POST['nomcommu'] . "");
 			//echo "<a class='stylelien' href=>";
 
 

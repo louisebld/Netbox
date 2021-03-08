@@ -6,6 +6,7 @@
 		<?php
 
 		print_formulairecreationpost();
+		
 		if (isset($_SESSION['erreurpost'])) {
 			echo "<ul>";
 	// on affiche chaque erreur

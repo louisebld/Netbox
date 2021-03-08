@@ -20,7 +20,6 @@ function print_formulairecreationpost() {
 		<input type="hidden" id="idutilisateur" name="idutilisateur" value="<?php if (isset($_SESSION['id'])) {echo $_SESSION['id'];} ?>" />
 
 		<?php
-
 		listederoulcommu();
 		?>
 
