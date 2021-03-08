@@ -14,6 +14,21 @@ if (!estdanscommu($iduser, $idcommu)) {
 
 }
 
-	}
+}
+
+if (isset($_POST['quittercommu'])) {
+
+	$iduser = $_SESSION['id'];
+	$idcommu = $_POST['idcommu'];
+
+if (estdanscommu($iduser, $idcommu)) {
+
+	leavecommu($iduser, $idcommu);
+
+	header("Location:index.php?page=communaute");
+
+}
+
+}
 
 
