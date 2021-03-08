@@ -1,4 +1,15 @@
 <?php 
+	function Recup_nom_communote_de_id($id)
+	{
+		global $db;
+		$sql = "SELECT * FROM `communaute` WHERE `idcommu` = $id";
+		$results = mysqli_query($db,$sql);
+		$res = [];
+		foreach ($results as $key => $val) {
+			array_push($res, $val);
+		}
+		return $res[0]['nom'];
+	}
 	function recup_all_tag()
 	{
 		global $db;
