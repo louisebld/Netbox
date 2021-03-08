@@ -53,3 +53,25 @@ function formulairerejointcommu($idcommunaute) {
 }
 
 
+function afficheboutonquitter($iduser, $idcommu) {
+
+?>
+
+	<form method="post" class='text-center' action="index.php?page=communaute"> 
+
+
+			<?php	
+
+				echo  '<input id="idcommu" name="idcommu" type="hidden" value= '. $idcommu . ">" ;
+
+                echo  '<input id="iduser" name="iduser" type="hidden" value= '. $iduser . ">" ;
+
+			?>
+		
+		<!-- <input type="submit" class="btn btn-dark bi-plus-circle" name="ajoutermodo" id="ajoutermodo" value=""/> -->
+		<button type="submit" name="quittercommu" value="quittercommu" class="btn btn-danger">Quitter la communauté</button>
+
+	</form>
+	<?php	 
+}
+
