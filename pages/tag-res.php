@@ -75,7 +75,7 @@
 			echo "<h2>".recup_pseudo_id($data[2][$i]["idauteur"])."</h2>";
 			echo "<h6>".$data[2][$i]["date"]."</h6>";
 			echo "<p>".$data[2][$i]["com"]."</p>";
-			echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[1][$i]["idcommu"])."'><button>Aller à la Communauté !</button></a>";
+			echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[2][$i]["idcomu"])."'><button>Aller à la Communauté !</button></a>";
 			echo "</div></li>";
 		}
 		?>
@@ -93,7 +93,7 @@
 			echo "<h2>".recup_pseudo_id($data[3][$i]["idauteur"])."</h2>";
 			echo "<h6>".$data[3][$i]["date_creation"]."</h6>";
 			echo "<p>".$data[3][$i]["reponse"]."</p>";
-			echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[1][$i]["idcommu"])."'><button>Aller à la Communauté !</button></a>";
+			echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[3][$i]["idcomu"])."'><button>Aller à la Communauté !</button></a>";
 			echo "</div></li>";
 		}
 		?>
