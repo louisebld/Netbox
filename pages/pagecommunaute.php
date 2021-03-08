@@ -10,6 +10,9 @@ $createur = recupdonneauteurcommu($idcommu);
 $_SESSION['donnepost'] = $donnepost;
 $moderationcommu = recupmodocommu($idcommu);
 $utilisateurbanni=recupbannicommu($idcommu);
+
+
+if (estdanscommu($_SESSION['id'], $idcommu)) {
 ?>
 <div class="contener col-l-6 m-5 communaute p-4">
 	
@@ -46,6 +49,11 @@ $utilisateurbanni=recupbannicommu($idcommu);
 						echo "<h1 class='pagecommu text-center '>" . $communaute .  "</h1>";
 						echo '<p class="mx-4">' . $donnecommunaute[0]['description'] .  "</p>";
 
+						if ($_SESSION['id']!=$createur[0]['id']) {
+
+						afficheboutonquitter($_SESSION['id'], $idcommu);
+
+						}
 						?>
 					</div>
 				</div>
@@ -149,8 +157,14 @@ $utilisateurbanni=recupbannicommu($idcommu);
 	</div>
 </div>
 
+<?php }
+else {
+		echo '<script>alert("Vous devez être membre de la communauté pour accéder");
+	window.location.href = "./index.php?page=communaute";</script>'; 
+  	exit();
+}
 
-
+?>
 
 
 
