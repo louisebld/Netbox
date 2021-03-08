@@ -54,9 +54,19 @@ function affichepost($tableaupost){
 
 	foreach ($tableaupost as $key => $value) {
 		//Affichage
+
+
 		echo "<div class='col-lg-4 col-md-12 mb-4 text-center width-auto'>";
+
+	if (!estdejaawarenesspost($_SESSION['id'], $value['idpost'])) {
+				echo '<div class="btn btn-warning boutonnew disabled" style="cursor:default;">NEW</div>';
+
+			}
 			echo '<div class="thumbnail">';
 			echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
+
+			
+
 					echo affiche_imagepost($value['image']);
 					echo "<div class='text-start'>" . nbLike(getLike(),$value['idpost']) . " ♥" . "</div>"; 
 					echo '<div class="caption img-thumbnail">';
