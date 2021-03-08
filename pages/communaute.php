@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <!-- <div class="contener gros p-4 m-4 text-sm-center">
 	<h4>En cours de construction, ne modifiez rien sur cette page svp (sinon conflit)</h4>
 </div>
