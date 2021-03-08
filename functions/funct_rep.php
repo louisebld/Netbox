@@ -57,7 +57,7 @@ function print_rep ($rep) {
                             echo '<p>';
                                 // Affichage du nom de la personne  
                                 echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';                                                             
-
+                        afficheboutondelrep($value['id'], $value['idpost']);
                             echo '</p>';
                         echo '<div class="clearfix">';
                         echo '<div class="commentary"><p>Commentaire: ' . $value["reponse"] . "</p></div>";
@@ -89,6 +89,28 @@ function afficheboutondelcom($idcom, $idpost) {
         
         <!-- <input type="submit" class="btn btn-dark bi-plus-circle" name="ajoutermodo" id="ajoutermodo" value=""/> -->
         <button type="submit" name="supcom" value="supcom" class="btn btn-danger bi-x-circle"> Supprimer </button>
+
+    </form>
+    <?php    
+}
+
+function afficheboutondelrep($idrep, $idpost) {
+
+?>
+
+    <form method="post" class='text-end' action="index.php?page=communaute"> 
+
+
+            <?php   
+
+                echo  '<input id="idrep" name="idrep" type="hidden" value= '. $idrep . ">" ;
+
+                echo "<input type='hidden' name='idpost' value= $idpost>";
+
+            ?>
+        
+        <!-- <input type="submit" class="btn btn-dark bi-plus-circle" name="ajoutermodo" id="ajoutermodo" value=""/> -->
+        <button type="submit" name="suprep" value="suprep" class="btn btn-danger bi-x-circle"> Supprimer </button>
 
     </form>
     <?php    

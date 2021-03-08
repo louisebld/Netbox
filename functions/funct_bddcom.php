@@ -13,6 +13,16 @@ function supprime_com($idcom) {
 	mysqli_query($db, "DELETE FROM com WHERE id = $idcom");
 }
 
+
+function supprime_rep($idrep) {
+	// fonction pour supprimer un avis d'un commentaire
+	global $db;
+	// on supprime
+	mysqli_query($db, "DELETE FROM reponses WHERE id = $idrep");
+}
+
+
+
 function charge_com($idcomu, $idpost){
     // Fonction qui permet de charger les commentaires d'un post 
 
@@ -41,4 +51,11 @@ function recupdonneauteurcom($idcom) {
 
 	return $tableau;
 
+}
+
+function supprime_allrep($idcom) {
+	// fonction pour supprimer un avis d'un commentaire
+	global $db;
+	// on supprime
+	mysqli_query($db, "DELETE FROM reponses WHERE idcom = $idcom");
 }

@@ -27,16 +27,29 @@
 
 
 
-
  if (isset($_POST['supcom'])){
 
             $idcom = $_POST['idcom'];
             $idpost=$_POST['idpost'];
       
             supprime_com($idcom);
-
+            supprime_allrep($idcom);
             // on informe l'utilisateur qu'il a posté un commentaire
             // redirection vers la page projets
             $post = "post" . $idpost; 
             header("Location:index.php?page=$post");
         }
+
+
+ if (isset($_POST['suprep'])){
+
+            $idrep = intval($_POST['idrep']);
+            $idpost=intval($_POST['idpost']);
+      
+            supprime_rep($idrep);
+
+            // on informe l'utilisateur qu'il a posté un commentaire
+            // redirection vers la page projets
+            $post = "post" . $idpost; 
+            header("Location:index.php?page=$post");
+}
