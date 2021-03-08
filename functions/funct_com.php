@@ -49,8 +49,9 @@ function print_com ($com) {
                         echo '<div class="col-md-10">';
                             echo '<p>';
                                 // Affichage du nom de la personne  
-                                echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';                                                              
+                                echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';
                             echo '</p>';
+                        afficheboutondelcom($value['id'], $value['idpost']);
                         echo '</div>';
                         echo '<div class="clearfix"></div>';
                             //Affichage du commentaire
@@ -74,5 +75,7 @@ function print_com ($com) {
         }
         echo '</div>';
 }
+
+
 
 

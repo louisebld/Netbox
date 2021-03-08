@@ -69,7 +69,8 @@ function afficheboutonquitter($iduser, $idcommu) {
 			?>
 		
 		<!-- <input type="submit" class="btn btn-dark bi-plus-circle" name="ajoutermodo" id="ajoutermodo" value=""/> -->
-		<button type="submit" name="quittercommu" value="quittercommu" class="btn btn-danger">Quitter la communauté</button>
+
+		<button type="submit" name="quittercommu" value="quittercommu" class="btn btn-danger"> Quitter la communauté </button>
 
 	</form>
 	<?php	 

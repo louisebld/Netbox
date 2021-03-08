@@ -70,3 +70,26 @@ function print_rep ($rep) {
             echo '</div>';
         }
 }
+
+
+function afficheboutondelcom($idcom, $idpost) {
+
+?>
+
+    <form method="post" class='text-end' action="index.php?page=communaute"> 
+
+
+            <?php   
+
+                echo  '<input id="idcom" name="idcom" type="hidden" value= '. $idcom . ">" ;
+
+                echo "<input type='hidden' name='idpost' value= $idpost>";
+
+            ?>
+        
+        <!-- <input type="submit" class="btn btn-dark bi-plus-circle" name="ajoutermodo" id="ajoutermodo" value=""/> -->
+        <button type="submit" name="supcom" value="supcom" class="btn btn-danger bi-x-circle"> Supprimer </button>
+
+    </form>
+    <?php    
+}

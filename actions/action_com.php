@@ -25,3 +25,18 @@
         header("Location:index.php?page=$post");
     }
 
+
+
+
+ if (isset($_POST['supcom'])){
+
+            $idcom = $_POST['idcom'];
+            $idpost=$_POST['idpost'];
+      
+            supprime_com($idcom);
+
+            // on informe l'utilisateur qu'il a posté un commentaire
+            // redirection vers la page projets
+            $post = "post" . $idpost; 
+            header("Location:index.php?page=$post");
+        }
