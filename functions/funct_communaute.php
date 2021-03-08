@@ -83,6 +83,12 @@ function modalCommunaute(){
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
+							<!-- Gere les erreurs -->
+							<?php
+								if(isset($_SESSION["erreurcreatcommu"])){																
+									print_error($_SESSION["erreurcreatcommu"][0]);
+								}
+							?>
 						<!-- Possibilité de tout mettre dans une fonction
 							dans un funct_inscription-->
 							<form method="post" action="index.php?page=communaute" enctype="multipart/form-data">
@@ -90,14 +96,14 @@ function modalCommunaute(){
 								<div class="mb-3">
 									<p> Ne mettez pas d'accent(s) dans le nom de votre communauté ! </p>
 									<label for="nom" class="col-form-label">Nom de la communauté:</label>
-									<input type="text" placeholder="Nom de votre communauté" class="form-control" name="nom"  value="<?php if (isset($_SESSION['donnecreatcommu']['nom'])) echo $_SESSION['donnecreatcommu']['nom']; ?>">
+									<input type="text" placeholder="Nom de votre communauté" class="form-control" name="nom"  value="<?php if (isset($_SESSION['donnecreatcommu']['nom'])) echo $_SESSION['donnecreatcommu']['nom']; ?>" required>
 								</div>
 								<!-- Image -->
 								<div class="mb-3">
 									<label for="imagecom" class="col-form-label">Image :</label>
 									<input type="file" name="imagecom" class="form-control">
 								</div>
-								<!-- Pseudo -->
+								<!-- Description -->
 								<div class="mb-3">
 									<label for="description" class="col-form-label">Description :</label>
 									<textarea class="form-control" name="description" id="description" placeholder="Description de votre communauté" rows="3"><?php if (isset($_SESSION['donnecreatcommu']['description'])) echo $_SESSION['donnecreatcommu']['description']; ?></textarea>
@@ -108,7 +114,7 @@ function modalCommunaute(){
 							</form>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick=''>Fermer</button>
 						</div>
 					</div>
 				</div>
