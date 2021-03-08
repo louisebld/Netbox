@@ -176,3 +176,48 @@ function affichemembrecollapse($membrecommu, $idcommu, $communaute) {
 <?php
 }
 
+function afficheboutondeban($iduser, $idcommu, $nomcommu) {
+
+?>
+
+	<form method="post" action="index.php?page=communaute"> 
+
+
+			<?php	
+
+				echo  '<input id="idcommu" name="idcommu" type="hidden" value= '. $idcommu . ">" ;
+
+                echo  '<input id="iduser" name="iduser" type="hidden" value= '. $iduser . ">" ;
+
+				echo "<input type='hidden' name='nomcommu' value=$nomcommu>";
+
+			?>
+		
+		<!-- <input type="submit" class="btn btn-dark bi-plus-circle" name="ajoutermodo" id="ajoutermodo" value=""/> -->
+		<button type="submit" name="debanuser" value="debanuser" class="btn btn-warning bi-check2">Débannir</button>
+
+	</form>
+	<?php	 
+}
+
+function affichemembredeban($membre, $namedatabase, $idcommu, $nomcommu) {
+	echo "<div class=' d-flex flex-wrap text-center '>";
+	foreach ($membre as $key => $value) {
+		//Affichage des commentaires
+			?>
+			<div class="d-flex m-4 text-center global">
+			<div class='gauche'>
+			<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+<?php
+
+			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+			echo "</div>";
+			echo "<div class='droite'>";
+			afficheboutondeban($value['iduser'], $idcommu, $nomcommu);
+			// echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+			echo "</div>";
+			echo "</div>";
+}
+			echo "</div>";
+
+}

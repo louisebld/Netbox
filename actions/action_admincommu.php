@@ -19,6 +19,26 @@ if (isset($_POST['enlevermodo'])) {
 	enlevemodo($iduser, $idcommu);
 
 	header("Location:index.php?page=commu" . $_POST['nomcommu'] . "");
+}
+
+if (isset($_POST['bannirgens'])) {
+
+	$iduser = intval($_POST['iduser']);
+	$idcommu = intval($_POST['idcommu']);
+
+	banuser($iduser, $idcommu);
+	leavecommu($iduser, $idcommu);
+
+	header("Location:index.php?page=commu" . $_POST['nomcommu'] . "");
+}
 
 
+if (isset($_POST['debanuser'])) {
+
+	$iduser = intval($_POST['iduser']);
+	$idcommu = intval($_POST['idcommu']);
+
+	debanuser($iduser, $idcommu);
+
+	header("Location:index.php?page=commu" . $_POST['nomcommu'] . "");
 }

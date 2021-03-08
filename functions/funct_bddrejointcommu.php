@@ -87,3 +87,9 @@ function chargeplusactifcomment($idcommu) {
 	return $tableau;
 
 }
+
+function leavecommu($iduser, $idcommu) {
+	global $db;
+	$query = "DELETE FROM joincommu WHERE iduser=$iduser AND idcommu=$idcommu";
+	mysqli_query($db, $query);
+}
