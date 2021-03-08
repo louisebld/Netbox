@@ -19,7 +19,7 @@
  		<?php 
 			$data = recup_all_tag();
 			for ($i=0; $i < count($data); $i++) { 
-				echo "<li> -> ".$data[$i]."</li>";
+				echo "<li> -> <a href='index.php?page=tag-res&tag=".implode("", explode("#", $data[$i]))."'>".$data[$i]."</a></li>";
 			}
 
 		 ?>
@@ -29,3 +29,4 @@
 
 
  </div>
+
