@@ -182,3 +182,21 @@ function recupdonneauteurcommu($idcommu) {
 
 }
 
+
+function estbannicommu($iduser, $idcommu) {
+
+global $db;
+
+	$result = mysqli_query($db, "SELECT * FROM ban WHERE iduser=$iduser AND idcommu=$idcommu ");
+	// on compte le nombre de lignes
+	$compteur = mysqli_num_rows($result);
+	// si on a trouvé un compte qui correspond : >0 : true
+	if ($compteur>0) {
+		return true;
+	}
+	else {
+	// sinon faux
+		return false;
+
+}
+}
