@@ -97,3 +97,8 @@ function recupnbpost($iduser, $idcommu){
 	return count($tableau);
 
 }
+
+function combienpostcommu($tableaupost){
+
+	return count($tableaupost);
+}
