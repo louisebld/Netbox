@@ -199,3 +199,12 @@ div.center-cropped img {
         display: inline-block;
 
 }
+
+.boutonnbpost {
+position:absolute;
+	z-index:1;
+    margin-top: 15px;
+    margin-left:230px;
+
+
+}
