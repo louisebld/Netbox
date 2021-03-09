@@ -10,7 +10,7 @@ $commucourante = recupdonnecommuparid($idcommunaute);
 
 if (!estdejaawarenesspost($_SESSION['id'], $idpost)) {
 
-	insertawarenesspost($_SESSION['id'], $idpost);
+	insertawarenesspost($_SESSION['id'], $idpost, $idcommunaute);
 
 }
 
