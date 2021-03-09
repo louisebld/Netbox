@@ -156,6 +156,13 @@ function affichecommun($tableaucommu){
 						echo '</h5>';
 						}
 					}
+
+					if (estdanscommu($_SESSION['id'], $value['idcommu'])) {
+						// affichage du bouton de nombres de notif
+						// soustrait le nombre de post dans la commu - le nombre de post vu
+						// l'afficher que quand y'a des notifs ?
+						echo '<button class="btn btn-warning boutonnbpost disabled btn-circle btn-lg">'. (combienpostcommu(recuppost($value['idcommu'])) - postvucommu($_SESSION['id'], $value['idcommu'])) . '</button>';
+					}
 				
 					echo '<h5 class="card-title">';
 					echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
