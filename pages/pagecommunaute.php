@@ -12,6 +12,7 @@ $moderationcommu = recupmodocommu($idcommu);
 $utilisateurbanni=recupbannicommu($idcommu);
 
 
+
 if (estdanscommu($_SESSION['id'], $idcommu)) {
 ?>
 <div class="contener col-l-6 m-5 communaute p-4">
