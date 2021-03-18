@@ -30,7 +30,7 @@
 				<h4 class="mb-3 mt-4">Les communautés à découvrir ...</h4>	
 				<?php
           
-					affichecommun($tableaucommu);
+					affichecommunonly($tableaucommu);
 
 				?>
 			</div>
@@ -40,7 +40,14 @@
 					if (isset($_SESSION['id'])) {
 						affichecommun($mescommu);
 					}
-				?>    
+				?>   
+				<h4 class="mb-3  mt-4">Vos communautés crées</h4>
+				<?php
+					if (isset($_SESSION['id'])) {
+						$commucree = charge_commuparid($_SESSION['id']);
+						affichecommun($commucree);
+					}
+				?>
 			</div>
 	</div>
 	
