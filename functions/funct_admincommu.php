@@ -139,7 +139,7 @@ function affichebarreadmin() {
 <div class="btn-group btn-group-justified container" role="group" aria-label="...">
   <a href="#membres" class="btn btn-default" title="Membres" role="button">Membres</a>
   <a href="#moderation" class="btn btn-default" title="Modérateur" role="button">Modération</a>
-  <a href="#" class="btn btn-default" title="Bruh" role="button">Bruh</a>
+  <a href="#banni" class="btn btn-default" title="Bruh" role="button">Membres bannis</a>
 </div>
 
 
