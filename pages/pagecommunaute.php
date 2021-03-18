@@ -2,18 +2,18 @@
 $communaute= savoircommu($_GET["page"]);
 $donnecommunaute=recupdonnecommu($communaute);
 $idcommu = $donnecommunaute[0]['idcommu'];
-
-$membrecommu = selectusercommu($idcommu);
-
-$donnepost = recuppost($idcommu);
 $createur = recupdonneauteurcommu($idcommu);
+
+$idcreateur=$createur[0]['idcreateur'];
+
+$membrecommu = selectusercommu($idcommu, $idcreateur);
+$donnepost = recuppost($idcommu);
 $_SESSION['donnepost'] = $donnepost;
 $moderationcommu = recupmodocommu($idcommu);
 $utilisateurbanni=recupbannicommu($idcommu);
 
 
-
-if (estdanscommu($_SESSION['id'], $idcommu)) {
+if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 ?>
 <div class="contener col-l-6 m-5 communaute p-4">
 	
@@ -108,7 +108,7 @@ if (estdanscommu($_SESSION['id'], $idcommu)) {
 					affichemembremodo($membrecommu, "iduser", $idcommu, $communaute);
 					echo "</div>";
 
-					echo "<h4> Membre ban de votre commu : </h4>";
+					echo "<h4 id='banni'> Membre ban de votre commu : </h4>";
 					affichemembredeban($utilisateurbanni, "iduser", $idcommu, $communaute);
 					?>
 				</div>
