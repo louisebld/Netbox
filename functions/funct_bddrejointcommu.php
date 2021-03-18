@@ -42,10 +42,10 @@ global $db;
 }
 
 
-function selectusercommu($idcommu) {
+function selectusercommu($idcommu, $idcreateur) {
 		//selectionne les communautés de l'utilisateur
 	global $db;
-	$sql = "SELECT * FROM profil INNER JOIN joincommu ON profil.id = joincommu.iduser WHERE  joincommu.idcommu=$idcommu";
+	$sql = "SELECT * FROM profil INNER JOIN joincommu ON profil.id = joincommu.iduser WHERE  joincommu.idcommu=$idcommu AND profil.id != $idcreateur ";
 	$result=  mysqli_query($db, $sql);
 	//on met dans un tableau
 	$tableau = [];
