@@ -58,6 +58,22 @@ function charge_commu(){
 	return $tableau;
 }
 
+function charge_commuparid($idcreateur){
+	// BUT : charge_commu : Fonction qui renvoie un tableau des communautées
+
+	global $db;
+	$sql = "SELECT * FROM communaute WHERE idcreateur= $idcreateur";
+	$result=  mysqli_query($db, $sql);
+
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}
+
 function chargesearchcommu($commucherche) {
 
 	global $db;
