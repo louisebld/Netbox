@@ -168,6 +168,7 @@ function affichecommun($tableaucommu){
 						echo '<p class="card-text"><h5>' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
 					echo '</div>';
 				echo '</div>';
+				echo '</a>';
 			}
 		}
 		echo "</div>";
@@ -250,6 +251,7 @@ function affichecommunonly($tableaucommu){
 						}
 					echo '</div>';
 				echo '</div>';
+				echo '</a>';
 			}
 		}
 	}
