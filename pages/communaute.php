@@ -16,11 +16,12 @@
 		
 		if (isset($_SESSION['id'])) {
 			$mescommu = selectcommu($_SESSION['id']);
-			if (!empty($mescommu)){
+
+			// if (!empty($mescommu)){
 				echo '<li class="nav-item">';
 					echo '<a class="nav-link" id="mescommu-tab" data-toggle="tab" href="#mescommu" role="tab" aria-controls="mescommu" aria-selected="false"><h7 class="" id="lesCommu">Mes Communautés</h7></a>';
 				echo '</li>';
-			}
+			// }
 		}
 			
 		?>
@@ -29,7 +30,6 @@
 			<div class="tab-pane fade show active" id="commu" role="tabpanel" aria-labelledby="lescommu-tab">
 				<h4 class="mb-3 mt-4">Les communautés à découvrir ...</h4>	
 				<?php
-          
 					affichecommunonly($tableaucommu);
 
 				?>
@@ -41,13 +41,13 @@
 						affichecommun($mescommu);
 					}
 				?>   
-				<h4 class="mb-3  mt-4">Vos communautés crées</h4>
+	<!-- <h4 class="mb-3  mt-4">Vos communautés crées</h4>
 				<?php
-					if (isset($_SESSION['id'])) {
-						$commucree = charge_commuparid($_SESSION['id']);
-						affichecommun($commucree);
-					}
-				?>
+					 // if (isset($_SESSION['id'])) {
+					 // 	$commucree = charge_commuparid($_SESSION['id']);
+					 // 	affichecommun($commucree);
+					//}
+				?>  -->
 			</div>
 	</div>
 	
