@@ -10,11 +10,21 @@ function joincommu($iduser, $idcommu) {
 function selectcommu($iduser) {
 		//selectionne les communautés de l'utilisateur
 	global $db;
-	$sql = "SELECT * FROM communaute INNER JOIN joincommu ON communaute.idcommu = joincommu.idcommu WHERE  joincommu.iduser=$iduser";
+	$sql = "SELECT * FROM communaute JOIN joincommu ON communaute.idcommu = joincommu.idcommu WHERE  joincommu.iduser=$iduser ";
+	// OR communaute.idcreateur = $iduser 
+
+	$sql2 = "SELECT * FROM communaute  WHERE  idcreateur = $iduser";
+
 	$result=  mysqli_query($db, $sql);
+	$result2=  mysqli_query($db, $sql2);
+
 	//on met dans un tableau
 	$tableau = [];
 	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	while ($row=mysqli_fetch_assoc($result2)) {
 		$tableau[] = $row;
 	}
 
