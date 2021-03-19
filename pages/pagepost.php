@@ -7,6 +7,10 @@ $donnepost = recupdonnepost($nbpost);
 $idpost = $donnepost[0]['idpost'];
 $idcommunaute = $donnepost[0]['idcommu'];
 $commucourante = recupdonnecommuparid($idcommunaute);
+$createur = recupdonneauteurcommu($idcommunaute);
+
+$idcreateur=$createur[0]['idcreateur'];
+
 
 if (!estdejaawarenesspost($_SESSION['id'], $idpost)) {
 
@@ -17,7 +21,7 @@ if (!estdejaawarenesspost($_SESSION['id'], $idpost)) {
 
 
 echo '<div class="contener  m-5 communaute p-4">';
-if (estdanscommu($_SESSION['id'], $idcommunaute)) {
+if (estdanscommu($_SESSION['id'], $idcommunaute) || $_SESSION['id']==$idcreateur) {
 
 	?>
 	<div class="col-sm-3 d-flex">
