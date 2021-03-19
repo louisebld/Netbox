@@ -44,10 +44,10 @@
 		<div class="col-sm-10">
 			<form method="post" action="index.php?page=tag-res" class="form-inline">
 				<div class="form-group mx-sm-3 mb-2">
-					<label for="tag" class="sr-only">Tag : </label>
+					<label for="tag" class="sr-only"><h6>Le nom des tags à rechercher :</h6></label>
 					<input type="text" class="form-control" name="tag" id="tag">
 				</div>
-				<button type="submit" value="Recherche" class="btn btn-dark mb-2">Recherche</button>
+				<button type="submit" value="Recherche" class="btn btn-dark mb-2 mx-3">Recherche</button>
 			</form>
 		</div>
 	</div>
