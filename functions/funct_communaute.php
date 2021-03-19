@@ -148,21 +148,15 @@ function affichecommun($tableaucommu){
 
 				if (!estbannicommu($_SESSION['id'], $value['idcommu'])) {
 
-					if (isset($_SESSION['id'])) {
-						if (!estdanscommu($_SESSION['id'], $value['idcommu']) && $value['idcreateur'] != $_SESSION['id']) {
-						echo '<h5 class="card-header">';
-						$communaute= $value['idcommu'];
-						formulairerejointcommu($communaute);
-						echo '</h5>';
-						}
-					}
-
 					if (estdanscommu($_SESSION['id'], $value['idcommu'])) {
 						// affichage du bouton de nombres de notif
 						// soustrait le nombre de post dans la commu - le nombre de post vu
 						// l'afficher que quand y'a des notifs ?
-						echo '<button class="btn btn-warning boutonnbpost disabled btn-circle btn-lg">'. (combienpostcommu(recuppost($value['idcommu'])) - postvucommu($_SESSION['id'], $value['idcommu'])) . '</button>';
-					}
+						$vue = (combienpostcommu(recuppost($value['idcommu'])) - postvucommu($_SESSION['id'], $value['idcommu']));
+						
+						if ($vue > 0){
+							echo '<button class="btn btn-warning boutonnbpost disabled btn-circle btn-lg">'. $vue . '</button>';
+						}					}
 				
 					echo '<h5 class="card-title">';
 					echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
@@ -227,20 +221,15 @@ function affichecommunonly($tableaucommu){
 
 				if (!estbannicommu($_SESSION['id'], $value['idcommu'])) {
 
-					if (isset($_SESSION['id'])) {
-						if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
-						echo '<h5 class="card-header">';
-						$communaute= $value['idcommu'];
-						formulairerejointcommu($communaute);
-						echo '</h5>';
-						}
-					}
+
 
 					if (estdanscommu($_SESSION['id'], $value['idcommu'])) {
 						// affichage du bouton de nombres de notif
 						// soustrait le nombre de post dans la commu - le nombre de post vu
 						// l'afficher que quand y'a des notifs ?
+
 						echo '<button class="btn btn-warning boutonnbpost disabled btn-circle btn-lg">'. (combienpostcommu(recuppost($value['idcommu'])) - postvucommu($_SESSION['id'], $value['idcommu'])) . '</button>';
+						
 					}
 				
 					echo '<h5 class="card-title">';
@@ -251,6 +240,14 @@ function affichecommunonly($tableaucommu){
 					echo '</div>';
 					echo '<div class="card-body">';
 						echo '<p class="card-text"><h5>' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
+						if (isset($_SESSION['id'])) {
+							if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
+							echo '<p >';
+							$communaute= $value['idcommu'];
+							formulairerejointcommu($communaute);
+							echo '</p>';
+							}
+						}
 					echo '</div>';
 				echo '</div>';
 			}

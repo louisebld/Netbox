@@ -36,7 +36,7 @@ function print_formulairecreationpost() {
 
 function affiche_imagepost($nomimage){
 
-	return $img = '<div class="center-cropped"><img src="./images/post/' . $nomimage . '" alt="post" class=" center-cropped card-img-top pt-2 img-article-board"/></div>';
+	return $img = '<img src="./images/post/' . $nomimage . '" alt="post" class="  card-img-top pt-2 img-article-board"/>';
 
 }
 
@@ -50,7 +50,7 @@ function affichepost($tableaupost){
 	// $tableaucommu : tableau associatif contenant les infos des communautés
 
 	echo"<div class='container images-wrapper d-flex'>";
-		echo "<div class='row'>";
+		echo "<div class='card-columns'>";
 
 	foreach ($tableaupost as $key => $value) {
 		//Affichage
@@ -62,7 +62,7 @@ function affichepost($tableaupost){
 				echo '<div class="btn btn-warning boutonnew disabled" style="cursor:default;">NEW</div>';
 
 			}
-			echo '<div class="thumbnail">';
+			echo '<div class="card" style="width: 18rem;">';
 			echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 
 			

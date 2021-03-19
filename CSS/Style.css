@@ -150,7 +150,7 @@
 .global .droite {
     margin-left:60%   
 }
-
+/*_________________________ Affichage centre photo ________________________*/
 /* Accueil commu */
 div.center-cropped {
 	width: auto;
@@ -165,6 +165,8 @@ div.center-cropped img {
 	position: relative;
 	transform: translateX(-50%);
 }
+
+/*_________________________ Affichage en cascade des photos comu / post ________________________*/
 
 
 @media (min-width: 768px) {  
@@ -181,11 +183,12 @@ div.center-cropped img {
 	 .card-columns {column-count: 5;} 
   }
 
-.card-columns .card{margin-bottom:.75rem}@media (min-width:576px){
-	.card-columns{-webkit-column-count:3;-moz-column-count:3;column-count:3;-webkit-column-gap:1.25rem;-moz-column-gap:1.25rem;column-gap:1.25rem}
+  .card-columns .card{margin-bottom:.75rem}@media (min-width:576px){
+	.card-columns{-webkit-column-count:3;-moz-column-count:4;column-count:4;-webkit-column-gap:1.25rem;-moz-column-gap:1.25rem;column-gap:1.25rem}
 	.card-columns .card{display:inline-block;width:100%}
 }
 
+/*_________________________ Affichage des boutons ________________________*/
 
 .boutonnew {position:absolute;
 /*	color:white;*/
@@ -196,7 +199,7 @@ div.center-cropped img {
     border:none;
     margin-top: 20px;
     margin-left:130px;
-        display: inline-block;
+    display: inline-block;
 
 }
 
