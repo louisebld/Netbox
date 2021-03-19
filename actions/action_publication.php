@@ -73,6 +73,7 @@ if (isset($_POST['poster'])) {
 		}
 		$nomimage = "post". $iddupostpourlimage . ".".$file_type;
 		changenomimage($iddupost, $nomimage);
+		insertawarenesspost($createur, $iddupost, $idcommunaute);
 	}
 
 
