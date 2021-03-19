@@ -100,7 +100,8 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 					echo "<div id='membres'>";
 					echo "<h4> Membre de la communauté : </h4>";
 					// affichemembrenonmodo($membrecommu, "iduser", $idcommu, $communaute);
-					affichemembrecollapse($membrecommu, $idcommu, $communaute);
+					// affichemembrecollapse($membrecommu, $idcommu, $communaute);
+					affichemembrenonmodo($membrecommu, "iduser", $idcommu, $communaute);
 					echo "</div>";
 
 					echo "<div id='moderation'>";
