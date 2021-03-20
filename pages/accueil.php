@@ -64,7 +64,7 @@
 		</div>
 	</div>
 	<div class="container-fluid bruh text-sm-center">
-		<h1 class="display-1 titre mx-auto  w-75">#ShareLife</h1>
+		<h1 class="display-1 titre mx-auto  w-75">#NetBox</h1>
 		<h5>Rejoignez vite la communauté</h5>
 		<!-- <button type="button" class="btn btn-light">Découvrir</button> -->
 	</div>
