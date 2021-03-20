@@ -10,7 +10,7 @@ $commucourante = recupdonnecommuparid($idcommunaute);
 $createur = recupdonneauteurcommu($idcommunaute);
 
 $idcreateur=$createur[0]['idcreateur'];
-
+$nomcommunaute = $commucourante[0]['nom'];
 
 if (!estdejaawarenesspost($_SESSION['id'], $idpost)) {
 
@@ -19,14 +19,16 @@ if (!estdejaawarenesspost($_SESSION['id'], $idpost)) {
 }
 
 
-
 echo '<div class="contener  m-5 communaute p-4">';
 if (estdanscommu($_SESSION['id'], $idcommunaute) || $_SESSION['id']==$idcreateur) {
 
 	?>
 	<div class="col-sm-3 d-flex">
 		<form>
-			<input type = "button" class="btn btn-dark btn-outline-white" value = "Retour à la communauté"  onclick = "history.back()">
+
+<?php 					echo "<a class='stylelien' href=index.php?page=commu" . $nomcommunaute . ">" .  "<input type = 'button' class='btn btn-dark btn-outline-white' value = 'Retour à la communauté'>" 
+ . "</a>"; ?>
+
 		</form>
 	</div>
 	<div class="container col-lg-6 d-flex float-left">
