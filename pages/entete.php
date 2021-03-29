@@ -61,5 +61,13 @@
         <button name='cherchercommu' class="btn btn-outline-success my-2 my-sm-0 m-4" value='Chercher' type="submit">Chercher</button>
     </form>
 
+<?php  $id = $_SESSION['id'];
 
+  $profil = recup_profil_id($id)[0];
+
+?>
+<!-- window open bof bof nouvel onglet onclick="window.open('index.php?page=profil')"-->
+<a href='index.php?page=profil'>
+<img class="roundedImageentete"  src="DATA/profil_pp/<?php echo $profil['picture']; ?>">
+</a>
 </nav>
