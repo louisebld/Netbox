@@ -211,3 +211,13 @@ position:absolute;
 
 
 }
+
+.roundedImageentete{
+    overflow:hidden;
+    -webkit-border-radius:20px;
+    -moz-border-radius:50px;
+    border-radius:30px;
+    width:60px;
+    height:50px;
+    margin-right:10px;
+}
