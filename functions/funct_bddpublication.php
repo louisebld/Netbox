@@ -36,6 +36,25 @@ function recuppost($idcom){
 	return $tableau;
 
 }
+// AND pb.idpost != aw.idpost
+//(aw.iduser != $iduser AND 
+// "SELECT * FROM awarenesspost WHERE iduser != $iduser"
+
+function recuppostByID($idcom,$iduser){
+	// récupère les posts d'une communauté par id (donc par ordre chronologique)
+		global $db;
+		$sql = "SELECT DISTINCT * FROM publication AS pb LEFT JOIN (SELECT * FROM awarenesspost WHERE iduser = $iduser) AS aw ON pb.idpost = aw.idpost WHERE aw.idpost IS NULL AND pb.idcommu = $idcom ORDER BY pb.idpost DESC";
+		$result=  mysqli_query($db, $sql);
+	
+		//on met dans un tableau
+		$tableau = [];
+		while ($row=mysqli_fetch_assoc($result)) {
+			$tableau[] = $row;
+		}
+	
+		return $tableau;
+	
+	}
 
 function recupAuteur($idauteur){
 	//Recupere le nom de la personne qui a créé un post

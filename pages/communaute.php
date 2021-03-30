@@ -10,9 +10,13 @@
 <div class="contener m-5 communaute p-4">
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 		<li class="nav-item">
-			<a class="nav-link active" id="lescommu-tab" data-toggle="tab" href="#commu" role="tab" aria-controls="commu" aria-selected="true"><h7 class="" id="lesCommu">Découvrez les communautés déjà existantes..</h7></a>
+			<a class="nav-link active" id="filActu-tab" data-toggle="tab" href="#filActu" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Quoi de neuf...</h7></a>
 		</li>
 		<?php
+			
+		echo '<li class="nav-item">';
+			echo '<a class="nav-link" id="lescommu-tab" data-toggle="tab" href="#lescommu" role="tab" aria-controls="lescommu" aria-selected="false"><h7 class="" id="lesCommu">Découvrez les communautés déjà existantes...</h7></a>';
+		echo '</li>';
 		
 		if (isset($_SESSION['id'])) {
 			$mescommu = selectcommu($_SESSION['id']);
@@ -27,7 +31,18 @@
 		?>
 	</ul>
 		<div class="tab-content" id="myTabContent">
-			<div class="tab-pane fade show active" id="commu" role="tabpanel" aria-labelledby="lescommu-tab">
+			<div class="tab-pane fade show active" id="filActu" role="tabpanel" aria-labelledby="lescommu-tab">
+				<h4 class="mb-3 mt-4">Quoi de neuf...</h4>	
+					<?php
+						//var_dump($mescommu);
+						//var_dump(recuppostByID($mescommu[0]['idcommu']));
+						$iduser = $_SESSION['id'];
+						var_dump($iduser);
+						afficheFilActu($mescommu, $iduser);
+					
+					?>
+			</div>
+			<div class="tab-pane" id="lescommu" role="tabpanel" aria-labelledby="lescommu-tab">
 				<h4 class="mb-3 mt-4">Les communautés à découvrir ...</h4>	
 				<?php
 					affichecommunonly($tableaucommu);
