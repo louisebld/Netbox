@@ -37,7 +37,7 @@
 						//var_dump($mescommu);
 						//var_dump(recuppostByID($mescommu[0]['idcommu']));
 						$iduser = $_SESSION['id'];
-						var_dump($iduser);
+						
 						afficheFilActu($mescommu, $iduser);
 					
 					?>
@@ -65,7 +65,7 @@
 				?>  -->
 			</div>
 	</div>
-	
+</div>
 
 
 
