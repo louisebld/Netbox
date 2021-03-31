@@ -119,4 +119,4 @@ function afficheboutondelrep($idrep, $idpost) {
 
     </form>
     <?php    
-}}
+}
