@@ -53,3 +53,14 @@
             $post = "post" . $idpost; 
             header("Location:index.php?page=$post");
 }
+
+if (isset($_POST) && isset($_POST["likecom"]) && isset($_SESSION['id'])) {
+	$createur = $_SESSION['id']; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE && isset($_POST['like'])
+	likeCom($_POST["idcom"],$createur);
+	header("Location: ./index.php?page=post" . $_POST['idpost']);
+}
+if (isset($_POST) && isset($_POST["unlikecom"]) && isset($_SESSION['id'])) {
+	$createur = $_SESSION['id']; // ICI IL FAUDRA METTRE LA VARIABLE DE SESSION QUI CONTIENT L'ID DU COMPTE && isset($_POST['like'])
+	unlikeCom($_POST["idcom"],$createur);
+	header("Location: ./index.php?page=post" . $_POST['idpost']);
+}

@@ -51,12 +51,17 @@ function print_com ($com) {
                                 // Affichage du nom de la personne  
                                 echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';
                             echo '</p>';
+                        
                         afficheboutondelcom($value['id'], $value['idpost']);
                         echo '</div>';
                         echo '<div class="clearfix"></div>';
                             //Affichage du commentaire
                             echo '<div class="commentary"><p>Commentaire: ' . $value["com"] . "</p></div>";
                             echo '<p>';
+                            echo afficheLikeBoutonCom($value['idpost'],$value['id']);
+                            echo nbLikeCom(getLikeCom(),$value['id']);
+                            echo afficheUnlikeBoutonCom($value['idpost'],$value['id']);
+                            echo nbUnlikeCom(getUnlikeCom(),$value['id']);
                                 //Pour plus tard
                                 $idcomu =   $value['idcomu'];
                                 $idpost = $value['idpost'];

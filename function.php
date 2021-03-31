@@ -4,6 +4,7 @@ include 'functions/funct_rep.php';
 
 include 'functions/funct_tag.php';
 
+include 'functions/funct_bddlikecom.php';
 include 'functions/funct_com.php';
 include 'functions/funct_rejoincommu.php';
 include 'functions/funct_communaute.php';
@@ -16,7 +17,9 @@ include 'functions/funct_admincommu.php';
 include 'functions/funct_follow.php';
 
 
+
 include 'functions/funct_bddrep.php';
+
 
 include 'functions/funct_bddlike.php';
 include 'functions/funct_bddcommunaute.php';

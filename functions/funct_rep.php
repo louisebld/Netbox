@@ -58,9 +58,14 @@ function print_rep ($rep) {
                                 // Affichage du nom de la personne  
                                 echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';                                                             
                         afficheboutondelrep($value['id'], $value['idpost']);
+
                             echo '</p>';
                         echo '<div class="clearfix">';
                         echo '<div class="commentary"><p>Commentaire: ' . $value["reponse"] . "</p></div>";
+                        echo afficheLikeBoutonCom($value['idpost'],$value['id']);
+                        echo nbLikeCom(getLikeCom(),$value['id']);
+                        echo afficheUnlikeBoutonCom($value['idpost'],$value['id']);
+                        echo nbUnlikeCom(getUnlikeCom(),$value['id']);
                             //Affichage du commentaire
                                 //echo '<a class="float-right btn btn-outline-dark ml-2"> <i class="fa fa-reply"></i> Répondre</a>';
                                 //echo '<a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Aimer</a>';
@@ -114,4 +119,4 @@ function afficheboutondelrep($idrep, $idpost) {
 
     </form>
     <?php    
-}
+}}
