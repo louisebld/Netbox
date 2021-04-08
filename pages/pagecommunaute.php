@@ -27,12 +27,24 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 		<li class="nav-item">
 			<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Abonnés</a>
 		</li>
-			<?php if ($_SESSION['id']==$createur[0]['id']) { ?>
+
+	<?php if (estmodo($_SESSION['id'], $idcommu)) { ?>
 
 		<li class="nav-item">
-			<a class="nav-link" id="contact-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
+			<a class="nav-link" id="signal-tab" data-toggle="tab" href="#signaler" role="tab" aria-controls="signaler" aria-selected="false">Signalement</a>
 		</li>
+
 	<?php } ?>
+
+	<?php if ($_SESSION['id']==$createur[0]['id']) { ?>
+
+		<li class="nav-item">
+			<a class="nav-link" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
+		</li>
+
+		
+	<?php } ?>
+
 	</ul>
 	<div class="container col-lg-8">
 		<div class="tab-content" id="myTabContent">
@@ -82,15 +94,42 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 				</div>
 			</div>
 
-			<?php if ($_SESSION['id']==$createur[0]['id']) {
-			?>
-			<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="contact-tab">
+		<?php if (estmodo($_SESSION['id'], $idcommu)) { ?>
+			<div class="tab-pane fade" id="signaler" role="tabpanel" aria-labelledby="signal-tab">
+				<div class="container descriptioncommu caption img-thumbnail mt-4">
+				
+					<?php
+					affichebarreadmin();
+
+					echo "<div id='membres'>";
+					echo "<h4> Membre de la communauté : </h4>";
+					// affichemembrenonmodo($membrecommu, "iduser", $idcommu, $communaute);
+					// affichemembrecollapse($membrecommu, $idcommu, $communaute);
+					affichemembrenonmodo($membrecommu, "iduser", $idcommu, $communaute);
+					echo "</div>";
+
+					echo "<div id='moderation'>";
+					echo "<h4> Modérateur : </h4>";
+					affichemembremodo($membrecommu, "iduser", $idcommu, $communaute);
+					echo "</div>";
+
+					echo "<h4 id='banni'> Membre ban de votre commu : </h4>";
+					affichemembredeban($utilisateurbanni, "iduser", $idcommu, $communaute);
+					?>
+
+				</div>
+			</div>
+		<?php } ?>
+
+		<?php if ($_SESSION['id']==$createur[0]['id']) { ?>
+
+			<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
 				<div class="container descriptioncommu caption img-thumbnail mt-4">
 				
 					<?php
 
 					affichebarreadmin();
-							//Supprimer une communauté 
+					//Supprimer une communauté 
 					echo "<div class='container text-center mt-4'>";
 					echo "<form method='post' action='index.php?page=communaute'>";
 					echo  "<input id='idcommu' name='idcommu' type='hidden' value= ". $idcommu . ">";
@@ -113,8 +152,21 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 					affichemembredeban($utilisateurbanni, "iduser", $idcommu, $communaute);
 					?>
 				</div>
+
+				<div class="container descriptioncommu caption img-thumbnail mt-4">
+					<?php 
+
+					echo "<div id='membres'>";
+					echo "<h4> Membre de la communauté signalé : </h4>";
+
+					affichemembresignale($membrecommu, "iduser", $idcommu, $communaute);
+					
+					echo "</div>";
+					?>
+				</div>
 			</div>
-		<?php } ?>
+			<?php } ?>
+
 			</div>
 		</div>
 	</div>
