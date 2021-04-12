@@ -29,3 +29,34 @@ global $db;
 
 }
 }
+
+function takefollow($id) {
+
+	global $db;
+
+	$result = mysqli_query($db, "SELECT p.id, p.pseudo, p.picture FROM profil p JOIN follow f ON p.id=f.idfollowed WHERE f.idfollower=$id");
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+
+
+}
+
+
+function takefollower($id) {
+
+	global $db;
+
+	$result = mysqli_query($db, "SELECT p.id, p.pseudo, p.picture FROM profil p JOIN follow f ON p.id=f.idfollower WHERE f.idfollowed=$id");
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+
+
+}
