@@ -42,3 +42,13 @@ function afficheboutonunfollow($idutilisateurcourant) {
 	<?php	 
 }
 
+function affichefollow($mesfollow){
+
+		foreach ($mesfollow as $key => $value) {
+			// var_dump(recup_profil_id($value['idfollowed']));
+			// $personne = recup_profil_id($value['idfollowed']);
+			// var_dump($personne);
+			// echo $personne[0]['pseudo'];
+
+		}
+}
