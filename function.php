@@ -34,4 +34,6 @@ include 'functions/funct_bddadmincommu.php';
 include 'functions/funct_bddawarenesspost.php';
 include 'functions/funct_bddfollow.php';
 include 'functions/funct_bddmessagecommu.php';
+include 'functions/funct_bddsuggestionprofil.php';
+
 

@@ -103,7 +103,15 @@ if (isset($_SESSION['id'])) {
 		<a href="index.php?page=profil&modif=all"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Editer</button></a>
 
 
-
+		<hr>
+		<p>Suggestion de profil : 
+		<?php
+		$usersuggest = getSuggestion($id);
+		foreach ($usersuggest as $key => $value) {
+			affichemembre(recupDonneProfil($value),'id');
+		}
+		?>
+		</p>
 	</div>
 	<hr style="height: 100px;">
 	<?php 
