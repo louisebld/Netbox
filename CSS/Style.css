@@ -221,3 +221,10 @@ position:absolute;
     height:50px;
     margin-right:10px;
 }
+
+
+#discussion{
+	height: 78vh;
+	box-shadow: 0 0 5px grey;
+	overflow-y: scroll;
+}
