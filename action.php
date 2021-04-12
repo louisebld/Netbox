@@ -11,6 +11,6 @@ include 'actions/action_joincommu.php';
 include 'actions/action_downloadpost.php';
 include 'actions/action_admincommu.php';
 include 'actions/action_follow.php';
-include 'actions/action_messagecommu.php';
+// include 'actions/action_messagecommu.php';
 
  ?>
