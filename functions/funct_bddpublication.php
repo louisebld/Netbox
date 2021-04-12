@@ -43,7 +43,8 @@ function recuppost($idcom){
 function recuppostByID($idcom,$iduser){
 	// récupère les posts d'une communauté par id (donc par ordre chronologique)
 		global $db;
-		$sql = "SELECT DISTINCT * FROM publication AS pb LEFT JOIN (SELECT * FROM awarenesspost WHERE iduser = $iduser) AS aw ON pb.idpost = aw.idpost WHERE aw.idpost IS NULL AND pb.idcommu = $idcom ORDER BY pb.idpost DESC";
+		//$sql = "SELECT DISTINCT * FROM publication AS pb LEFT JOIN (SELECT * FROM awarenesspost WHERE iduser = $iduser) AS aw ON pb.idpost = aw.idpost WHERE aw.idpost IS NULL AND pb.idcommu = $idcom ORDER BY pb.idpost DESC";
+		$sql = "SELECT * FROM publication pb WHERE NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $iduser AND pb.idpost = aw.idpost)";
 		$result=  mysqli_query($db, $sql);
 	
 		//on met dans un tableau

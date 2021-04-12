@@ -25,7 +25,7 @@ function print_formulairecreationpost() {
 
 
 		<br/>
-		<center><input type="submit" class="btn btn-primary" name="poster" id="poster" value="Créer" /></center>
+		<center><input type="submit" class="btn btn-pritaby" name="poster" id="poster" value="Créer" /></center>
 
 	</form>
 
@@ -187,20 +187,32 @@ function supprimephotopost($nomphoto){
 	unlink('images/post/' . $nomphoto);
 }
 
+function triFilActuByID($commu){
+
+	
+}
 
 function afficheFilActu($mescommu, $iduser){
-	$tab = [];
-	//var_dump(sizeof($mescommu));
+	//Recuperation des posts selon les differentes communaute
+	$tabPost = [];
+	$tabPost[] = recuppostByID($mescommu, $iduser);
+	$tabPost = $tabPost[0];
+	//Tri des posts selon leur ids
+	$keys = array_column($tabPost, 'idpost');
+	array_multisort($keys, SORT_ASC, $tabPost);
+	//var_dump($tabPost);
+	
+
+
+	//usort($tabPost, function($a,$b){return $a['idpost']-$b['idpost'];});
+
 	//var_dump($mescommu);
-	for ($i=0; $i < sizeof($mescommu); $i++) { 	
-		$tab[] = recuppostByID($mescommu[$i]['idcommu'], $iduser);
-	}
-	//var_dump($tab);
+	//var_dump($tabPost);
 	echo '<div class="container">';
 		echo"<div class='row'>";
-			foreach ($tab as $key => $value) {
+			//foreach ($tabPost as $key => $value) {
 				//var_dump($value);
-				foreach ($value as $key2 => $value2) {
+				foreach ($tabPost as $key2 => $value2) {
 					//var_dump(array_unique($value2));
 					echo '<div class="col-sm-12 col-lg-7 mx-auto my-4">';	
 						echo '<div class="card" style=";">';
@@ -212,7 +224,7 @@ function afficheFilActu($mescommu, $iduser){
 						echo '</div>';
 					echo '</div>';
 				}
-			}
+			//}
 		echo '</div>';
 	echo '</div>';
 }
