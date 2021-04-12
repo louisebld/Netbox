@@ -121,6 +121,19 @@ if (isset($_SESSION['id'])) {
 
 }
 
+echo '<div class="container">';
+echo '<h5> Mes follows </h5>';
+$mesfollow = takefollow($_SESSION['id']);
+
+
+affichemembre($mesfollow, "id");
+
+echo '<h5> Mes followers </h5>';
+$mesfollower = takefollower($_SESSION['id']);
+
+
+affichemembre($mesfollower, "id");
+echo '</div>';
 
 
 ?>
