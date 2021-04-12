@@ -228,3 +228,7 @@ position:absolute;
 	box-shadow: 0 0 5px grey;
 	overflow-y: scroll;
 }
+
+.aligndroite {
+	text-align:right;
+}

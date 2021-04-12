@@ -22,6 +22,7 @@ function chargeMessages(){
 
 
     let idcommunaute = document.querySelector('#iddemacommu').value
+    let monid = document.querySelector('#idutilisateur').value
     //console.log(idcommunaute)
 
     // donnees = {}
@@ -48,9 +49,17 @@ function chargeMessages(){
                     // On transforme la date du message en JS
                     let dateMessage = new Date(message.datemessage)
 
+                    if (monid == message.utilisateur){
                     // On ajoute le contenu avant le contenu actuel de discussion
                     // discussion.innerHTML = discussion.innerHTML + `<p>${message.pseudo} a écrit le ${dateMessage.toLocaleString()} : ${message.message}</p>` 
-                     discussion.innerHTML = discussion.innerHTML + `<p>${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message}</p>` 
+                     discussion.innerHTML = discussion.innerHTML + `<p class='aligndroite'><button type="button" class="btn btn-lg btn-success" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message} </button></p>` 
+
+                 	}
+                 	else {
+   						   discussion.innerHTML = discussion.innerHTML + `<p><button type="button" class="btn btn-lg btn-primary" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message} </button></p>` 
+
+                 	}
+// <p class='barre'>${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message}</p>
 
                     // On met à jour le lastId
                     lastId = message.idmessage
