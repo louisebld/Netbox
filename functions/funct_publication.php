@@ -215,14 +215,16 @@ function afficheFilActu($mescommu, $iduser){
 				foreach ($tabPost as $key2 => $value2) {
 					//var_dump(array_unique($value2));
 					echo '<div class="col-sm-12 col-lg-7 mx-auto my-4">';	
-						echo '<div class="card" style=";">';
-							echo affiche_imagepost($value2['image']);
-							echo '<div class="card-body">';
-								echo '<h5 class="card-title">'. "tom" .'</h5>';
-								echo '<p class="card-text">' . $value2['description'] . '</p>';
+						echo "<a class='stylelien' href=index.php?page=post" . $value2['idpost'] . ">";
+							echo '<div class="card" style=";">';
+								echo affiche_imagepost($value2['image']);
+									echo '<div class="card-body">';
+										echo '<h5 class="card-title">'. "tom" .'</h5>';
+										echo '<p class="card-text">' . $value2['description'] . '</p>';
+									echo '</div>';
+								echo '</div>';
 							echo '</div>';
-						echo '</div>';
-					echo '</div>';
+						echo "</a>";
 				}
 			//}
 		echo '</div>';
