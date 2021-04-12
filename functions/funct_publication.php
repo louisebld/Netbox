@@ -199,7 +199,7 @@ function afficheFilActu($mescommu, $iduser){
 	$tabPost = $tabPost[0];
 	//Tri des posts selon leur ids
 	$keys = array_column($tabPost, 'idpost');
-	array_multisort($keys, SORT_ASC, $tabPost);
+	array_multisort($keys, SORT_DESC, $tabPost);
 	//var_dump($tabPost);
 	
 
