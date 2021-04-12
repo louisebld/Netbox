@@ -11,15 +11,21 @@ $donnepost = recuppost($idcommu);
 $_SESSION['donnepost'] = $donnepost;
 $moderationcommu = recupmodocommu($idcommu);
 $utilisateurbanni=recupbannicommu($idcommu);
-
+$messagesdelacommu = recupmessagecommu($idcommu);
 
 if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 ?>
+
+<input type="hidden" id="iddemacommu" name="iddemacommu" value="<?php echo $idcommu; ?>" />
+
 <div class="contener col-l-6 m-5 communaute p-4">
 	
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 		<li class="nav-item">
 			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="tchat-tab" data-toggle="tab" href="#tchat" role="tab" aria-controls="tchat" aria-selected="false">Tchat</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Stats</a>
@@ -59,6 +65,17 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 					</div>
 				</div>
 			</div>
+
+			<div class="tab-pane fade" id="tchat" role="tabpanel" aria-labelledby="tchat-tab">
+				<div class="container descriptioncommu caption img-thumbnail mt-4">
+					<h4> TCHAT </h4>
+					<?php
+					//affichemessagecommu($messagesdelacommu);
+					print_formulairemessagecommu($idcommu);
+					?>
+				</div>
+			</div>
+
 			<div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
 				<div class="container descriptioncommu caption img-thumbnail mt-4">
 					<?php
