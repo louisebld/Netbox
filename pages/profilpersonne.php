@@ -15,8 +15,10 @@ $profil = recup_profil_id($idpersonne)[0];
 			afficheboutonfollow($idpersonne);
 
 		}
-}
-		?>
+		afficheboutondm($idpersonne);
+	}
+	?>
+			
 		<img style="width: 50%; margin-left: 25%; margin-top: 50px;" src="DATA/profil_pp/<?php echo $profil['picture']; ?>" >
 
 		<div style="display: flex;">

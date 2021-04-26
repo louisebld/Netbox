@@ -15,6 +15,7 @@ include 'functions/funct_publication.php';
 include 'functions/funct_profilpersonne.php';
 include 'functions/funct_admincommu.php';
 include 'functions/funct_follow.php';
+include 'functions/funct_dm.php';
 include 'functions/funct_messagecommu.php';
 // include 'functions/ajoutMessage.php';
 
