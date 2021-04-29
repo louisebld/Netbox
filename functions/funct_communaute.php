@@ -258,3 +258,161 @@ function affichecommunonly($tableaucommu){
 		echo "</div>";
 	echo "</div>";
 }
+
+
+
+function affichemodificationcommunaute($idcommunaute){
+
+	echo "<div class='container text-center mt-4'>";
+	echo "<form method='post' action='index.php?page=communaute'>";
+	echo  "<input id='idcommu' name='idcommu' type='hidden' value= ". $idcommunaute . ">";
+	echo "<input type='submit' name='delcommu' class='btn btn-danger' value='Supprimer la communauté'/>" . "</p>";
+	echo  "</div>";
+	echo "</form>";
+	echo "<div id='membres'>";
+}
+
+
+function formulairemodificationnomcommu($communaute, $idcommunaute){
+?>
+
+							<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Changementnommodal">
+			  Changer le nom
+			</button>
+
+			<form method="post" action="index.php?page=communaute" enctype="multipart/form-data">
+
+			<!-- Modal -->
+			<div class="modal fade" id="Changementnommodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Changement du nom de votre communauté</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+
+
+				<input type="text" placeholder="Nom de votre communauté" class="form-control" name="nomcommunautechangementnom"  value="<?php echo $communaute; ?>" required>
+
+				<input type='hidden' name='idcommu' value="<?php echo $idcommunaute ?>">
+
+
+			      </div>
+			      <div class="modal-footer">
+					<input type="submit" class="btn btn-primary" name="changementnomcommu" id="changementnomcommu" value="Changer"/>
+					</form>
+
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
+
+<?php
+
+}
+
+function formulairemodificationdescriptioncommu($description, $idcommunaute){
+?>
+
+							<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Changementdescriptionmodal">
+			  Changer la description
+			</button>
+
+			<form method="post" action="index.php?page=communaute" enctype="multipart/form-data">
+
+			<!-- Modal -->
+			<div class="modal fade" id="Changementdescriptionmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Changement de la description de votre communauté</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+
+
+			    <textarea id="nouvelledescription" name="nouvelledescription" class="form-control" rows="5" cols="33"><?php echo $description; ?></textarea required>
+
+				<input type='hidden' name='idcommu' value="<?php echo $idcommunaute ?>">
+
+
+			      </div>
+			      <div class="modal-footer">
+					<input type="submit" class="btn btn-primary" name="changementdescriptioncommu" id="changementdescriptioncommu" value="Changer"/>
+					</form>
+
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
+
+<?php
+
+}
+
+
+
+function formulairemodificationimagecommu($idcommunaute){
+?>
+
+							<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Changementimagemodal">
+			  Changer la photo
+			</button>
+
+			<form method="post" action="index.php?page=communaute" enctype="multipart/form-data">
+
+			<!-- Modal -->
+			<div class="modal fade" id="Changementimagemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Changement de la photo de votre communauté</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+
+
+				<input type="file" name="nouvelleimagecommu" class="form-control">
+
+
+				<input type='hidden' name='idcommu' value="<?php echo $idcommunaute ?>">
+
+
+			      </div>
+			      <div class="modal-footer">
+					<input type="submit" class="btn btn-primary" name="changementimagecommu" id="changementimagecommu" value="Changer"/>
+					</form>
+
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
+
+<?php
+
+}
+							
+
+
