@@ -3,7 +3,7 @@ $communaute= savoircommu($_GET["page"]);
 $donnecommunaute=recupdonnecommu($communaute);
 $idcommu = $donnecommunaute[0]['idcommu'];
 $createur = recupdonneauteurcommu($idcommu);
-
+$description = $donnecommunaute[0]['description'];
 $idcreateur=$createur[0]['idcreateur'];
 
 $membrecommu = selectusercommu($idcommu, $idcreateur);
@@ -152,9 +152,20 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 					echo  "<input id='idcommu' name='idcommu' type='hidden' value= ". $idcommu . ">";
 					echo  "<input id='nomphoto' name='nomphoto' type='hidden' value= ". $donnecommunaute[0]['image'] . ">";
 					echo "<input type='submit' name='delcommu' class='btn btn-danger' value='Supprimer la communauté'/>" . "</p>";
+					echo "</form>";
+					formulairemodificationnomcommu($communaute, $idcommu);
+					formulairemodificationdescriptioncommu($description,$idcommu);
+					formulairemodificationimagecommu($idcommu);
+
 					echo  "</div>";
+
+
+
+
+
 					echo "<div id='membres'>";
 					echo "<h4> Membre de la communauté : </h4>";
+
 					// affichemembrenonmodo($membrecommu, "iduser", $idcommu, $communaute);
 					// affichemembrecollapse($membrecommu, $idcommu, $communaute);
 					affichemembrenonmodo($membrecommu, "iduser", $idcommu, $communaute);
