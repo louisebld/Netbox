@@ -216,3 +216,25 @@ global $db;
 
 }
 }
+
+
+function changernomcommu($nouveaunom, $idcommu){
+	global $db;
+	$sql = "UPDATE communaute SET nom = '$nouveaunom' WHERE idcommu = $idcommu";
+	$results = mysqli_query($db,$sql);
+
+}
+
+function changerdescriptioncommu($nouvelledescription, $idcommu){
+	global $db;
+	$sql = "UPDATE communaute SET description = '$nouvelledescription' WHERE idcommu = $idcommu";
+	$results = mysqli_query($db,$sql);
+
+}
+
+function changerimagecommu($nouvelleimage, $idcommu){
+	global $db;
+	$sql = "UPDATE communaute SET image = '$nouvelleimage' WHERE idcommu = $idcommu";
+	$results = mysqli_query($db,$sql);
+
+}
