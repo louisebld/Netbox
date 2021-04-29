@@ -1,4 +1,30 @@
-<?php 
+
+
+
+<div class="contener m-5 communaute p-4">
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="filActu-tab" data-toggle="tab" href="#monprofil" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Mon profil</h7></a>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link" id="filActu-tab" data-toggle="tab" href="#follow" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Mes follows</h7></a>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link" id="filActu-tab" data-toggle="tab" href="#followers" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Mes followers</h7></a>
+		</li>
+
+	</ul>
+		<div class="tab-content" id="myTabContent">
+
+
+
+
+<?php
+
+
+
 if (isset($_SESSION['id'])) {
 	$id = $_SESSION['id'];
 
@@ -81,6 +107,9 @@ if (isset($_SESSION['id'])) {
 		
 	} else {	
 		?>
+
+	<div class="tab-pane fade show active" id="monprofil" role="tabpanel" aria-labelledby="lescommu-tab">
+
 		<div style="margin-left: 12.5%; width: 75%; margin-top: 50px;">
 		<img style="width: 50%; margin-left: 25%; margin-top: 50px;" src="DATA/profil_pp/<?php echo $profil['picture']; ?>" >
 		<hr>
@@ -104,16 +133,10 @@ if (isset($_SESSION['id'])) {
 
 
 		<hr>
-		<p>Suggestion de profil : 
-		<?php
-		$usersuggest = getSuggestion($id);
-		foreach ($usersuggest as $key => $value) {
-			affichemembre(recupDonneProfil($value),'id');
-		}
-		?>
-		</p>
+				</div>
+
 	</div>
-	<hr style="height: 100px;">
+	<!-- <hr style="height: 100px;"> -->
 	<?php 
 }
 
@@ -129,19 +152,36 @@ if (isset($_SESSION['id'])) {
 
 }
 
-echo '<div class="container">';
-echo '<h5> Mes follows </h5>';
-$mesfollow = takefollow($_SESSION['id']);
 
 
-affichemembre($mesfollow, "id");
+echo '<div class="tab-pane" id="follow" role="tabpanel" aria-labelledby="lescommu-tab">';
 
+	echo '<h5> Mes follows </h5>';
+	$mesfollow = takefollow($_SESSION['id']);
+	affichemembre($mesfollow, "id");
+	echo "<h5> Suggestion de profil : </h5>";
+		$usersuggest = getSuggestion($id);
+
+		if ($usersuggest!=[]){
+
+		foreach ($usersuggest as $key => $value) {
+			affichemembre(recupDonneProfil($value),'id');
+		}
+	}
+	else {
+		echo "Vous n'avez pas de suggestions :(";
+	}
+
+echo '</div>';
+
+echo '<div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="mescommu-tab">';
 echo '<h5> Mes followers </h5>';
 $mesfollower = takefollower($_SESSION['id']);
-
-
 affichemembre($mesfollower, "id");
+
 echo '</div>';
 
 
 ?>
+	</div>
+</div>
