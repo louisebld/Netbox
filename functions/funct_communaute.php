@@ -138,12 +138,12 @@ function affichecommun($tableaucommu){
 
 	// $tableaucommu : tableau associatif contenant les infos des communautés
 
-	echo"<div class='container images-wrapper d-flex'>";
+	echo"<div class='container' data-masonry='{'percentPosition': true }'>";
 		echo "<div class='card-columns'>";
 
 		foreach ($tableaucommu as $key => $value) {
 			//Affichage
-			
+				echo '<div class="col-sm-6 col-lg-4 mb-4">';
 				echo '<div class="card" style="width: 18rem;">';
 
 				if (!estbannicommu($_SESSION['id'], $value['idcommu'])) {
@@ -158,17 +158,19 @@ function affichecommun($tableaucommu){
 							echo '<button class="btn btn-warning boutonnbpost disabled btn-circle btn-lg">'. $vue . '</button>';
 						}					}
 				
-					echo '<h5 class="card-title">';
-					echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
-					echo '</h5>';
+					
 					echo '<div class="image_button_superposed">';
 						echo affiche_imagecommu($value['image']);
 					echo '</div>';
 					echo '<div class="card-body">';
+					echo '<h5 class="card-title">';
+					echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+					echo '</h5>';
 						echo '<p class="card-text"><h5>' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
 					echo '</div>';
 				echo '</div>';
 				echo '</a>';
+				echo '</div>';
 			}
 		}
 		echo "</div>";
@@ -209,13 +211,14 @@ function affichecommunonly($tableaucommu){
 
 	// $tableaucommu : tableau associatif contenant les infos des communautés
 
-	echo"<div class='container images-wrapper d-flex'>";
+	echo"<div class='container' data-masonry='{'percentPosition': true }'>";
 		echo "<div class='card-columns'>";
 
 		foreach ($tableaucommu as $key => $value) {
 			//Affichage
 			// var_dump($value['idcreateur']);
 			if (!estdanscommu($_SESSION['id'], $value['idcommu']) && $_SESSION['id'] != intval($value['idcreateur'])) {
+				echo '<div class="col-sm-6 col-lg-4 mb-4">';
 				echo '<div class="card" style="width: 18rem;">';
 
 
@@ -250,6 +253,7 @@ function affichecommunonly($tableaucommu){
 							}
 						}
 					echo '</div>';
+				echo '</div>';
 				echo '</div>';
 				echo '</a>';
 			}
