@@ -5,6 +5,7 @@ $profil = recup_profil_id($idpersonne)[0];
 
 
 <div style="margin-left: 12.5%; width: 75%; margin-top: 50px;">
+<script src="js/scriptDM.js"></script>
 								<?php
 
 	if ($_SESSION['id']!= $idpersonne){
