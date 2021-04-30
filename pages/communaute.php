@@ -28,6 +28,10 @@
 			// }
 		}
 			
+		
+		echo '<li class="nav-item">';
+			echo '<a class="nav-link" id="messuggestion-tab" data-toggle="tab" href="#messuggestion" role="tab" aria-controls="messuggestion" aria-selected="false"><h7 class="" id="lesSuggestion">Mes Suggestions</h7></a>';
+		echo '</li>';
 		?>
 	</ul>
 		<div class="tab-content" id="myTabContent">
@@ -49,21 +53,33 @@
 
 				?>
 			</div>
+
 			<div class="tab-pane fade" id="mescommu" role="tabpanel" aria-labelledby="mescommu-tab">
 				<h4 class="mb-3  mt-4">Mes communautés</h4>				
 				<?php				
 					if (isset($_SESSION['id'])) {
 						affichecommun($mescommu);
 					}
-				?>   
-	<!-- <h4 class="mb-3  mt-4">Vos communautés crées</h4>
+				?> 
+				<!-- <h4 class="mb-3  mt-4">Vos communautés crées</h4>
 				<?php
-					 // if (isset($_SESSION['id'])) {
-					 // 	$commucree = charge_commuparid($_SESSION['id']);
-					 // 	affichecommun($commucree);
-					//}
-				?>  -->
+						// if (isset($_SESSION['id'])) {
+						// 	$commucree = charge_commuparid($_SESSION['id']);
+						// 	affichecommun($commucree);
+						//}
+					?>  -->
 			</div>
+			
+			<div class="tab-pane" id="messuggestion" role="tabpanel" aria-labelledby="messuggestion-tab">
+				<h4 class="mb-3  mt-4">Mes suggestions</h4>				
+				<?php				
+					if (isset($_SESSION['id'])) {
+						$suggestion = getSuggestionCommu($_SESSION['id']);
+						affichecommun($suggestion);
+					}
+				?>   
+			</div>
+
 	</div>
 </div>
 

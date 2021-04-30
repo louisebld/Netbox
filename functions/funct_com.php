@@ -58,10 +58,21 @@ function print_com ($com) {
                             //Affichage du commentaire
                             echo '<div class="commentary"><p>Commentaire: ' . $value["com"] . "</p></div>";
                             echo '<p>';
-                            echo afficheLikeBoutonCom($value['idpost'],$value['id']);
-                            echo nbLikeCom(getLikeCom(),$value['id']);
-                            echo afficheUnlikeBoutonCom($value['idpost'],$value['id']);
-                            echo nbUnlikeCom(getUnlikeCom(),$value['id']);
+                            //like
+                            echo '<div class="text-center">';
+                                $like = nbLikeCom(getLikeCom(),$value['id']);
+                                $dislike = nbUnlikeCom(getUnlikeCom(),$value['id']);
+                                echo '<div class="container">';
+                                    echo '<div class="d-inline-flex">';
+                                        echo afficheLikeBoutonCom($value['idpost'],$value['id']);
+                                        echo '<p class="text-danger mx-2">' . $like . '</p>';
+                                    echo '</div>';
+                                    echo '<div class="d-inline-flex">';
+                                        echo afficheUnlikeBoutonCom($value['idpost'],$value['id']);
+                                        echo '<p class="mx-2">' . $dislike . '</p>';
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>'; 
                                 //Pour plus tard
                                 $idcomu =   $value['idcomu'];
                                 $idpost = $value['idpost'];

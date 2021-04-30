@@ -62,10 +62,22 @@ function print_rep ($rep) {
                             echo '</p>';
                         echo '<div class="clearfix">';
                         echo '<div class="commentary"><p>Commentaire: ' . $value["reponse"] . "</p></div>";
-                        echo afficheLikeBoutonCom($value['idpost'],$value['id']);
-                        echo nbLikeCom(getLikeCom(),$value['id']);
-                        echo afficheUnlikeBoutonCom($value['idpost'],$value['id']);
-                        echo nbUnlikeCom(getUnlikeCom(),$value['id']);
+
+                        //like
+                        echo '<div class="text-center">';
+                            $like = nbLikeCom(getLikeCom(),$value['id']);
+                            $dislike = nbUnlikeCom(getUnlikeCom(),$value['id']);
+					        echo '<div class="container">';
+					            echo '<div class="d-inline-flex">';
+                                    echo afficheLikeBoutonCom($value['idpost'],$value['id']);
+                                    echo '<p class="text-danger mx-2">' . $like . '</p>';
+                                echo '</div>';
+                                echo '<div class="d-inline-flex">';
+                                    echo afficheUnlikeBoutonCom($value['idpost'],$value['id']);
+                                    echo '<p class="mx-2">' . $dislike . '</p>';
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>'; 
                             //Affichage du commentaire
                                 //echo '<a class="float-right btn btn-outline-dark ml-2"> <i class="fa fa-reply"></i> Répondre</a>';
                                 //echo '<a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Aimer</a>';

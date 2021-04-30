@@ -140,14 +140,25 @@ function affichemonpost($donnepost){
 				$createur = recupdonneauteurpost($donnepost[0]["idpost"]);
 				echo '<h5 class="card-title">' . affichemembre ($createur, "id") . "</h5>";
 				echo '<p class="card-text">' . $donnepost[0]['description'] . '</p>';
-
+				
 				//Pour liker le post
-				echo '<div class="text-end">';
+				$like = nbLike(getLike(),$donnepost[0]['idpost']);
+				$dislike = nbUnlike(getUnlike(),$donnepost[0]['idpost']);
+				$ratio = ($like / ($like + $dislike)) * 100;
+				echo '<div class="text-center">';
 					echo '<div class="container">';
-							echo nbLike(getLike(),$donnepost[0]['idpost']);
+					echo '<div class="d-inline-flex">';
 							echo afficheLikeBouton($donnepost[0]['idpost']);
-							echo nbUnlike(getUnlike(),$donnepost[0]['idpost']);
+							echo '<p class="text-danger mx-2">' . $like . '</p>';
+					echo '</div>';
+					echo '<div class="d-inline-flex">';
 							echo afficheUnlikeBouton($donnepost[0]['idpost']);
+							echo '<p class="mx-2">' . $dislike . '</p>';
+					echo '</div>';
+					echo '<div class="progress bg-dark">';
+						echo '<div class="progress-bar bg-danger" role="progressbar" aria-valuenow="'.$ratio.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$ratio.'%;">';
+						echo '</div>';
+					echo '</div>';
 			echo'</div>';
 		echo'</div>';
 		
