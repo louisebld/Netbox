@@ -63,25 +63,106 @@
 
 		</div>
 	</div>
-	<div class="container-fluid bruh text-sm-center">
-		<h1 class="display-1 titre mx-auto  w-75">#NetBox</h1>
-		<h5>Rejoignez vite la communauté</h5>
+	<?php 
+	function recup_photo_carroussel(){
+		global $db;
+		$sql = "SELECT nom,image FROM communaute ORDER BY RAND()LIMIT 6";
+		$result=  mysqli_query($db, $sql);
+	
+		$tableau = [];
+		while ($row=mysqli_fetch_assoc($result)) {
+			$tableau[] = $row;
+		}
+	
+		return $tableau;
+	}
+
+	function affiche_photo_carroussel($tableau){
+		for ($i=0; $i < sizeof($tableau); $i++) { 
+			if ($i == 0){
+				echo '<div class="carousel-item active opacity">';
+					echo '<img src="images/commu/' . $tableau[$i]['image'] . '" class="d-block w-100" alt="bruh">';
+					echo '<div class="carousel-caption d-none d-md-block" style="background-color: #22223B; opacity: 0.75;">';
+						echo '<h1 class="display-1 mx-auto w-75" style="font-size:100;">' . $tableau[$i]['nom'] . '</h1>';
+						echo '<h5 style="">Rejoignez vite la communauté</h5>';
+					echo '</div>';
+				echo '</div>';
+			} else {
+				echo '<div class="carousel-item">';
+					echo '<img src="images/commu/' . $tableau[$i]['image'] . '" class="d-block w-100" alt="bruh">';
+					echo '<div class="carousel-caption d-none d-md-block" style="background-color: #22223B; opacity: 0.75;">';
+						echo '<h1 class="display-1 mx-auto  w-75">' . $tableau[$i]['nom'] . '</h1>';
+						echo '<h5>Rejoignez vite la communauté</h5>';
+					echo '</div>';
+				echo '</div>';
+			}
+		}
+	}
+
+	function buttons_carrousel($tableau){
+		for ($i=0; $i < sizeof($tableau); $i++) { 
+			if ($i == 0){
+				echo '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>';
+		
+			}else {
+				echo '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>';
+			}
+		}
+	}
+
+	?>
+
+
+	<!-- <div class="container bruh text-sm-center h-600"> -->
+	<div class="communaute mx-4 p-4 mh-75">
+		<div class="container m-auto h-25">
+			<div id="carouselAccueil" class="carousel slide carousel-fade h-10 w-100" data-bs-ride="carousel">
+				<?php
+					$tab = recup_photo_carroussel();
+				?>
+				<div class="carousel-indicators">
+					<?php	
+						buttons_carrousel($tab);
+					?>
+				</div>
+				<div class="carousel-inner">
+				
+					<?php
+						
+						affiche_photo_carroussel($tab);
+					?>
+					
+				</div>
+				<a class="carousel-control-prev" href="#carouselAccueil" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				<a class="carousel-control-next" href="#carouselAccueil" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container text-sm-center">
+		<h1 class="display-1 mx-auto mt-4 w-75" style="font-size: 150px;">#NetBox</h1>
 		<!-- <button type="button" class="btn btn-light">Découvrir</button> -->
 	</div>
 
-	<div class="container mt-5">
-		<div class="row">
-			<div class="col-lg-4">
-				<h5 class="text-center">Créez vos communautés</h5>
-				<img class="card-img-top pt-2 img-article-board" src="images/commu.png">
-			</div>
-			<div class="col-lg-4">
-				<h5 class="text-center">Partagez vos photos avec le monde entier</h5>
-				<img class="card-img-top pt-2 img-article-board" src="images/partage.png">
-			</div>
-			<div class="col-lg-4">
-				<h5 class="text-center">Aimez, commentez, partagez</h5>
-				<img class="card-img-top pt-2 img-article-board" src="images/like.png">
+	<div class=" mx-4 my-4 p-4">
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-lg-4">
+					<h5 class="text-center">Créez vos communautés</h5>
+					<img class="card-img-top pt-2 img-article-board " src="images/commu.png">
+				</div>
+				<div class="col-lg-4">
+					<h5 class="text-center">Partagez vos photos avec le monde entier</h5>
+					<img class="card-img-top pt-2 img-article-board" src="images/partage.png">
+				</div>
+				<div class="col-lg-4">
+					<h5 class="text-center">Aimez, commentez, partagez</h5>
+					<img class="card-img-top pt-2 img-article-board" src="images/like.png">
+				</div>
 			</div>
 		</div>
 	</div>
