@@ -36,15 +36,13 @@ function recuppost($idcom){
 	return $tableau;
 
 }
-// AND pb.idpost != aw.idpost
-//(aw.iduser != $iduser AND 
-// "SELECT * FROM awarenesspost WHERE iduser != $iduser"
+
 
 function recuppostByID($idcom,$iduser){
-	// récupère les posts d'une communauté par id (donc par ordre chronologique)
+		// récupère les posts d'une communauté par id (donc par ordre chronologique)
 		global $db;
 		//$sql = "SELECT DISTINCT * FROM publication AS pb LEFT JOIN (SELECT * FROM awarenesspost WHERE iduser = $iduser) AS aw ON pb.idpost = aw.idpost WHERE aw.idpost IS NULL AND pb.idcommu = $idcom ORDER BY pb.idpost DESC";
-		$sql = "SELECT * FROM publication pb WHERE NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $iduser AND pb.idpost = aw.idpost)";
+		$sql = "SELECT * FROM publication pb WHERE NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $iduser AND pb.idpost = aw.idpost) AND EXISTS (SELECT * FROM joincommu jc WHERE jc.iduser=$iduser AND pb.idcommu=jc.idcommu)";
 		$result=  mysqli_query($db, $sql);
 	
 		//on met dans un tableau
@@ -138,4 +136,55 @@ function recupnbcom($iduser, $idcommu){
 
 	return count($tableau);
 
+}
+
+
+
+function recup_mes_posts_selon_user($iduser, $idfollow){
+	//Recupere tous les posts posté d'un utilisateur
+	
+	global $db;
+	//$sql = "SELECT DISTINCT * FROM publication AS pb LEFT JOIN (SELECT * FROM awarenesspost WHERE iduser = $iduser) AS aw ON pb.idpost = aw.idpost WHERE aw.idpost IS NULL AND pb.idcommu = $idcom ORDER BY pb.idpost DESC";
+	$sql = "SELECT * FROM publication pb WHERE idauteur=$iduser AND NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $idfollow AND pb.idpost = aw.idpost)";
+	$result=  mysqli_query($db, $sql);
+
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}
+
+
+function recup_mes_posts_selon_user_selon_like($iduser, $idfollow){
+	
+	global $db;
+	//$sql = "SELECT DISTINCT * FROM publication AS pb LEFT JOIN (SELECT * FROM awarenesspost WHERE iduser = $iduser) AS aw ON pb.idpost = aw.idpost WHERE aw.idpost IS NULL AND pb.idcommu = $idcom ORDER BY pb.idpost DESC";
+	$sql = "SELECT * FROM publication pb WHERE NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $idfollow AND pb.idpost = aw.idpost) AND EXISTS (SELECT * FROM likes lk WHERE pb.idpost=lk.idpost AND lk.iduser=$iduser)";
+	$result=  mysqli_query($db, $sql);
+
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}
+
+function user_est_dans_commu ($iduser, $idcommu){
+	global $db;
+	
+	$res = false;
+	
+	$sql = "SELECT * FROM joincommu WHERE idcommu = $idcommu AND idauteur=$iduser ";
+	$result=  mysqli_query($db, $sql);
+
+	if (!empty($result)){
+		$res = true;
+	}
+
+	return $res;
 }
