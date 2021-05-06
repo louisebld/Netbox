@@ -40,7 +40,11 @@ function affiche_imagepost($nomimage){
 
 }
 
+function affiche_imagepost_blackwhite($nomimage){
 
+	return $img = '<img src="./images/post/' . $nomimage . '" alt="post" class="card-img-top pt-2 img-article-board p-2" style="filter : blur(7px)"/>';
+
+}
 
 
 function affichepost($tableaupost){
