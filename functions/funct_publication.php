@@ -214,30 +214,64 @@ function afficheFilActu($mescommu, $iduser){
 	$tabPost = [];
 	$tabPost[] = recuppostByID($mescommu, $iduser);
 	$tabPost = $tabPost[0];
+
+	//recupere posts selon ce que les followers ont posté et que l'user n'a pas vu 
+	$mesfollow = takefollow($_SESSION['id']);
+
+	//On recupere pour chaque follower ce qu'il a posté/liké mais que l'autre n'a pas vu
+	foreach ($mesfollow as $key => $value) {
+		$tabPostFollowers = recup_mes_posts_selon_user($value['id'], $iduser);
+		$tabPostLikedByFollowers = recup_mes_posts_selon_user_selon_like($value['id'], $iduser);
+	}
+	//Ajout des resultats dans le tableau de posts a afficher, avec l'id du user qui nous la partage,plus le nom de la commu ou le post est affiché 
+	foreach ($tabPostFollowers as $key => $value) {
+
+		$tabPost[] = $value + recupAuteur($value['idauteur']) + recupereNomCommu($value['idcommu']);
+	}
+	foreach ($tabPostLikedByFollowers as $key => $value) {
+
+		$tabPost[] = $value + recupAuteur($value['idauteur'])  + recupereNomCommu($value['idcommu']);
+	}
+	
+	//var_dump($tabPost);
+
 	//Tri des posts selon leur ids
 	$keys = array_column($tabPost, 'idpost');
 	array_multisort($keys, SORT_DESC, $tabPost);
-	//var_dump($tabPost);
-	
 
+	//On supprime les doublons
+	$arResto = array(); // le nouveau tableau dédoublonné
+	$arTemp = array(); // contiendra les ids à éviter
+	foreach($tabPost as $ar)
+	{
+		if(!in_array($ar['idpost'], $arTemp)) {
+			$arResto[] = $ar;
+			$arTemp[] = $ar['idpost'];   
+		}
+	}
+	//On recupere le nouveau tableau trié pour le remettre dans l'ancien
+	$tabPost = $arResto;
 
-	//usort($tabPost, function($a,$b){return $a['idpost']-$b['idpost'];});
-
-	//var_dump($mescommu);
-	//var_dump($tabPost);
 	echo '<div class="container">';
 		echo"<div class='row'>";
 			//foreach ($tabPost as $key => $value) {
 				//var_dump($value);
-				foreach ($tabPost as $key2 => $value2) {
-					//var_dump(array_unique($value2));
+				foreach ($tabPost as $key => $value) {
+					//var_dump(array_unique($value));
 					echo '<div class="col-sm-12 col-lg-7 mx-auto my-4">';	
-						echo "<a class='stylelien' href=index.php?page=post" . $value2['idpost'] . ">";
-							echo '<div class="card" style=";">';
-								echo affiche_imagepost($value2['image']);
+						echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
+							echo '<div class="card">';
+									if (isset($value['pseudo'])){
+										echo affiche_imagepost_blackwhite($value['image']);
+									} else {
+										echo affiche_imagepost($value['image']);
+									}
 									echo '<div class="card-body">';
-										echo '<h5 class="card-title">'. "tom" .'</h5>';
-										echo '<p class="card-text">' . $value2['description'] . '</p>';
+										echo '<h5 class="card-title">'. $value['description'] .'</h5>';
+										if (isset($value['pseudo'])){
+											echo '<p class="card-text">Partagé par ' . $value['pseudo'] . '</p>';
+											echo '<p class="card-text disabled">A découvrir dans la communauté ' . $value['nom'] . '</p>';
+										}	
 									echo '</div>';
 								echo '</div>';
 							echo '</div>';
