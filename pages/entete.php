@@ -45,12 +45,20 @@
 
       <li class='nav-item'>
         <a class='nav-link' href='index.php?page=publication'>Publier</a>
+      </li>
+
+      <li class='nav-item'>
+        <a class='nav-link' href='index.php?page=profil'>Profil</a>
       </li>";
+
       }
       ?>
 
       <li class='nav-item'>
         <a class='nav-link' href='index.php?page=tag'>Tag</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' href='index.php?page=recherche'>Recherche</a>
       </li>
       
     </ul>

@@ -73,6 +73,11 @@
 			include ("pages/tag-res.php");
 			include ("pages/barre.php");
 
+		}elseif($_GET["page"] == "recherche"){
+			include ("pages/entete.php");
+			include ("pages/recherche.php");
+			include ("pages/barre.php");
+
 		}
 
 		elseif (commenceparcommu($_GET["page"])){
