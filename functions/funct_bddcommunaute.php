@@ -182,6 +182,14 @@ function recupdonnecommuparid($id){
 
 }
 
+function recupereNomCommu($idcommu){
+		//Recupere le nom de la commu via son id
+		global $db;
+		$sql = "SELECT nom FROM communaute WHERE  idcommu=$idcommu";
+		$result=  mysqli_query($db, $sql);
+		$row=mysqli_fetch_assoc($result);
+		return $row;
+}
 
 function recupdonneauteurcommu($idcommu) {
 
