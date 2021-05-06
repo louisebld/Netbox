@@ -144,7 +144,11 @@ function affichemonpost($donnepost){
 				//Pour liker le post
 				$like = nbLike(getLike(),$donnepost[0]['idpost']);
 				$dislike = nbUnlike(getUnlike(),$donnepost[0]['idpost']);
-				$ratio = ($like / ($like + $dislike)) * 100;
+				if (($like+$dislike)==0){
+					$ratio=0;
+				}else {
+					$ratio = ($like / ($like + $dislike)) * 100;
+				}
 				echo '<div class="text-center">';
 					echo '<div class="container">';
 					echo '<div class="d-inline-flex">';
@@ -155,10 +159,12 @@ function affichemonpost($donnepost){
 							echo afficheUnlikeBouton($donnepost[0]['idpost']);
 							echo '<p class="mx-2">' . $dislike . '</p>';
 					echo '</div>';
+				if (($like + $dislike)!=0){
 					echo '<div class="progress bg-dark">';
 						echo '<div class="progress-bar bg-danger" role="progressbar" aria-valuenow="'.$ratio.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$ratio.'%;">';
 						echo '</div>';
 					echo '</div>';
+				}
 			echo'</div>';
 		echo'</div>';
 		
