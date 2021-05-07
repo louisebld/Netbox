@@ -14,60 +14,71 @@
   <!-- <i class="bi bi-people-fill"></i> -->
   <!-- <button type="button" name="people" value="people" class="btn btn-danger btn-xl bi-people-fill m-1"></button> -->
 
-  <a class="navbar-brand mx-4 .text-light" href="index.php?page=accueil">Accueil</a>
+  <a class="navbar-brand mx-4 .text-light" href="index.php?page=communaute">Netbox</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup"><?php modalCommunaute(); ?>
     <ul class="navbar-nav">
 
-        <li class="nav-item dropdown">
+
+<!-- AFFICHER LES COMMUS -->
+<!--         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Communauté
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          </a> -->
+         <!--  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item hText" href="index.php?page=communaute">Voir les Communautés</a></li>
             <?php
-            if (isset($_SESSION['id'])) {
-              echo "<li><a class='dropdown-item hText' href='' data-bs-toggle='modal' data-bs-target='#commuBouton' data-bs-whatever='@getbootstrap'> Créer une Communauté</a></li>";
-            }
+            // if (isset($_SESSION['id'])) {
+            //   echo "<li><a class='dropdown-item hText' href='' data-bs-toggle='modal' data-bs-target='#commuBouton' data-bs-whatever='@getbootstrap'> Créer une Communauté</a></li>";
+            // }
             ?>
             
-          </ul>
-        </li>
+          </ul> -->
+        <!-- </li> -->
+      <li class='nav-item'>
 
+            <a href='index.php?page=communaute'><button type="submit" name="addpost" value="post" class="btn btn-primary btn-circle bi-pencil-square m-1 "> Publier</button></a>
+      </li>
+      <li class='nav-item'>
+            <a href='index.php?page=communaute'><button type="submit" name="commu" value="commu" class="btn btn-warning  btn-circle bi-journal-richtext m-1"> Communauté</button></a>
+      </li>
+
+      <li class='nav-item'>
+    <a href='index.php?page=recherche'><button type="submit" name="commu" value="commu" class="btn btn-success  btn-circle bi-search m-1"> Recherche</button></a>
+
+
+      </li>
       <?php
       if (isset($_SESSION['id'])) {
-        echo "
-      <li class='nav-item'>
-        <a class='nav-link' href='index.php?page=profil'>Profil</a>
-      </li>
+      //   echo "
+      // <li class='nav-item'>
+      //   <a class='nav-link' href='index.php?page=profil'>Profil</a>
+      // </li>";
 
-      <li class='nav-item'>
-        <a class='nav-link' href='index.php?page=publication'>Publier</a>
-      </li>
-
-      <li class='nav-item'>
-        <a class='nav-link' href='index.php?page=profil'>Profil</a>
-      </li>";
+      // echo "
+      // <li class='nav-item'>
+      //   <a class='nav-link' href='index.php?page=publication'>Publier</a>
+      // </li>";
 
       }
       ?>
 
-      <li class='nav-item'>
+ <!--      <li class='nav-item'>
         <a class='nav-link' href='index.php?page=tag'>Tag</a>
-      </li>
-      <li class='nav-item'>
+      </li> -->
+<!--       <li class='nav-item'>
         <a class='nav-link' href='index.php?page=recherche'>Recherche</a>
       </li>
-      
+       -->
     </ul>
     </div>
 
-    <form  method='post' class="form-group form-inline d-flex" action='index.php?page=communaute'>
+<!--     <form  method='post' class="form-group form-inline d-flex" action='index.php?page=communaute'>
         <input class="form-control mr-sm-2 w-auto" type="search" name='recherchecommu' placeholder="Communauté" aria-label="Search">
         <button name='cherchercommu' class="btn btn-outline-success my-2 my-sm-0 m-4" value='Chercher' type="submit">Chercher</button>
-    </form>
+    </form> -->
 
 <?php  $id = $_SESSION['id'];
 
@@ -78,4 +89,5 @@
 <a href='index.php?page=profil'>
 <img class="roundedImageentete"  src="DATA/profil_pp/<?php echo $profil['picture']; ?>">
 </a>
+        <button type="button" class="btn btn-secondary bi-box-arrow-right m-2" data-bs-whatever="@getbootstrap"><a href="index.php?act=deconnexion" style="text-decoration: none;color: black;"></a></button>
 </nav>
