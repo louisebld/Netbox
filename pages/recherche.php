@@ -11,6 +11,13 @@
 			<p>Recherche : <input type="text" name="cherche"></p>
 			<p><input type="submit" name="rch" value="Chercher" class="btn btn-dark"></p>
 		</form>
+
+					<a href="index.php?page=tag-ls">
+			<button type="button" class="btn btn-dark">
+					Tag Liste
+				</button>
+			</a>
+		
 	</div>
 
 	<?php 
