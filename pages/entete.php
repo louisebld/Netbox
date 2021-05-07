@@ -39,7 +39,7 @@
         <!-- </li> -->
       <li class='nav-item'>
 
-            <a href='index.php?page=communaute'><button type="submit" name="addpost" value="post" class="btn btn-primary btn-circle bi-pencil-square m-1 "> Publier</button></a>
+            <a href='index.php?page=publication'><button type="submit" name="addpost" value="post" class="btn btn-primary btn-circle bi-pencil-square m-1 "> Publier</button></a>
       </li>
       <li class='nav-item'>
             <a href='index.php?page=communaute'><button type="submit" name="commu" value="commu" class="btn btn-warning  btn-circle bi-journal-richtext m-1"> Communauté</button></a>
