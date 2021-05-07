@@ -18,7 +18,8 @@
 
 
 .communaute {
-	background-color: #f2e9e4;
+	background-color: #ececec;
+	 /*#4b5e65*/
 }
 
 .formulairegroupe {
@@ -231,4 +232,13 @@ position:absolute;
 
 .aligndroite {
 	text-align:right;
+}
+
+.textenoir {
+	color:black;
+	font-family:lato;
+}
+
+* {
+	font-family:lato;
 }
