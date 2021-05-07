@@ -10,12 +10,12 @@
 <div class="contener m-5 communaute p-4">
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 		<li class="nav-item">
-			<a class="nav-link active" id="filActu-tab" data-toggle="tab" href="#filActu" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Quoi de neuf...</h7></a>
+			<a class="nav-link active textenoir" id="filActu-tab" data-toggle="tab" href="#filActu" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Quoi de neuf...</h7></a>
 		</li>
 		<?php
 			
-		echo '<li class="nav-item">';
-			echo '<a class="nav-link" id="lescommu-tab" data-toggle="tab" href="#lescommu" role="tab" aria-controls="lescommu" aria-selected="false"><h7 class="" id="lesCommu">Découvrez les communautés déjà existantes...</h7></a>';
+		echo '<li class="nav-item ">';
+			echo '<a class="nav-link textenoir" id="lescommu-tab" data-toggle="tab" href="#lescommu" role="tab" aria-controls="lescommu" aria-selected="false"><h7 class="" id="lesCommu">Découvrez les communautés déjà existantes...</h7></a>';
 		echo '</li>';
 		
 		if (isset($_SESSION['id'])) {
@@ -23,7 +23,7 @@
 
 			// if (!empty($mescommu)){
 				echo '<li class="nav-item">';
-					echo '<a class="nav-link" id="mescommu-tab" data-toggle="tab" href="#mescommu" role="tab" aria-controls="mescommu" aria-selected="false"><h7 class="" id="lesCommu">Mes Communautés</h7></a>';
+					echo '<a class="nav-link textenoir" id="mescommu-tab" data-toggle="tab" href="#mescommu" role="tab" aria-controls="mescommu" aria-selected="false"><h7 class="" id="lesCommu">Mes Communautés</h7></a>';
 				echo '</li>';
 			// }
 		}
@@ -58,7 +58,10 @@
 			</div>
 
 			<div class="tab-pane fade" id="mescommu" role="tabpanel" aria-labelledby="mescommu-tab">
-				<h4 class="mb-3  mt-4">Mes communautés</h4>				
+				<h4 class="mb-3  mt-4">Mes communautés</h4>		
+				<div class='text-end'>
+					<a class='hText' href='' data-bs-toggle='modal' data-bs-target='#commuBouton' data-bs-whatever='@getbootstrap'><button type="submit" name="commu" value="commu" class="btn btn-primary  btn-circle bi-cup-straw m-1"> Créer une communauté</button></a>		
+				</div>
 				<?php				
 					if (isset($_SESSION['id'])) {
 						affichecommun($mescommu);
@@ -71,6 +74,8 @@
 						// 	affichecommun($commucree);
 						//}
 					?>  -->
+
+
 			</div>
 
 	</div>
