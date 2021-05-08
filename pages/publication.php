@@ -1,7 +1,7 @@
-<div class="contener m-5 p-4">
+<div class="contener m-5 p-4 pageminimumtaille">
 
-	<h4>Postez votre photo !</h4>
 	<div class="formulairegroupe">
+	<h2 class='text-center p-2'>Postez votre photo !</h2>
 
 		<?php
 
@@ -18,5 +18,4 @@
 
 		?>
 	</div>
-
 </div>
