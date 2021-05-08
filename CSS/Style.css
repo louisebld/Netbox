@@ -20,12 +20,23 @@
 .communaute {
 	background-color: #ececec;
 	 /*#4b5e65*/
+	 min-height: 700px;
+}
+
+.pageminimumtaille {
+	min-height: 700px;
 }
 
 .formulairegroupe {
-	width: 20%;
-	height:20%;
+	margin: 0 auto;
+	width: 40%;
 }
+
+.center-div {
+	margin: 0 auto;
+    width: 40%; 
+}
+
 
 .gros {
 	background-color: red;
