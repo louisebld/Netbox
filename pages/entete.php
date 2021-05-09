@@ -89,5 +89,5 @@
 <a href='index.php?page=profil'>
 <img class="roundedImageentete"  src="DATA/profil_pp/<?php echo $profil['picture']; ?>">
 </a>
-        <button type="button" class="btn btn-secondary bi-box-arrow-right m-2" data-bs-whatever="@getbootstrap"><a href="index.php?act=deconnexion" style="text-decoration: none;color: black;"></a></button>
+        <a href="index.php?act=deconnexion" style="text-decoration: none;color: black;"><button type="button" class="btn btn-secondary bi-box-arrow-right m-2" data-bs-whatever="@getbootstrap"></button></a>
 </nav>
