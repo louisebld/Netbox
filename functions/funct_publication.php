@@ -228,13 +228,17 @@ function afficheFilActu($mescommu, $iduser){
 		$tabPostLikedByFollowers = recup_mes_posts_selon_user_selon_like($value['id'], $iduser);
 	}
 	//Ajout des resultats dans le tableau de posts a afficher, avec l'id du user qui nous la partage,plus le nom de la commu ou le post est affiché 
-	foreach ($tabPostFollowers as $key => $value) {
+	if (!empty($tabPostFollowers)){
+		foreach ($tabPostFollowers as $key => $value) {
 
-		$tabPost[] = $value + recupAuteur($value['idauteur']) + recupereNomCommu($value['idcommu']);
+			$tabPost[] = $value + recupAuteur($value['idauteur']) + recupereNomCommu($value['idcommu']);
+		}
 	}
-	foreach ($tabPostLikedByFollowers as $key => $value) {
+	if (!empty($tabPostLikedByFollowers)){
+		foreach ($tabPostLikedByFollowers as $key => $value) {
 
-		$tabPost[] = $value + recupAuteur($value['idauteur'])  + recupereNomCommu($value['idcommu']);
+			$tabPost[] = $value + recupAuteur($value['idauteur'])  + recupereNomCommu($value['idcommu']);
+		}
 	}
 	
 	//var_dump($tabPost);
