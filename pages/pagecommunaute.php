@@ -15,7 +15,7 @@ $messagesdelacommu = recupmessagecommu($idcommu);
 
 if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 ?>
-
+<script src="js/script.js"></script>
 <input type="hidden" id="iddemacommu" name="iddemacommu" value="<?php echo $idcommu; ?>" />
 
 <div class="contener col-l-6 m-5 communaute p-4">

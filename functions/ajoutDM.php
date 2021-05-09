@@ -36,6 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$sql = "INSERT INTO messagedm (utilisateur, message, datemessage, destinataire) VALUES ($idutilisateur, '$message', NOW() , $idDestinataire)";
 			$result = mysqli_query($db, $sql);
 
+			$sqlNotif = "INSERT INTO notification(idCurrentUser, idOtherUser, type, dateNotif) VALUES ($idDestinataire, $idutilisateur, 1, NOW())";
+			$result = mysqli_query($db, $sqlNotif);
+
 			// ça en ajoute deux pourquoi
 
 			// $sql2 = "DELETE FROM messagecommu WHERE utilisateur = $idutilisateur AND "

@@ -1,5 +1,5 @@
 <?php
-function print_formulairemessageUtilisateur($idDestinataire) {
+function print_formulairemessageDM($idDestinataire) {
 // Fonction qui affiche le formulaire
 	?>
 
@@ -45,7 +45,7 @@ function afficheboutondm($idutilisateur) {
 					<div class="modal-body">
 
 						<?php
-						print_formulairemessageUtilisateur($idutilisateur);
+						print_formulairemessageDM($idutilisateur);
 						?>
 								
 					</div>

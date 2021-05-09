@@ -13,5 +13,6 @@ include 'actions/action_admincommu.php';
 include 'actions/action_follow.php';
 // include 'actions/action_messagecommu.php';
 include 'actions/action_modificationcommu.php';
+include 'actions/action_notification.php';
 
  ?>

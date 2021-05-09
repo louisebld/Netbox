@@ -7,6 +7,7 @@ if (isset($_POST['follow'])) {
 	$idfollower = $_SESSION['id'];
 
 	insert_follow($idfollow, $idfollower);
+	ajout_notif($idfollow, $idfollower, 2);
 
 	header("Location:index.php?page=personneid" . $idfollow);
 

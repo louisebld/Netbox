@@ -18,6 +18,7 @@ include 'functions/funct_admincommu.php';
 include 'functions/funct_follow.php';
 include 'functions/funct_dm.php';
 include 'functions/funct_messagecommu.php';
+include 'functions/funct_notification.php';
 // include 'functions/ajoutMessage.php';
 
 
@@ -38,5 +39,6 @@ include 'functions/funct_bddfollow.php';
 include 'functions/funct_bddmessagecommu.php';
 include 'functions/funct_bddsuggestionprofil.php';
 include 'functions/funct_bddsuggestioncommu.php';
+include 'functions/funct_bddnotification.php';
 
 
