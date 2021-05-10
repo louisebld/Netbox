@@ -145,7 +145,7 @@ function recup_mes_posts_selon_user($iduser, $idfollow){
 	
 	global $db;
 	//$sql = "SELECT DISTINCT * FROM publication AS pb LEFT JOIN (SELECT * FROM awarenesspost WHERE iduser = $iduser) AS aw ON pb.idpost = aw.idpost WHERE aw.idpost IS NULL AND pb.idcommu = $idcom ORDER BY pb.idpost DESC";
-	$sql = "SELECT * FROM publication pb WHERE idauteur=$iduser AND NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $idfollow AND pb.idpost = aw.idpost)";
+	$sql = "SELECT * FROM publication pb WHERE idauteur=$iduser AND NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $idfollow AND pb.idpost = aw.idpost) LIMIT 10";
 	$result=  mysqli_query($db, $sql);
 
 	//on met dans un tableau
@@ -162,7 +162,7 @@ function recup_mes_posts_selon_user_selon_like($iduser, $idfollow){
 	
 	global $db;
 	//$sql = "SELECT DISTINCT * FROM publication AS pb LEFT JOIN (SELECT * FROM awarenesspost WHERE iduser = $iduser) AS aw ON pb.idpost = aw.idpost WHERE aw.idpost IS NULL AND pb.idcommu = $idcom ORDER BY pb.idpost DESC";
-	$sql = "SELECT * FROM publication pb WHERE NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $idfollow AND pb.idpost = aw.idpost) AND EXISTS (SELECT * FROM likes lk WHERE pb.idpost=lk.idpost AND lk.iduser=$iduser)";
+	$sql = "SELECT * FROM publication pb WHERE NOT EXISTS (SELECT * FROM awarenesspost aw WHERE aw.iduser = $idfollow AND pb.idpost = aw.idpost) AND EXISTS (SELECT * FROM likes lk WHERE pb.idpost=lk.idpost AND lk.iduser=$iduser) LIMIT 10";
 	$result=  mysqli_query($db, $sql);
 
 	//on met dans un tableau
