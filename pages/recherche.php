@@ -1,5 +1,5 @@
-<div class="contener m-5 communaute p-4">
-	<div>
+<div class="contener m-5 communaute p-4 global">
+	<div class='gauche'>
 		<h1>Recherche</h1>
 
 		<form action="index.php?page=recherche" method="POST">
@@ -17,9 +17,11 @@
 					Tag Liste
 				</button>
 			</a>
-		
-	</div>
 
+	</div>
+	<div class='droite'>
+		<img class="figure-img img-fluid rounded text-end" src="images/natasha.png">
+	</div>
 	<?php 
 
 	?><?php 
@@ -153,4 +155,5 @@
 	}
 
 	 ?>
+
 </div>
