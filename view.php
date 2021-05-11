@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style-form.css">
-	
+	<link rel="shortcut icon" type='image/png' href="images/n.png"/>
 </head>
 <body>
 	<!-- BootStrap JS -->
