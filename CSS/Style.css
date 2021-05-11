@@ -34,7 +34,7 @@
 
 .formulairegroupe {
 	margin: 0 auto;
-	width: 40%;
+	width: 20%;
 }
 
 .center-div {
@@ -214,8 +214,8 @@ div.center-cropped img {
 	z-index:1;
 	/*position : absolute;*/
     border:none;
-    margin-top: 20px;
-    margin-left:130px;
+    margin-top:20px;
+    margin-left:200px;
     display: inline-block;
 
 }
@@ -224,7 +224,7 @@ div.center-cropped img {
 position:absolute;
 	z-index:1;
     margin-top: 15px;
-    margin-left:230px;
+    margin-left:200px;
 
 
 }
