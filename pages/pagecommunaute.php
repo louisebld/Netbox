@@ -18,7 +18,7 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 <script src="js/script.js"></script>
 <input type="hidden" id="iddemacommu" name="iddemacommu" value="<?php echo $idcommu; ?>" />
 
-<div class="contener col-l-6 m-5 communaute p-4">
+<div class="contener col-l-6 m-5 communaute p-4 shadow-lg p-3 mb-5 rounded">
 	
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 		<li class="nav-item">
@@ -89,7 +89,7 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 			</div>
 
 			<div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
-				<div class="container descriptioncommu caption img-thumbnail mt-4">
+				<div class="container descriptioncommu caption img-thumbnail mt-4 shadow-lg p-3 mb-5 bg-white rounded">
 					<?php
 						//Affichage de la description
 					echo "<h4 class='m-2'> Créateur : </h4>";
@@ -103,8 +103,8 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 				</div>
 			</div>
 			<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-				<div class="container descriptioncommu caption img-thumbnail mt-4">
-					<h4> Voici les membres de la communauté : </h4>
+				<div class="container descriptioncommu caption img-thumbnail mt-4 row shadow-lg p-3 m-5 bg-white rounded">
+					<!-- <h4> Voici les membres de la communauté : </h4> -->
 					<?php
 					affichemembre ($membrecommu, "iduser");
 					?>
@@ -236,6 +236,7 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 
 
 		?>
+
 	</div>
 </div>
 

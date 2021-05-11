@@ -44,7 +44,7 @@ function formulairerejointcommu($idcommunaute) {
 		<input type="hidden" name="idcommu" value= "<?php echo $idcommunaute; ?>">
 
 		<div class="mb-3 text-center">
-			<button type="submit" name="rejoindrecommu" value="rejoindrecommu" class="btn btn-success">Rejoindre la communauté</button>
+			<button type="submit" name="rejoindrecommu" value="rejoindrecommu" class="btn btn-outline-secondary">Rejoindre la communauté</button>
 		</div>
 	</form>
 

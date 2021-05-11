@@ -59,29 +59,34 @@ function affichepost($tableaupost){
 	foreach ($tableaupost as $key => $value) {
 		//Affichage
 
-
-		echo "<div class='col-lg-4 col-md-12 mb-4 text-center width-auto'>";
+		echo "<div class='col-md-4 '>";
+		echo "<div class='thumbnail'>";
 
 	if (!estdejaawarenesspost($_SESSION['id'], $value['idpost'])) {
 				echo '<div class="btn btn-warning boutonnew disabled" style="cursor:default;">NEW</div>';
 
 			}
-			echo '<div class="card" style="width: 18rem;">';
+			echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
 			echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 
 			
 
 					echo affiche_imagepost($value['image']);
 					echo "<div class='text-start'>" . nbLike(getLike(),$value['idpost']) . " ♥" . "</div>"; 
-					echo '<div class="caption img-thumbnail">';
+					// echo '<div class="caption img-thumbnail">';
 						echo $value["description"];
-					echo "</div>";
+					// echo "</div>";
 			echo "</div>";
 		echo "</div>";
+		echo "</div>";
+
 
 	}
-		echo "</div>";
 	echo "</div>";
+		echo "</div>";
+			echo "</div>";
+
+
 }
 
 
@@ -266,7 +271,7 @@ function afficheFilActu($mescommu, $iduser){
 				//var_dump($value);
 				foreach ($tabPost as $key => $value) {
 					//var_dump(array_unique($value));
-					echo '<div class="col-sm-12 col-lg-7 mx-auto my-4">';	
+					echo '<div class="col-sm-12 col-lg-7 mx-auto my-4 shadow p-3 mb-5 bg-white rounded">';	
 						echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 							echo '<div class="card">';
 									if (isset($value['pseudo'])){

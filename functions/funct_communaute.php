@@ -138,13 +138,13 @@ function affichecommun($tableaucommu){
 
 	// $tableaucommu : tableau associatif contenant les infos des communautés
 
-	echo"<div class='container' data-masonry='{'percentPosition': true }'>";
+	echo"<div class='container images-wrapper d-flex'>";
 		echo "<div class='card-columns'>";
 
 		foreach ($tableaucommu as $key => $value) {
 			//Affichage
 				echo '<div class="col-sm-6 col-lg-4 mb-4">';
-				echo '<div class="card" style="width: 18rem;">';
+			echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
 
 				if (!estbannicommu($_SESSION['id'], $value['idcommu'])) {
 
@@ -210,8 +210,8 @@ function affichecommunonly($tableaucommu){
 	// BUT : afficher les communauté
 
 	// $tableaucommu : tableau associatif contenant les infos des communautés
-
-	echo"<div class='container' data-masonry='{'percentPosition': true }'>";
+	
+	echo"<div class='container images-wrapper d-flex'>";
 		echo "<div class='card-columns'>";
 
 		foreach ($tableaucommu as $key => $value) {
@@ -219,7 +219,7 @@ function affichecommunonly($tableaucommu){
 			// var_dump($value['idcreateur']);
 			if (!estdanscommu($_SESSION['id'], $value['idcommu']) && $_SESSION['id'] != intval($value['idcreateur'])) {
 				echo '<div class="col-sm-6 col-lg-4 mb-4">';
-				echo '<div class="card" style="width: 18rem;">';
+			echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
 
 
 
