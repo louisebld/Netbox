@@ -6,10 +6,20 @@ function print_formulairemessagecommu($id) {
 
 	<!-- <form method="post" action="index.php?page=communaute" enctype="multipart/form-data"> -->
 
-   <div class="col-12 my-1">
-	    <div class="p-2" id="discussion">
-	    </div>
-	</div>
+   <div class="container content">
+    <div class="row">
+        <div class="">
+        	<div class="card">
+        		<div class="card-header">Tchat</div>
+<!--         		<div class="card-body height3">
+ -->        			<ul class="chat-list">
+				    <div class="p-2" id="discussion">
+				    </div>
+		</ul>
+        		</div>
+        	</div>
+        </div>
+    </div>
 
 
 
