@@ -20,7 +20,7 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 
 <div class="contener col-l-6 m-5 communaute p-4 ">
 	
-	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	<ul class="nav nav-pills nav-fill bg-white justify-content-center" id="myTab" role="tablist">
 		<li class="nav-item">
 			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
 		</li>
@@ -44,7 +44,7 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 
 	<?php if ($_SESSION['id']==$createur[0]['id']) { ?>
 
-		<li class="nav-item">
+		<li class="nav-item bg-light">
 			<a class="nav-link" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
 		</li>
 
@@ -52,15 +52,14 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 	<?php } ?>
 
 	</ul>
-	<div class="container col-lg-8 shadow-lg p-3 mb-5 mt-5 rounded">
+	<div class="container col-lg-8 ">
 		<div class="tab-content" id="myTabContent">
 			<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 				<div class="container mt-4">
 					<?php
 						// Affichage d'une image de la communauté
-					echo '<div class="thumbnail stylelien">';
+					echo '<div class="thumbnail stylelien shadow-lg p-3 mb-5 mt-5 rounded">';
 					echo affiche_imagecommu($donnecommunaute[0]['image']);
-					echo '</div>';
 					?>
 					<div class="container nomcommu caption img-thumbnail">
 						<?php
@@ -75,17 +74,18 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 						}
 						?>
 					</div>
+					</div>
 				</div>
 			</div>
 
 			<div class="tab-pane fade" id="tchat" role="tabpanel" aria-labelledby="tchat-tab">
-				<div class="container descriptioncommu caption img-thumbnail mt-4">
-					<h4> TCHAT </h4>
+				<!-- <div class="container descriptioncommu caption img-thumbnail mt-4"> -->
+					<!-- <h4> TCHAT </h4> -->
 					<?php
 					//affichemessagecommu($messagesdelacommu);
 					print_formulairemessagecommu($idcommu);
 					?>
-				</div>
+				<!-- </div> -->
 			</div>
 
 			<div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
@@ -140,8 +140,8 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 
 		<?php if ($_SESSION['id']==$createur[0]['id']) { ?>
 
-			<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
-				<div class="container descriptioncommu caption img-thumbnail mt-4">
+			<div class="tab-pane fade " id="admin" role="tabpanel" aria-labelledby="admin-tab">
+				<div class="container descriptioncommu caption img-thumbnail mt-4 shadow-lg p-3 mb-5 mt-5 rounded">
 				
 					<?php
 
@@ -177,13 +177,10 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 					echo "</div>";
 
 					echo "<h4 id='banni'> Membre ban de votre commu : </h4>";
+
+					echo "<div id='moderation'>";
 					affichemembredeban($utilisateurbanni, "iduser", $idcommu, $communaute);
-					?>
-				</div>
-
-				<div class="container descriptioncommu caption img-thumbnail mt-4">
-					<?php 
-
+					echo "</div>";
 					echo "<div id='membres'>";
 					echo "<h4> Membre de la communauté signalé : </h4>";
 
