@@ -32,9 +32,20 @@
 	min-height: 800px;
 }
 
+
+.pageminimumtaillerecherche {
+	min-height: 600px;
+}
+
 .formulairegroupe {
 	margin: 0 auto;
 	width: 20%;
+}
+
+.formulairerecherche {
+	margin: 0 auto;
+	width: 50%;
+	height:20%;
 }
 
 .center-div {
