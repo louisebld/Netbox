@@ -1,26 +1,26 @@
-<div class="contener m-5 communaute p-4 global">
+<div class="contener communaute p-5 global">
 	<div class='gauche'>
 		<h1>Recherche</h1>
 
-		<form action="index.php?page=recherche" method="POST">
+		<form  class='form-inline global' action="index.php?page=recherche" method="POST">
 			<p>Type de recherche : <select name="type">
 				<option value="com">Communauté</option>
 				<option value="tag">Tags</option>
 				<option value="amis">Amis</option>
 			</select></p>
-			<p>Recherche : <input type="text" name="cherche"></p>
-			<p><input type="submit" name="rch" value="Chercher" class="btn btn-dark"></p>
+			<input type="text" class='form-control bg-white gauche' placeholder="Recherche" name="cherche">
+			<input type="submit" name="rch" value="Chercher" class="btn btn-dark mr-5">
 		</form>
 
 					<a href="index.php?page=tag-ls">
-			<button type="button" class="btn btn-dark">
+				<button type="button" class="btn btn-dark m-5">
 					Tag Liste
 				</button>
 			</a>
 
 	</div>
 	<div class='droite'>
-		<img class="figure-img img-fluid rounded text-end" src="images/natasha.png">
+		<img class="figure-img img-fluid rounded text-end p-5" src="images/natasha.png">
 	</div>
 	<?php 
 

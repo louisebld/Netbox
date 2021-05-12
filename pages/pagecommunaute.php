@@ -18,7 +18,7 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 <script src="js/script.js"></script>
 <input type="hidden" id="iddemacommu" name="iddemacommu" value="<?php echo $idcommu; ?>" />
 
-<div class="contener col-l-6 m-5 communaute p-4 shadow-lg p-3 mb-5 rounded">
+<div class="contener col-l-6 m-5 communaute p-4 ">
 	
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 		<li class="nav-item">
@@ -52,7 +52,7 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 	<?php } ?>
 
 	</ul>
-	<div class="container col-lg-8">
+	<div class="container col-lg-8 shadow-lg p-3 mb-5 mt-5 rounded">
 		<div class="tab-content" id="myTabContent">
 			<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 				<div class="container mt-4">
@@ -65,8 +65,8 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 					<div class="container nomcommu caption img-thumbnail">
 						<?php
 							// On récupère toutes les données de la communauté
-						echo "<h1 class='pagecommu text-center '>" . $communaute .  "</h1>";
-						echo '<p class="mx-4">' . $donnecommunaute[0]['description'] .  "</p>";
+						echo "<h1 class='text-center pagecommu '>" . $communaute .  "</h1>";
+						echo '<p class="mx-4 description">' . $donnecommunaute[0]['description'] .  "</p>";
 
 						if ($_SESSION['id']!=$createur[0]['id']) {
 

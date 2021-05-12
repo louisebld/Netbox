@@ -5,12 +5,14 @@ if (isset($_POST['rejoindrecommu'])) {
 
 	$iduser = $_SESSION['id'];
 	$idcommu = $_POST['idcommu'];
+	$nomcommu = recupdonnecommuparid($idcommu);
+
 
 if (!estdanscommu($iduser, $idcommu)) {
 
 	joincommu($iduser, $idcommu);
 
-	header("Location:index.php?page=communaute");
+	header("Location:index.php?page=" . "commu" . $nomcommu[0]['nom']);
 
 }
 

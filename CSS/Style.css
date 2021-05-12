@@ -20,7 +20,7 @@
 .communaute {
 	background-color: #ececec;
 	 /*#4b5e65*/
-	 min-height: 700px;
+	 min-height: 800px;
 }
 
 .notification {
@@ -29,7 +29,7 @@
 }
 
 .pageminimumtaille {
-	min-height: 700px;
+	min-height: 800px;
 }
 
 .formulairegroupe {
@@ -68,13 +68,16 @@
 }
 
 .pagecommu {
+	font-size:5vw;
+}
 
-	font-size:100px;
+.description {
+	font-size:1.2vw;
 }
 
 .nomcommu {
 	size:50%;
-	background-color: #FCDBBF;
+	background-color: white;
 }
 
 .imagecommu {
@@ -257,4 +260,47 @@ position:absolute;
 
 * {
 	font-family:lato;
+}
+
+.marge {
+	left:45%;
+}
+
+.marge2 {
+	left: 50%;
+}
+
+.mabarre {
+	    backdrop-filter: blur(2px);
+	    /*background-color: #E6E6FA;*/
+
+}
+
+
+.conteneur {
+    position: relative; /* Pour que l'aperçu se positionne correctement par rapport à son contenur */
+    display: inline-block; /* Pour que le conteneur fasse bien la taille de son contenu et pas plus */
+}
+
+/* On affiche l'aperçu au survol du conteneur */
+.conteneur:hover .apercu {
+    display: block;
+}
+
+/* Petit design vite fait du contenu */
+.contenu {
+    width: 50px;
+    height: 50px;
+    background: blue;
+}
+
+/* Positionnement et design de l'aperçu */
+.apercu {
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    display: none;
+    width: 40px;
+    height: 20px;
+    background: red;
 }

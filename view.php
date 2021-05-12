@@ -142,6 +142,18 @@
 			include ("pages/barre.php");
 
 		}
+		elseif ($_GET["page"] == "actu"){
+			
+			include ("pages/entete.php");
+			include ("pages/filactu.php");
+			include ("pages/barre.php");
+		}
+		elseif ($_GET["page"] == "mescommu"){
+			
+			include ("pages/entete.php");
+			include ("pages/mescommu.php");
+			include ("pages/barre.php");
+		}
 
 		else{
 			include ("pages/accueil.php");

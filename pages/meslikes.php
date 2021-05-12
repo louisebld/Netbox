@@ -12,3 +12,8 @@ affichepost($donnepostlike);
 ?>
 
 </div>
+
+<div class="conteneur">
+    <div class="contenu">fddfdfdffddfdfdfdfdf</div>
+    <div class="apercu">bonjour</div>
+</div>

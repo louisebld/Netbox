@@ -41,4 +41,5 @@ $profil = recup_profil_id($idpersonne)[0];
 
 		?>
 		</div>
+	</div>
 
