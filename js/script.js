@@ -52,11 +52,55 @@ function chargeMessages(){
                     if (monid == message.utilisateur){
                     // On ajoute le contenu avant le contenu actuel de discussion
                     // discussion.innerHTML = discussion.innerHTML + `<p>${message.pseudo} a écrit le ${dateMessage.toLocaleString()} : ${message.message}</p>` 
-                     discussion.innerHTML = discussion.innerHTML + `<p class='aligndroite'><button type="button" class="btn btn-lg btn-success" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message} </button></p>` 
+     //                 discussion.innerHTML = discussion.innerHTML + `<p class='aligndroite'>
+					// <button type="button" class="btn btn-lg btn-success" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message}
+					// </button><img class="roundedImagetchatdroite" src="DATA/profil_pp/${message.image}"></p>` 
+
+					discussion.innerHTML = discussion.innerHTML + `
+					<li class="in">
+        					<div class="chat-img">
+        						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
+        					</div>
+					<div class="chat-body">
+        						<div class="chat-message">
+        							<h5> ${message.pseudo} </h5>
+        							<p>${message.message}</p>
+        						</div>
+        					</div>
+        			</li>`
+
+					       //  				<li class="in">
+        				// 	<div class="chat-img">
+        				// 		<img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+        				// 	</div>
+        				// 	<div class="chat-body">
+        				// 		<div class="chat-message">
+        				// 			<h5>Jimmy Willams</h5>
+        				// 			<p>Raw denim heard of them tofu master cleanse</p>
+        				// 		</div>
+        				// 	</div>
+        				// </li>
+
 
                  	}
                  	else {
-   						   discussion.innerHTML = discussion.innerHTML + `<p><button type="button" class="btn btn-lg btn-primary" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message} </button></p>` 
+   						   // discussion.innerHTML = discussion.innerHTML + `<p><img class="roundedImagetchatgauche" src="DATA/profil_pp/${message.image}"><button type="button" class="btn btn-lg btn-primary" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message} </button></p>` 
+
+					discussion.innerHTML = discussion.innerHTML + `
+					<li class="out">
+        					<div class="chat-img">
+        						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
+        					</div>
+					<div class="chat-body">
+        						<div class="chat-message">
+        							<h5> ${message.pseudo} </h5>
+        							<p>${message.message}</p>
+        						</div>
+        					</div>
+        			</li>`
+
+
+
 
                  	}
 // <p class='barre'>${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message}</p>
