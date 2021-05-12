@@ -166,4 +166,54 @@
 
 	}
 
- ?>
+ 
+ function affichelistetag(){
+ 			echo '<ol class="list-group list-group-flush">';
+			$data = recup_all_tag();
+			echo '<div class="list-group p-2">';
+			echo '<h5 class="m-2"> Listes des tags : </h2>';
+			$compteur = 0;
+			$taille = count($data);
+			$i=0;
+			while ($compteur != $taille) { 
+				// echo "<li class='list-group-item'> -> <a href='index.php?page=tag-res&tag=".implode("", explode("#", $data[$i]))."'>".$data[$i]."</a></li>";
+
+				if (isset($data[$i])){
+
+
+				// echo '<a href="index.php?page=tag-res&tag=".implode("", explode("#", $data[$i]))."" class="list-group-item list-group-item-action ">' . $data[$i] . '</a>';		
+
+			// $data[2]=array_pop($data);
+
+				if ($compteur%2 == 0){
+					
+
+				// echo '<a href="index.php?page=tag-res&tag="' . implode("", explode("#", $data[$i])). " class='list-group-item list-group-item-action list-group-item-primary'>" . $data[$i] . "</a>";
+
+				echo "<li class='list-group-item list-group-item-primary'><a  class='stylelien' href='index.php?page=tag-res&tag=". implode("", explode("#", $data[$i]))."'>".$data[$i]."</a></li>";
+
+
+
+				} 
+				else {
+					
+
+				echo "<li class='list-group-item'><a class='stylelien' href='index.php?page=tag-res&tag=". implode("", explode("#", $data[$i]))."'>".$data[$i]."</a></li>";
+
+				// echo '<a href="index.php?page=tag-res&tag=".implode("", explode("#", $data[$i]))."" class="list-group-item list-group-item-action ">' . $data[$i] . '</a>';				
+				}
+
+
+
+
+			$compteur++;
+
+			}
+			$i++;
+		}
+
+
+
+}
+
+?>
