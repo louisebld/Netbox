@@ -1,27 +1,49 @@
-<div class="contener communaute p-5 global">
-	<div class='gauche'>
-		<h1>Recherche</h1>
+<div class="contener p-5 mt-5 formulairerecherche">
+		<!-- <h1>Recherche</h1> -->
+<!-- <div class='d-flex form-group justify-content-center'> -->
+	<div class="form-check form-check-inline">
 
-		<form  class='form-inline global' action="index.php?page=recherche" method="POST">
-			<p>Type de recherche : <select name="type">
+		<form  class='form-group form-inline d-flex' action="index.php?page=recherche" method="POST">
+			<div class="form-check form-check-inline">
+
+				<input type="radio" class='form-check-input' name="type" value="com" checked>
+ 			 	<label for="com" class='form-check-label'>Communauté</label>
+</div>
+ 			 	<div class="form-check form-check-inline">
+
+ 			 	<input type="radio" class='form-check-input' name="type" value="tag">
+ 			 	<label for="com" class='form-check-label'>Tags</label>
+</div>
+ 			 	<div class="form-check form-check-inline">
+
+ 			 	<input type="radio" class='form-check-input' name="type" value="amis">
+ 			 	<label for="com" class='form-check-label'>Amis</label>
+ 			 </div>
+ 			</div>
+<!-- 
 				<option value="com">Communauté</option>
 				<option value="tag">Tags</option>
-				<option value="amis">Amis</option>
-			</select></p>
-			<input type="text" class='form-control bg-white gauche' placeholder="Recherche" name="cherche">
-			<input type="submit" name="rch" value="Chercher" class="btn btn-dark mr-5">
+				<option value="amis">Amis</option> -->
+			</select>
+		<div class='form-group form-inline d-flex'>
+			<input type="text" style='border-radius:40px'class='form-control bg-white' placeholder="Recherche" name="cherche">
+			<input type="submit" name="rch" value="Chercher" class="btn btn-outline-success m-1">
+		</div>
 		</form>
+	</div>
 
-					<a href="index.php?page=tag-ls">
+<!-- 					<a href="index.php?page=tag-ls">
 				<button type="button" class="btn btn-dark m-5">
 					Tag Liste
 				</button>
-			</a>
+			</a> -->
 
-	</div>
-	<div class='droite'>
+
+</div>
+<div class='pageminimumtaillerecherche'>
+<!-- 	<div class='droite'>
 		<img class="figure-img img-fluid rounded text-end p-5" src="images/natasha.png">
-	</div>
+	</div> -->
 	<?php 
 
 	?><?php 
@@ -43,8 +65,11 @@
 				$tag = "#".$tag;
 				}
 				$data = get_all_tag($tag);
-				?>
+				echo ' <div style="width: 70%;margin-left: 15%;">';
 
+				affichelistetag();
+				echo '</div>';
+				?>
 				<div>
 							<h1>Communautés !</h1>
 							<ol>
@@ -147,7 +172,7 @@
 			if ($type == "amis") {
 				$res = get_amis($rch);
 				//var_dump($res);
-				affiche_amis($res);
+				affichemembre($res, 'id');
 			}
 			?></div><?php 
 		}
@@ -156,4 +181,5 @@
 
 	 ?>
 
+</div>
 </div>
