@@ -10,7 +10,7 @@ $mon_id = $_SESSION['id'];
 
 
 		<div class="position-absolute marge">
-			<a href='index.php?page=actu'><button type="submit" name="addpost" value="post" class="btn btn-secondary btn-circle btn-xl bi-house-door m-1 "></button></a>
+			<a href='index.php?page=actu'><button type="submit" name="addpost" value="post" class="btn btn-light btn-circle btn-xl bi-house-door m-1 "></button></a>
 		</div>
 
 
@@ -20,7 +20,6 @@ $mon_id = $_SESSION['id'];
 
 
 	<div class="d-flex flex-row justify-content-end">
-
 
 		<div class="">
 			<a href='index.php?page=publication'><button type="submit" name="addpost" value="post" class="btn btn-primary btn-circle btn-xl bi-pencil-square m-1 "></button></a>
