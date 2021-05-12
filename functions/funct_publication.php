@@ -76,6 +76,7 @@ function affichepost($tableaupost){
 					// echo '<div class="caption img-thumbnail">';
 						echo $value["description"];
 					// echo "</div>";
+					echo '</a>';
 			echo "</div>";
 		echo "</div>";
 		echo "</div>";
