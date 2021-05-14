@@ -133,6 +133,18 @@
 	background-color: #EFEEEE;
 }
 
+.roundedImageProfil{
+    overflow:hidden;
+    -webkit-border-radius:150px;
+    -moz-border-radius:150px;
+    border-radius:150px;
+    width:180px;
+    height:180px;
+}
+
+.cursorDis{
+	cursor: default
+}
 
 
 /* ----------- Footer ----------------*/
