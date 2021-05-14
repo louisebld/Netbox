@@ -188,3 +188,18 @@ function user_est_dans_commu ($iduser, $idcommu){
 
 	return $res;
 }
+
+function recupMesPosts($iduser){
+
+	global $db;
+	$sql = "SELECT * FROM publication WHERE idauteur=$iduser";
+	$result=  mysqli_query($db, $sql);
+
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($result)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}

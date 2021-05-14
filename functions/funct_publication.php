@@ -63,8 +63,9 @@ function affichepost($tableaupost){
 		echo "<div class='thumbnail'>";
 
 	if (!estdejaawarenesspost($_SESSION['id'], $value['idpost'])) {
+			if ($value['idauteur'] != $_SESSION['id']){
 				echo '<div class="btn btn-warning boutonnew disabled" style="cursor:default;">NEW</div>';
-
+			}
 			}
 			echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
 			echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
@@ -76,7 +77,6 @@ function affichepost($tableaupost){
 					// echo '<div class="caption img-thumbnail">';
 						echo $value["description"];
 					// echo "</div>";
-					echo '</a>';
 			echo "</div>";
 		echo "</div>";
 		echo "</div>";
