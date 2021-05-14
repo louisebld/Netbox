@@ -64,7 +64,7 @@ function takefollower($id) {
 
 function countFollows($id){
 	global $db;
-	$sql = mysqli_query($db, "SELECT COUNT(*) FROM follow f WHERE f.idfollower=$id");
+	$sql = mysqli_query($db, "SELECT * FROM follow f WHERE f.idfollower=$id");
 	$result = mysqli_num_rows($sql);
 	return $result;
 }
@@ -73,7 +73,7 @@ function countFollows($id){
 
 function countFollowers($id){
 	global $db;
-	$sql = mysqli_query($db, "SELECT COUNT(*) FROM follow f WHERE f.idfollowed=$id");
+	$sql = mysqli_query($db, "SELECT * FROM follow f WHERE f.idfollowed=$id");
 	$result = mysqli_num_rows($sql);
 	return $result;
 }
