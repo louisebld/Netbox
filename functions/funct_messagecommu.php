@@ -16,26 +16,24 @@ function print_formulairemessagecommu($id) {
 				    <div class="p-2" id="discussion">
 				    </div>
 		</ul>
+
+				  <div class="form-group form-inline d-flex">
+
+			<!-- <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea> -->
+		<input type="text" class='form-control bg-white' placeholder="Message" name="message" id="message">
+
+		<input type="hidden" id="idutilisateur" name="idutilisateur" value="<?php if (isset($_SESSION['id'])) {echo $_SESSION['id'];} ?>" />
+		<input type="hidden" id="idcommu" name="idcommu" value="<?php echo $id; ?>" />
+		<!-- <input type="hidden" id="nomcommu" name="nomcommu" value="<?php //echo $communaute; ?>" /> -->
+		<button type="submit" class="btn btn-primary bi-chat-dots m-1" name="postermessagecommu" id="postermessagecommu" value="Envoyer" />
+
+		</div>
         		</div>
         	</div>
         </div>
     </div>
 
 
-
-
-		<input type="hidden" id="idutilisateur" name="idutilisateur" value="<?php if (isset($_SESSION['id'])) {echo $_SESSION['id'];} ?>" />
-		<input type="hidden" id="idcommu" name="idcommu" value="<?php echo $id; ?>" />
-		<!-- <input type="hidden" id="nomcommu" name="nomcommu" value="<?php //echo $communaute; ?>" /> -->
-
-		
-		<div class="form-group">
-			<textarea class="form-control" name="message" id="message" placeholder="Message" rows="3"></textarea>
-		</div>
-		<br/>
-
-
-		<center><input type="submit" class="btn btn-primary" name="postermessagecommu" id="postermessagecommu" value="Envoyer" /></center>
 
 	<!-- </form> -->
 
