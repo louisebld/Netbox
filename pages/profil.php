@@ -1,187 +1,158 @@
+<!-- JS permettant de gerer les erreurs avec les modaux, si une erreur existe; alors on ouvre le modal quand on refresh la page -->
+<script>
+		$(document).ready(function() {
+			if (<?php echo trim($_GET["err"])?'true':'false'; ?>) {
 
+				$("#modifPhotoProfil").modal('show');
+			}
 
+		});
+</script>	
 
 <div class="contener m-5 communaute p-4">
-	<ul class="nav nav-tabs" id="myTab" role="tablist">
-		<li class="nav-item">
-			<a class="nav-link active" id="filActu-tab" data-toggle="tab" href="#monprofil" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Mon profil</h7></a>
-		</li>
 
-		<li class="nav-item">
-			<a class="nav-link" id="filActu-tab" data-toggle="tab" href="#follow" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Mes follows</h7></a>
-		</li>
-
-		<li class="nav-item">
-			<a class="nav-link" id="filActu-tab" data-toggle="tab" href="#followers" role="tab" aria-controls="filActu" aria-selected="true"><h7 class="" id="lesCommu">Mes followers</h7></a>
-		</li>
-
-	</ul>
-		<div class="tab-content" id="myTabContent">
+	<?php
+	
 
 
+	if (isset($_SESSION['id'])) {
+		$id = $_SESSION['id'];
 
-
-<?php
-
-
-
-if (isset($_SESSION['id'])) {
-	$id = $_SESSION['id'];
-
-	$profil = recup_profil_id($id)[0];
-	if (isset($_GET['modif'])) {
-		$modif= $_GET['modif'];
-
-		if ($modif == "all") {
+		$profil = recup_profil_id($id)[0];
 			?>
-			<div style="margin-left: 12.5%; width: 75%; margin-top: 50px;">
-				<form  method="post" action="index.php?page=profil&modif=all">
-					<p>Nom : <input type="text" name="nom" value="<?php echo $profil['nom']; ?>"></p>
-					<p>Prénom : <input type="text" name="prenom" value="<?php echo $profil['prenom']; ?>"></p>
-					<p>Pseudo : <input type="text" name="pseudo" value="<?php echo $profil['pseudo']; ?>"></p>
-					<p>E-mail : <input type="text" name="mail" value="<?php echo $profil['mail']; ?>"></p>
-					<p>Description : <input type="text" name="description" value="<?php echo $profil['description']; ?>"></p>
-					<input type="submit" name="modif" value="Sauvegarder" class="btn btn-light">
-				</form>
-				<hr>
-				<div>
-					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Retour</button></a>
-					<a href="index.php?page=profil&modif=img"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Image de Profil</button></a>
-					<a href="index.php?page=profil&modif=mdp"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Mot de Passe</button></a>
+			<!-- Affichage du profil -->
+			<div class="container col-lg-8 shadow-lg p-3 mb-5 mt-5 rounded">
+			<div class="container shadow p-3 bg-white rounded">
+				<div class="row">
+					<div class="col-sm-3">
+						<img class="roundedImageProfil sm-2"  src="DATA/profil_pp/<?php echo $profil['picture']; ?>">
+					</div>
+					<!-- Premiere colonne -->
+					<div class="col-sm-3 text-">
+						<div class="col-sm-3">
+							<div style="width: 49%;" class="text-center m-auto m-lg-3"><p class="fs-1 text-center"><?php echo $profil['pseudo']; ?></p></div>	
+						</div>
+						<div class="col-sm-5 text-center my-4">
+							<p class="fs-5">Nombre de publication</p>
+						</div>
+					</div>
+					<!-- Deuxieme colonne -->
+					<div class="col-sm-3  mx-auto m-auto">
+						<div class="col-sm-5 text-center mt-3 ">
+						<button type="button" class="btn btn-outline-secondary btn-sm  me-md-2" action="modifPhotoProfil" data-bs-toggle="modal" data-bs-target="#changerDataProfil">Modifier Vos informations</button>
+							<?php
+								modalChangerDataProfil($profil);
+							?>
+						</div>
+						<div class="col-sm-5 text-center my-4">
+							<a class="btn btn-link" style="text-decoration:none;" role="button" data-bs-toggle="modal" data-bs-target="#modalFollowers">
+								<?php		
+									echo "<p class='fs-5'>" . countFollowers($id) . " abonnés</p>";
+								?>
+							</a>
+							<div class="modal fade" id="modalFollowers" tabindex="-1" aria-labelledby="modalFollowersLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable h-50">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="modalFollowersLabel">Mes abonnés</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<?php
+												$mesfollower = takefollower($_SESSION['id']);
+												affichemembre($mesfollower, "id");
+											?>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Troisieme colonne -->
+					<div class="col-sm-3 mx-auto">
+						<div class="col-sm-6 text-center mt-3">
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-outline-secondary btn-sm  me-md-2" action="modifDataProfil" data-bs-toggle="modal" data-bs-target="#changerPhotoProfil">Modifier la photo de profil</button>
+							<?php
+								modalChangerPhotoProfil();
+							?>
+						</div>
+						<div class="col-sm-6 text-center my-4">
+							<!-- Modal Mes abonnements -->
+							<a class="btn btn-link" style="text-decoration:none;" role="button" data-bs-toggle="modal" data-bs-target="#modalFollow">
+								<?php		
+									echo  "<p class='fs-5'>" . countFollows($id) . " abonnements</p>";
+								?>
+							</a>
+							<!-- Modal -->
+							<div class="modal fade" id="modalFollow" tabindex="-1" aria-labelledby="modalFollowLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable h-50">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="modalFollowLabel">Mes abonnements</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<?php
+												echo '<div class="tab-pane" id="follow" role="tabpanel" aria-labelledby="lescommu-tab">';
+													echo '<h5> Mes follows </h5>';
+														$mesfollow = takefollow($_SESSION['id']);
+														affichemembre($mesfollow, "id");
+													echo "<h5> Suggestion de profil : </h5>";
+													$usersuggest = getSuggestion($id);
+													if ($usersuggest!=[]){
+														foreach ($usersuggest as $key => $value) {
+															affichemembre(recupDonneProfil($value),'id');
+														}
+													}
+													else {
+														echo "Vous n'avez pas de suggestions :(";
+													}
+											
+												echo '</div>';
+											?>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<?php
-		} else if($modif == "mdp"){
-			?>
-			<div style="margin-left: 12.5%; width: 75%; margin-top: 50px;">
-				<form  method="post" action="index.php?page=profil&modif=mdp">
-					<p>Ancien Mot de Passe : <input type="password" name="A_mdp"></p>
-					<p>Nouveau Mot de Passe : <input type="password" name="N_mdp"></p>
-					<input type="submit" name="modif" value="Sauvegarder" class="btn btn-light">
-				</form>
-				<hr>
-				<div>
-					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Retour</button></a>
-					<a href="index.php?page=profil&modif=all"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Information</button></a>
-					<a href="index.php?page=profil&modif=img"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Image de Profil</button></a>
-				</div>
-				<div class="err">
+				<div class="row">
 					<?php 
-						if (isset($_GET["err"])) {
-							echo $_GET["err"];
-						}
-					 ?>
-					
+						echo '<p class="fs-4 mt-4 m-4 fw-bold">' . $profil['nom'] . "</p>"; 
+					?>
 				</div>
-			</div>
-			<?php
-		} else if($modif == "img"){
-			?>
-			<div style="margin-left: 12.5%; width: 75%; margin-top: 50px;">
-				<form  method="post" action="index.php?page=profil&modif=img" enctype="multipart/form-data">
-					<p>Choisir votre nouvelle image de Profil : </p>
-					<p><input type="file" name="img_profil" id="img_profil"></p>
-					
-					<input type="submit" name="modif" value="Sauvegarder" class="btn btn-light">
-				</form>
-				<hr>
-				<div>
-					<a href="index.php?page=profil"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Retour</button></a>
-					<a href="index.php?page=profil&modif=all"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Information</button></a>
-					<a href="index.php?page=profil&modif=mdp"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Mot de Passe</button></a>
-				</div>
-				<div class="err">
+				<div class="row">
 					<?php 
-						if (isset($_GET["err"])) {
-							echo $_GET["err"];
-						}
-					 ?>
-					
+						echo '<p class="fs-5 mt-1 m-5">' . $profil['description'] . "</p>"; 
+					?>
 				</div>
 			</div>
-			<?php
-		} else if(false){
-			# code...
-		}
-		
-		
-	} else {	
-		?>
-
-	<div class="tab-pane fade show active" id="monprofil" role="tabpanel" aria-labelledby="lescommu-tab">
-
-		<div style="margin-left: 12.5%; width: 75%; margin-top: 50px;">
-		<img style="width: 50%; margin-left: 25%; margin-top: 50px;" src="DATA/profil_pp/<?php echo $profil['picture']; ?>" >
-		<hr>
-		<div style="display: flex;">
-			<div style="width: 49%; margin: 0;">Nom : <?php echo $profil['nom']; ?></div>
-			<div style="width: 49%; margin: 0;">Prénom : <?php echo $profil['prenom']; ?></div>
-		</div>
-		<hr>
-		<div style="display: flex;">
-			<div style="width: 49%; margin: 0;">Pseudo : <?php echo $profil['pseudo']; ?></div>
-			<div style="width: 49%; margin: 0;">E-mail : <?php echo $profil['mail']; ?></div>
-		</div>
-		<hr>
-		<div>
-			<p>Description :</p>
-			<p style="width: 80%;margin-left: 10%; border:solid black 1px; padding: 5px;"><?php echo $profil['description']; ?></p>
-		</div>
-
-		<hr>
-		<a href="index.php?page=profil&modif=all"><button style="color: white;background-color: red; border:none;border-radius: 15%;">Editer</button></a>
-
-
-		<hr>
+				<hr/>
+				<div class="row">
+					<p class="fs-5 text-center text-muted cursorDis">Publications</p>
 				</div>
+				<?php 
+					$mesposts = recupMesPosts($id);
+					affichepost($mesposts);
+				?>
+			</div>
+		<?php 
+	}else{
 
-	</div>
-	<!-- <hr style="height: 100px;"> -->
-	<?php 
-}
-
-
-
-}else{
-
-		echo '<script>alert("Vous devez être connecté(e) pour accéder à cette page");
-		window.location.href = "./index.php?page=connexion";</script>'; 
-  		exit();
+			echo '<script>alert("Vous devez être connecté(e) pour accéder à cette page");
+			window.location.href = "./index.php?page=connexion";</script>'; 
+			exit();
 
 
 
-}
-
-
-
-echo '<div class="tab-pane" id="follow" role="tabpanel" aria-labelledby="lescommu-tab">';
-
-	echo '<h5> Mes follows </h5>';
-	$mesfollow = takefollow($_SESSION['id']);
-	affichemembre($mesfollow, "id");
-	echo "<h5> Suggestion de profil : </h5>";
-		$usersuggest = getSuggestion($id);
-
-		if ($usersuggest!=[]){
-
-		foreach ($usersuggest as $key => $value) {
-			affichemembre(recupDonneProfil($value),'id');
-		}
-	}
-	else {
-		echo "Vous n'avez pas de suggestions :(";
 	}
 
-echo '</div>';
 
-echo '<div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="mescommu-tab">';
-echo '<h5> Mes followers </h5>';
-$mesfollower = takefollower($_SESSION['id']);
-affichemembre($mesfollower, "id");
-
-echo '</div>';
-
-
-?>
+	?>
+		</div>
 	</div>
-</div>
