@@ -48,45 +48,47 @@ function affiche_imagepost_blackwhite($nomimage){
 
 
 function affichepost($tableaupost){
-
 	// BUT : afficher les communauté
-
 	// $tableaucommu : tableau associatif contenant les infos des communautés
+		echo"<div class='container images-wrapper d-flex'>";
+			echo "<div class='card-columns'>";
 
-	echo"<div class='container images-wrapper d-flex'>";
-		echo "<div class='card-columns'>";
+		foreach ($tableaupost as $key => $value) {
+			//Affichage
 
-	foreach ($tableaupost as $key => $value) {
-		//Affichage
+			echo "<div class='col-md-4 '>";
+			echo "<div class='thumbnail'>";
 
-		echo "<div class='col-md-4 '>";
-		echo "<div class='thumbnail'>";
+		if (!estdejaawarenesspost($_SESSION['id'], $value['idpost'])) {
+				if ($value['idauteur'] != $_SESSION['id']){
+					//echo '<div class="btn btn-warning boutonnew disabled" style="cursor:default;">NEW</div>';
+					?>
+						<button type="button" class="btn btn-primary boutonnew disabled" style="cursor:default">
+							New
+						</button>
+					<?php
+				}
+				}
+				echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
+				echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 
-	if (!estdejaawarenesspost($_SESSION['id'], $value['idpost'])) {
-			if ($value['idauteur'] != $_SESSION['id']){
-				echo '<div class="btn btn-warning boutonnew disabled" style="cursor:default;">NEW</div>';
-			}
-			}
-			echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
-			echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
+				
 
-			
-
-					echo affiche_imagepost($value['image']);
-					echo "<div class='text-start'>" . nbLike(getLike(),$value['idpost']) . " ♥" . "</div>"; 
-					// echo '<div class="caption img-thumbnail">';
-						echo $value["description"];
-					// echo "</div>";
+						echo affiche_imagepost($value['image']);
+						echo "<div class='text-start'>" . nbLike(getLike(),$value['idpost']) . " ♥" . "</div>"; 
+						// echo '<div class="caption img-thumbnail">';
+							echo $value["description"];
+						// echo "</div>";
+				echo "</div>";
 			echo "</div>";
-		echo "</div>";
-		echo "</div>";
-
-
-	}
-	echo "</div>";
-		echo "</div>";
 			echo "</div>";
 
+
+		}
+		echo "</div>";
+			echo "</div>";
+				echo "</div>";
+	
 
 }
 
@@ -273,18 +275,27 @@ function afficheFilActu($mescommu, $iduser){
 				foreach ($tabPost as $key => $value) {
 					//var_dump(array_unique($value));
 					echo '<div class="col-sm-12 col-lg-7 mx-auto my-4 shadow p-3 mb-5 bg-white rounded">';	
-						echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
+						
 							echo '<div class="card">';
 									if (isset($value['pseudo'])){
 										echo affiche_imagepost_blackwhite($value['image']);
+										if (isset($_SESSION['id'])) {
+											if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
+												echo '<p >';
+												$communaute= $value['idcommu'];
+												formulairerejointcommu($communaute);
+												echo '</p>';
+											}
+										}
 									} else {
+										echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 										echo affiche_imagepost($value['image']);
 									}
 									echo '<div class="card-body">';
-										echo '<h5 class="card-title">'. $value['description'] .'</h5>';
+										echo '<h5 class="card-title fs-5">'. $value['description'] .'</h5>';
 										if (isset($value['pseudo'])){
-											echo '<p class="card-text">Partagé par ' . $value['pseudo'] . '</p>';
-											echo '<p class="card-text disabled">A découvrir dans la communauté ' . $value['nom'] . '</p>';
+											echo '<p class="card-text  fs-5">Partagé par ' . $value['pseudo'] . '</p>';
+											echo '<p class="card-text disabled  fs-5">A découvrir dans la communauté <span class="fs-4 fst-italic">' . $value['nom'] . '</span></p>';
 										}	
 									echo '</div>';
 								echo '</div>';

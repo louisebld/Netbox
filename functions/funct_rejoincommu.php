@@ -39,7 +39,7 @@ function formulairerejointcommu($idcommunaute) {
 	?>
 
 
-<form class="form-group" method="post" action="index.php?page=accueil">
+	<form class="form-group" method="post" action="index.php?page=accueil">
 
 		<input type="hidden" name="idcommu" value= "<?php echo $idcommunaute; ?>">
 
