@@ -6,6 +6,7 @@ if (isset($_POST['rejoindrecommu'])) {
 	$iduser = $_SESSION['id'];
 	$idcommu = $_POST['idcommu'];
 	$nomcommu = recupdonnecommuparid($idcommu);
+	header("Location:index.php?page=" . "commu" . $nomcommu[0]['nom']);
 
 
 if (!estdanscommu($iduser, $idcommu)) {
