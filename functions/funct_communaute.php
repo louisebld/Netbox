@@ -143,8 +143,9 @@ function affichecommun($tableaucommu){
 
 		foreach ($tableaucommu as $key => $value) {
 			//Affichage
-				echo '<div class="col-sm-6 col-lg-4 mb-4">';
-			echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
+				echo '<div class="col-sm-6 col-lg-4 mb-4"> ';
+				echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+				echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem;">';
 
 				if (!estbannicommu($_SESSION['id'], $value['idcommu'])) {
 
@@ -155,7 +156,7 @@ function affichecommun($tableaucommu){
 						$vue = (combienpostcommu(recuppost($value['idcommu'])) - postvucommu($_SESSION['id'], $value['idcommu']));
 						
 						if ($vue > 0){
-							echo '<button class="btn btn-warning boutonnbpost disabled btn-circle btn-lg">'. $vue . '</button>';
+							echo '<button class="btn btn-primary boutonnbpost disabled btn-circle btn-lg">'. $vue . '</button>';
 						}					}
 				
 					
@@ -164,7 +165,7 @@ function affichecommun($tableaucommu){
 					echo '</div>';
 					echo '<div class="card-body">';
 					echo '<h5 class="card-title">';
-					echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+					
 					echo '</h5>';
 						echo '<p class="card-text"><h5>' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
 					echo '</div>';
@@ -219,7 +220,8 @@ function affichecommunonly($tableaucommu){
 			// var_dump($value['idcreateur']);
 			if (!estdanscommu($_SESSION['id'], $value['idcommu']) && $_SESSION['id'] != intval($value['idcreateur'])) {
 				echo '<div class="col-sm-6 col-lg-4 mb-4">';
-			echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
+				echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+					echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
 
 
 
@@ -237,13 +239,13 @@ function affichecommunonly($tableaucommu){
 					}
 				
 					echo '<h5 class="card-title">';
-					echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+					
 					echo '</h5>';
 					echo '<div class="image_button_superposed">';
 						echo affiche_imagecommu($value['image']);
 					echo '</div>';
 					echo '<div class="card-body">';
-						echo '<p class="card-text"><h5>' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
+						echo '<p class="card-text"><h5 >' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
 						if (isset($_SESSION['id'])) {
 							if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
 							echo '<p >';
