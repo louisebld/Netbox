@@ -15,12 +15,12 @@ function getLikeCom(){
 }
 
 
-function afficheLikeBoutonCom($idpost,$idcom){
+function afficheLikeBoutonCom($idpost,$idcom,$like){
 	//affiche le bouton like
 	$likeButton= '<form action="index.php?page=post'.$idpost.'" method="post">
                         <input type="hidden" value="'.$idcom.'" id="idcom" name="idcom">
                         <input type="hidden" value="'.$idpost.'" id="idpost" name="idpost">
-						<button type="submit" value="likecom" id="likecom" name="likecom" class="btn btn-danger btn-xl bi-hand-thumbs-up m-1"></button>
+						<button type="submit" value="likecom" id="likecom" name="likecom" class="btn btn-danger btn-xl bi-hand-thumbs-up m-1"> '.$like.'</button>
    					</form>';
     return $likeButton;
 }
@@ -133,12 +133,12 @@ function getUnlikeCom(){
     }
     return $tab;
 }
-function afficheUnlikeBoutonCom($idpost,$idcom){
+function afficheUnlikeBoutonCom($idpost,$idcom, $dislike){
 	//affiche le bouton unlike
     $unlikeButton= '<form action="index.php?page=post'.$idpost.'" method="post">
                         <input type="hidden" value="'.$idcom.'" id="idcom" name="idcom">
                         <input type="hidden" value="'.$idpost.'" id="idpost" name="idpost">
-						<button type="submit" value="unlikecom" id="unlikecom" name="unlikecom" class="btn btn-dark bi-hand-thumbs-down"></button>
+						<button type="submit" value="unlikecom" id="unlikecom" name="unlikecom" class="btn btn-dark bi-hand-thumbs-down"> '.$dislike.'</button>
    					</form>';
 	//$unlikeButton= '<button type="submit" name="like" value="like" class="btn btn-danger btn-xl bi-heart-half m-1"></button>';
     return $unlikeButton;
