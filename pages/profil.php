@@ -16,6 +16,7 @@
 
 
 	if (isset($_SESSION['id'])) {
+		$mesposts = recupMesPosts($id);
 		$id = $_SESSION['id'];
 
 		$profil = recup_profil_id($id)[0];
@@ -33,7 +34,7 @@
 							<div style="width: 49%;" class="text-center m-auto m-lg-3"><p class="fs-1 text-center"><?php echo $profil['pseudo']; ?></p></div>	
 						</div>
 						<div class="col-sm-5 text-center my-4">
-							<p class="fs-5">Nombre de publication</p>
+							<p class="fs-5">Nombre de publications: <?php echo sizeof($mesposts); ?></p>
 						</div>
 					</div>
 					<!-- Deuxieme colonne -->
@@ -137,7 +138,6 @@
 					<p class="fs-5 text-center text-muted cursorDis">Publications</p>
 				</div>
 				<?php 
-					$mesposts = recupMesPosts($id);
 					affichepost($mesposts);
 				?>
 			</div>
