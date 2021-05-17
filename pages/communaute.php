@@ -37,26 +37,53 @@
 						//var_dump($mescommu);
 						//var_dump(recuppostByID($mescommu[0]['idcommu']));
 						$iduser = $_SESSION['id'];
-						
-						afficheFilActu($mescommu, $iduser);
-					
+						if (!empty($mescommu)){
+							afficheFilActu($mescommu, $iduser);
+						} else {
+							//On gere s'il n'y a rien a afficher
+							?>	
+								<div class="container shadow p-3 bg-white rounded text-center">
+									<p class="fs-2 text-white barre rounded">Il n'y a rien à voir pour l'instant !<br/>
+									
+									Foncez dans l'onglet <span class="fst-italic">Découvrez les communautés déjà existantes</span></p>
+									<img src="images/rienavoir.png" alt="Rien A voir">
+								</div>
+							<?php
+						}
 					?>
 			</div>
 			<div class="tab-pane" id="lescommu" role="tabpanel" aria-labelledby="lescommu-tab">
-				<h4 class="mb-3  mt-4">Mes suggestions</h4>				
+								
 				<?php				
 					if (isset($_SESSION['id'])) {
 						$suggestion = getSuggestionCommu($_SESSION['id']);
-						affichecommunonly($suggestion);
+						if (!empty($suggestion)){
+							echo '<h4 class="mb-3  mt-4">Mes suggestions</h4>';
+							affichecommunonly($suggestion);
+						}
 					}
 				?> 
 				<h4 class="mb-3 mt-4">Les communautés à découvrir ...</h4>
 				<?php
-					affichecommunonly($tableaucommu);
-
+					if (!empty($tableaucommu)){
+						affichecommunonly($tableaucommu);
+					} else {
+						//On gere s'il n'y a rien a afficher
+						?>	
+							<div class="container shadow p-3 bg-white rounded text-center">
+								<p class="fs-2 text-white barre rounded">Il n'y a plus de commuanutés a voir !!<br/>
+								
+								Crée ta propre communauté</p>
+								<div class='fs-2'>
+									<a class='hText' href='' data-bs-toggle='modal' data-bs-target='#commuBouton' data-bs-whatever='@getbootstrap'><button type="submit" name="commu" value="commu" class="btn btn-primary  btn-circle bi-cup-straw m-1"> Créer une communauté</button></a>		
+								</div>
+								<img src="images/aucunecommu.png" alt="Aucune communauté a découvrir">
+								
+							</div>
+						<?php
+					}
 				?>
 			</div>
-
 			<div class="tab-pane fade" id="mescommu" role="tabpanel" aria-labelledby="mescommu-tab">
 				<h4 class="mb-3  mt-4">Mes communautés</h4>		
 				<div class='text-end'>
@@ -64,7 +91,25 @@
 				</div>
 				<?php				
 					if (isset($_SESSION['id'])) {
-						affichecommun($mescommu);
+						if (!empty($mescommu)){
+							affichecommun($mescommu);
+						} else {
+							
+							//On gere s'il n'y a rien a afficher
+							?>	
+								<div class="container shadow p-3 bg-white rounded text-center">
+									<p class="fs-2 text-white barre rounded">Vous ne suivez aucune communauté :(<br/>
+									
+									Foncez dans l'onglet <span class="fst-italic">Découvrez les communautés déjà existantes</span><br/>
+									Ou alors créez votre propre communauté !</p>
+									<div class='fs-2'>
+										<a class='hText' href='' data-bs-toggle='modal' data-bs-target='#commuBouton' data-bs-whatever='@getbootstrap'><button type="submit" name="commu" value="commu" class="btn btn-primary  btn-circle bi-cup-straw m-1"> Créer une communauté</button></a>		
+									</div>
+									<img src="images/aucunemescommu.png" alt="Aucune communauté a découvrir">
+									
+								</div>
+							<?php
+						}
 					}
 				?> 
 				<!-- <h4 class="mb-3  mt-4">Vos communautés crées</h4>
