@@ -18,14 +18,14 @@ function print_formulairecreationpost() {
 		</div>
 
 		<input type="hidden" id="idutilisateur" name="idutilisateur" value="<?php if (isset($_SESSION['id'])) {echo $_SESSION['id'];} ?>" />
-
-		<?php
-		listederoulcommu();
-		?>
-
+		<div class="my-3">
+			<?php
+			listederoulcommu();
+			?>
+		</div>
 
 		<br/>
-		<center><input type="submit" class="btn btn-pritaby" name="poster" id="poster" value="Créer" /></center>
+		<center><input type="submit" class="btn btn-pritaby btn-primary" name="poster" id="poster" value="Créer" /></center>
 
 	</form>
 

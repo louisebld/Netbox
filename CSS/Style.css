@@ -16,6 +16,9 @@
 	height:50px;
 }
 
+.coulGrisActu{
+    background-color: #ececec;
+}
 
 .communaute {
 	background-color: #ececec;
@@ -63,10 +66,19 @@
 	color:black;
 }
 
+/* footer{
+    position: absolute; */
+    /* bottom: 0; */
+    /* left: 0; */
 
 
 .barre {
 	background-color: #22223B;
+}
+
+footer{
+    bottom: 0;
+    width: 100%;
 }
 
 /*-------------------- Pour pagecommunaute*/
@@ -290,6 +302,8 @@ position:absolute;
 .marge {
 	left:45%;
 }
+
+
 
 .marge2 {
 	left: 50%;
