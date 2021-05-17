@@ -47,32 +47,49 @@ function print_com ($com) {
                             echo '<p class="text-secondary text-center">' . $value["date"] . "</p>";
                         echo '</div>';
                         echo '<div class="col-md-10">';
-                            echo '<p>';
-                                // Affichage du nom de la personne  
-                                echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';
-                            echo '</p>';
-                        
-                        afficheboutondelcom($value['id'], $value['idpost']);
+                            echo '<div class="row">';
+                                //Premiere colonne
+                                echo '<div class="col-sm-5">';
+                                    echo '<div class="col-sm-5">';
+                                        echo '<p>';
+                                            // Affichage du nom de la personne  
+                                            echo '<a class ="float-left" href="#"><strong>' . affichepseudomembre($createur, "idauteur") . '</strong></a>';
+                                        echo '</p>';
+                                    echo '</div>';
+                                echo '</div>';
+                                //Deuxieme colonne
+                                echo '<div class="col-sm-3">';
+                                    echo '<div class="col-sm-3">';
+                                        afficheboutondelcom($value['id'], $value['idpost']);
+                                    echo '</div>';
+                                echo '</div>';
+                                //Troisieme colonne
+                                echo '<div class="col-sm-3">';                                 
+                                    echo '<div class="text-center">';
+                                        $like = nbLikeCom(getLikeCom(),$value['id']);
+                                        $dislike = nbUnlikeCom(getUnlikeCom(),$value['id']);
+                                        echo '<div class="d-inline-flex text-center">';
+                                            echo afficheLikeBoutonCom($value['idpost'],$value['id'], $like);
+                                            //echo '<p class="text-danger mx-2">' . $like . '</p>';
+                                        echo '</div>';
+                                    echo '</div>';
+                                    echo '<div class="text-center">';
+                                        echo '<div class="d-inline-flex  mb-lg-3">';
+                                            echo afficheUnlikeBoutonCom($value['idpost'],$value['id'],$dislike);
+                                            //echo '<p class="mx-2">' . $dislike . '</p>';
+                                        echo '</div>';
+                                    echo '</div>';
+                                echo '</div>'; 
+                                
+                            echo '</div>';
+                        echo '</div>';
                         echo '</div>';
                         echo '<div class="clearfix"></div>';
                             //Affichage du commentaire
                             echo '<div class="commentary"><p>Commentaire: ' . $value["com"] . "</p></div>";
                             echo '<p>';
                             //like
-                            echo '<div class="text-center">';
-                                $like = nbLikeCom(getLikeCom(),$value['id']);
-                                $dislike = nbUnlikeCom(getUnlikeCom(),$value['id']);
-                                echo '<div class="container">';
-                                    echo '<div class="d-inline-flex">';
-                                        echo afficheLikeBoutonCom($value['idpost'],$value['id']);
-                                        echo '<p class="text-danger mx-2">' . $like . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="d-inline-flex">';
-                                        echo afficheUnlikeBoutonCom($value['idpost'],$value['id']);
-                                        echo '<p class="mx-2">' . $dislike . '</p>';
-                                    echo '</div>';
-                                echo '</div>';
-                            echo '</div>'; 
+                           
                                 //Pour plus tard
                                 $idcomu =   $value['idcomu'];
                                 $idpost = $value['idpost'];

@@ -164,12 +164,12 @@ function affichemonpost($donnepost){
 				echo '<div class="text-center">';
 					echo '<div class="container">';
 					echo '<div class="d-inline-flex">';
-							echo afficheLikeBouton($donnepost[0]['idpost']);
-							echo '<p class="text-danger mx-2">' . $like . '</p>';
+							echo afficheLikeBouton($donnepost[0]['idpost'],$like);
+							//echo '<p class="text-danger mx-2">' . $like . '</p>';
 					echo '</div>';
-					echo '<div class="d-inline-flex">';
-							echo afficheUnlikeBouton($donnepost[0]['idpost']);
-							echo '<p class="mx-2">' . $dislike . '</p>';
+					echo '<div class="d-inline-flex m-lg-3">';
+							echo afficheUnlikeBouton($donnepost[0]['idpost'], $dislike);
+							//echo '<p class="mx-2">' . $dislike . '</p>';
 					echo '</div>';
 				if (($like + $dislike)!=0){
 					echo '<div class="progress bg-dark">';
