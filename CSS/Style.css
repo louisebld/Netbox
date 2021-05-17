@@ -81,6 +81,10 @@ footer{
     width: 100%;
 }
 
+.photoRechercher{
+    max-width: 40px;
+}
+
 /*-------------------- Pour pagecommunaute*/
 
 .descriptioncommu {

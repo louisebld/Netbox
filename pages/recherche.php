@@ -1,65 +1,69 @@
-<div class="contener p-5 mt-5 formulairerecherche">
-		<!-- <h1>Recherche</h1> -->
-<!-- <div class='d-flex form-group justify-content-center'> -->
-	<div class="form-check form-check-inline">
 
-		<form  class='form-group form-inline d-flex' action="index.php?page=recherche" method="POST">
-			<div class="form-check form-check-inline">
-
-				<input type="radio" class='form-check-input' name="type" value="com" checked>
- 			 	<label for="com" class='form-check-label'>Communauté</label>
-</div>
- 			 	<div class="form-check form-check-inline">
-
- 			 	<input type="radio" class='form-check-input' name="type" value="tag">
- 			 	<label for="com" class='form-check-label'>Tags</label>
-</div>
- 			 	<div class="form-check form-check-inline">
-
- 			 	<input type="radio" class='form-check-input' name="type" value="amis">
- 			 	<label for="com" class='form-check-label'>Amis</label>
- 			 </div>
- 			</div>
-<!-- 
-				<option value="com">Communauté</option>
-				<option value="tag">Tags</option>
-				<option value="amis">Amis</option> -->
-			</select>
-		<div class='form-group form-inline d-flex'>
-			<input type="text" style='border-radius:40px'class='form-control bg-white' placeholder="Recherche" name="cherche">
-			<input type="submit" name="rch" value="Chercher" class="btn btn-outline-success m-1">
-		</div>
-		</form>
-	</div>
-
-<!-- 					<a href="index.php?page=tag-ls">
-				<button type="button" class="btn btn-dark m-5">
-					Tag Liste
-				</button>
-			</a> -->
-
-
-</div>
-<div class='pageminimumtaillerecherche'>
-<!-- 	<div class='droite'>
-		<img class="figure-img img-fluid rounded text-end p-5" src="images/natasha.png">
-	</div> -->
-	<?php 
-
-	?><?php 
+<!-- Partie recherche -->
+<?php 
 	if (isset($_POST['cherche']) && isset($_POST['type'])) {
+		?>
+		<div class="container col-lg-8 shadow-lg p-3 mb-5 mt-5 rounded">
+			<div class="contener p-5 mt-5 formulairerecherche">
+				<h3 class="fs-2 text-center mb-4">Rechercher <img src="images/search.png" alt="Rechercher" class="photoRechercher"></h3>
+				<div class="form-check form-check-inline text-center">
+					<form  class='form-group form-inline d-flex' action="index.php?page=recherche" method="POST">
+						<div class="form-check form-check-inline">
+							<input type="radio" class='form-check-input' name="type" value="com" checked>
+							<label for="com" class='form-check-label'>Communauté</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+							<input type="radio" class='form-check-input' name="type" value="tags">
+							<label for="com" class='form-check-label'>Tags</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input type="radio" class='form-check-input' name="type" value="amis">
+							<label for="com" class='form-check-label'>Amis</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input type="radio" class='form-check-input' name="type" value="allSearch">
+							<label for="com" class='form-check-label'>Tout</label>
+						</div>
+						</div>
+						</select>
+						<div class='form-group form-inline d-flex'>
+							<input type="text" style='border-radius:40px'class='form-control bg-white' placeholder="Recherche" name="cherche">
+							<input type="submit" name="rch" value="Chercher" class="btn btn-outline-success m-1">
+						</div>
+					</form>
+				</div>
+			
+		<?php
 		$rch = $_POST['cherche'];
 		$type = $_POST['type'];
 		if (!empty($rch) && trim($rch) != "") {
 			?>
 			<hr>
+			
 			<div>
 			<?php 
 			if ($type == "com") {
 				$res = chargesearchcommu($rch);
-				affichecommun($res);
+				if (!empty($res)){
+					affichecommun($res);
+				} else {
+					aucunResultatRecherche();
+				}
+				
 			}
-			if ($type == "tag") {
+			if ($type == "tags") {
+				// $tag =$rch;
+				// if (count(explode("#", $tag))== 1) {
+				// $tag = "#".$tag;
+				// }
+				// $data = get_all_tag($tag);
+				echo ' <div style="width: 70%;margin-left: 15%;">';
+
+				affichelistetag();
+				echo '</div>';
+			}
+			if ($type == "allSearch") {
 				$tag =$rch;
 				if (count(explode("#", $tag))== 1) {
 				$tag = "#".$tag;
@@ -77,21 +81,22 @@
 								for ($i=0; $i < count($data[0]); $i++) { 
 									echo '<div class="card p-4 my-4" style="width: auto;>';
 										echo '<div class="card-body">';
-										echo '<h5 class="card-title">'.$data[0][$i]["nom"]."</h5>";
-										echo "<p><img src='./images/commu/".$data[0][$i]["image"]."' width= auto; height='200'>";
-										echo "<h6 class='card-subtitle mb-2 text-muted'>".$data[0][$i]["description"]."</h6>";
-										echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[0][$i]["idcommu"])."'><button type='button' class='btn btn-dark'>Aller à la Communauté !</button></a></p>";
-
+											echo "<a class='stylelien' href='index.php?page=commu".Recup_nom_communote_de_id($data[1][$i]["idcommu"])."'>";
+												echo '<h5 class="card-title">'.$data[0][$i]["nom"]."</h5>";
+												echo "<p><img src='./images/commu/".$data[0][$i]["image"]."' width= auto; height='200'>";
+												echo "<h6 class='card-subtitle mb-2 text-muted'>".$data[0][$i]["description"]."</h6>";
+											echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[0][$i]["idcommu"])."'><button type='button' class='btn btn-dark'>Aller à la Communauté !</button></a></p>";
+										echo "</div>";
 									echo "</div>";
 								}
 								?>
 							</ol>
-						</div>
+						
 						<hr>
 						<?php 
 
 						?>
-						<div>
+						
 							<h1>Publications !</h1><ol>
 						<?php //publication
 						for ($i=0; $i < count($data[1]); $i++) { 
@@ -104,22 +109,25 @@
 							// echo "</div></li>";
 
 							echo '<div class="card p-4 my-4" style="width: auto;>';
-							echo '<div class="card-body">';
-							echo '<h5 class="card-title">'.recup_pseudo_id($data[1][$i]["idauteur"])."</h5>";
-							echo "<p><img src='./images/post/".$data[1][$i]["image"]."' width= auto; height='200'>";
-							echo "<h6 class='card-subtitle mb-2 text-muted'>".$data[1][$i]["description"]."</h6>";
-							echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[1][$i]["idcommu"])."'><button type='button' class='btn btn-dark'>Aller à la Communauté !</button></a></p>";
-							echo "</div>";
+								echo '<div class="card-body">';
+									echo "<a class='stylelien' href='index.php?page=commu".Recup_nom_communote_de_id($data[1][$i]["idcommu"])."'>";
+										echo '<h5 class="card-title">'.recup_pseudo_id($data[1][$i]["idauteur"])."</h5>";
+										echo "<p><img src='./images/post/".$data[1][$i]["image"]."' width= auto; height='200'>";
+										echo "<h6 class='card-subtitle mb-2 text-muted'>".$data[1][$i]["description"]."</h6>";
+										echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[1][$i]["idcommu"])."'><button type='button' class='btn btn-dark'>Aller à la Communauté !</button></a></p>";
+									echo "</a>";
+								echo "</div>";
+							
 						}
 						?>
-						</ol>
-						</div>
+							</ol>
+						
 						<hr>
 						<?php 
 
 						?>
-						<div>
-							<h1>Commentaires !</h1><ol>
+						
+						<h1>Commentaires !</h1><ol>
 						<?php //commentaire
 						for ($i=0; $i < count($data[2]); $i++) { 
 							// echo "<li><div style='border:1px solid black;margin-left: 15%;width: 70%;'>";
@@ -130,21 +138,23 @@
 							// echo "</div></li>";
 
 							echo '<div class="card p-4 my-4" style="width: auto;>';
+							echo "<a class='stylelien' href=index.php?page=post" . Recup_nom_communote_de_id($data[2][$i]["idcomu"]) . ">";
 							echo '<div class="card-body">';
 							echo '<h5 class="card-title">'.recup_pseudo_id($data[2][$i]["idauteur"])."</h5>";
 							echo "<h6 class='card-subtitle mb-4 mt-4 text-muted'>".$data[2][$i]["date"]."</h6>";
 							echo "<h6 class='card-subtitle mb-4 mt-4 text-muted'>".$data[2][$i]["com"]."</h6>";
 							echo "<a href='index.php?page=commu".Recup_nom_communote_de_id($data[2][$i]["idcomu"])."'><button type='button' class='btn btn-dark'>Aller à la Communauté !</button></a></p>";
+							echo "</a>";
 							echo "</div>";
 						}
 						?>
-						</ol>
-						</div>
+							</ol>
+						
 						<hr>
 						<?php 
 
 						?>
-						<div>
+						
 							<h1>Réponses !</h1><ol>
 						<?php //reponse
 						for ($i=0; $i < count($data[3]); $i++) { 
@@ -166,20 +176,63 @@
 						?>
 						</ol>
 						</div>
+				
 				<?php 
 
 			}
 			if ($type == "amis") {
 				$res = get_amis($rch);
 				//var_dump($res);
-				affichemembre($res, 'id');
+				if (!empty($res)){
+					affichemembre($res, 'id');
+				} else {
+					aucunResultatRecherche();
+				}
+				
 			}
-			?></div><?php 
+			?></div>
+			
+			</div><?php 
 		}
 		
+	}else {
+		?>
+		<!-- Page Recherche accueil -->
+		<div class="container col-lg-8 shadow-lg p-3 mb-5 mt-5 rounded">
+			<div class="contener p-5 mt-5 formulairerecherche">
+				<h3 class="fs-2 text-center mb-4">Rechercher <img src="images/search.png" alt="Rechercher" class="photoRechercher"></h3>
+				<div class="form-check form-check-inline text-center">
+					<form  class='form-group form-inline d-flex' action="index.php?page=recherche" method="POST">
+						<div class="form-check form-check-inline">
+							<input type="radio" class='form-check-input' name="type" value="com" checked>
+							<label for="com" class='form-check-label'>Communauté</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+							<input type="radio" class='form-check-input' name="type" value="tags">
+							<label for="com" class='form-check-label'>Tags</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input type="radio" class='form-check-input' name="type" value="amis">
+							<label for="com" class='form-check-label'>Amis</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input type="radio" class='form-check-input' name="type" value="allSearch">
+							<label for="com" class='form-check-label'>Tout</label>
+						</div>
+						</div>
+						</select>
+						<div class='form-group form-inline d-flex'>
+							<input type="text" style='border-radius:40px'class='form-control bg-white' placeholder="Recherche" name="cherche">
+							<input type="submit" name="rch" value="Chercher" class="btn btn-outline-success m-1">
+						</div>
+					</form>
+				</div>
+				<img src="images/recherche.png" alt="Faire une recherche" class="text-center m-lg-2">
+			</div>
+		</div>
+</div>
+</div>
+<?php
 	}
-
-	 ?>
-
-</div>
-</div>
+?>

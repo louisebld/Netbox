@@ -420,5 +420,9 @@ function formulairemodificationimagecommu($idcommunaute){
 
 }
 							
-
-
+function aucunResultatRecherche(){
+	?>	
+		<p class="fs-1 text-center">Il n'y aucun résultat</p>
+		<img src="images/aucunecommu.png" alt="Aucun résultat">
+	<?php
+}
