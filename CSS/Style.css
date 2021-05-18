@@ -478,3 +478,20 @@ position:absolute;
 .content{
     margin-top:40px;    
 }
+
+
+.profiltop {
+    margin-top:16%;
+}
+
+.profiltop2 {
+    margin-top:53%;
+}
+
+/*.profiltop3 {
+    margin-top:60%;
+}*/
+
+.pseudoabsolute {
+    position:absolute;
+}
