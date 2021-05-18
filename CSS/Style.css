@@ -4,8 +4,6 @@
 
 }
 
-
-
 .titre {
 	font-size: 150px;
 	padding-top:200px;
@@ -115,7 +113,10 @@ footer{
     background-size: cover;
 }
 
-
+.abocommu{
+	margin-left :8; 
+	margin-right :8;
+}
 
 #photos {
 	/* Prevent vertical gaps */

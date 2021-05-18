@@ -1,11 +1,31 @@
 <?php
 function affichemembre ($membrecommu, $namedatabase) {
-	echo "<div class='row'>";
+	echo "<div class='d-flex flex-wrap abocommu'>";
 	foreach ($membrecommu as $key => $value) {
 		//Affichage des commentaires
 			?>
-			<div class='col-lg-4 col-md-12 mb-4 text-center width-auto'>
-			<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+			<div class='d-flex flex-column justify-content-center m-4 width-auto'>
+			<div class='d-flex justify-content-center width-auto'>
+				<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+			</div>
+<?php
+			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+			echo "</div>";
+
+			// echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+}
+	echo "</div>";
+}
+
+function afficheabonnée ($membrecommu, $namedatabase) {
+	echo "<div class='d-flex flex-wrap justify-content-around'>";
+	foreach ($membrecommu as $key => $value) {
+		//Affichage des commentaires
+			?>
+			<div class='d-flex flex-column justify-content-center m-4 width-auto'>
+			<div class='d-flex justify-content-center width-auto'>
+				<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+			</div>
 <?php
 			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
 			echo "</div>";
@@ -414,16 +434,18 @@ function affichemembredeban($membre, $namedatabase, $idcommu, $nomcommu) {
 
 
 function affichemembrepublieleplus ($membrecommu, $namedatabase, $idcommu) {
-	echo "<div class='row'>";
+	echo "<div class='d-flex flex-wrap justify-content-around'>";
 	foreach ($membrecommu as $key => $value) {
-		//Affichage des commentaires
+		//Affichage des commentaires : col-lg-4 col-md-12 mb-4
 			?>
-			<div class='col-lg-4 col-md-12 mb-4 text-center width-auto'>
-			<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+			<div class='d-flex flex-column justify-content-center m-4 width-auto'>
+			<div class='d-flex justify-content-center width-auto'>
+				<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+			</div>
 <?php
-			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+			echo "<a class ='stylelien text-center' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
 			echo "<p>";
-			echo "<div class='bi-file-earmark-richtext'> " . recupnbpost($value[$namedatabase], $idcommu) . "</div>";
+			echo "<div class='d-flex justify-content-center bi-file-earmark-richtext'> " . recupnbpost($value[$namedatabase], $idcommu) . "</div>";
 			echo "</p>";
 			echo "</div>";
 
@@ -436,16 +458,18 @@ function affichemembrepublieleplus ($membrecommu, $namedatabase, $idcommu) {
 
 
 function affichemembrecommenteleplus ($membrecommu, $namedatabase, $idcommu) {
-	echo "<div class='row'>";
+	echo "<div class='d-flex flex-wrap justify-content-around'>";
 	foreach ($membrecommu as $key => $value) {
 		//Affichage des commentaires
 			?>
-			<div class='col-lg-4 col-md-12 mb-4 text-center width-auto'>
-			<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+			<div class='d-flex flex-column justify-content-center m-4 width-auto'>
+			<div class='d-flex justify-content-center width-auto'>
+				<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
+			</div>
 <?php
-			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+			echo "<a class ='stylelien text-center' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
 			echo "<p>";
-			echo "<div class='bi-chat'> " . recupnbcom($value[$namedatabase], $idcommu) . "</div>";
+			echo "<div class='d-flex justify-content-center bi-chat'> " . recupnbcom($value[$namedatabase], $idcommu) . "</div>";
 			echo "</p>";
 			echo "</div>";
 

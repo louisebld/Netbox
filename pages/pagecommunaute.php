@@ -90,23 +90,25 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 
 			<div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
 				<div class="container descriptioncommu caption img-thumbnail mt-4 shadow-lg p-3 mb-5 bg-white rounded">
+
 					<?php
 						//Affichage de la description
-					echo "<h4 class='m-2'> Créateur : </h4>";
+					echo "<h4 class='m-2'> Créateur : </h4> <div class='ml-4'>";
 					affichemembre($createur, "id");
 							// var_dump($createur);
-					echo "<h4 class='m-2'> Membres qui publient le plus : </h4>";
+					echo "</div> <h4 class='m-2'> Membres qui publient le plus : </h4>";
 					affichemembrepublieleplus(chargeplusactifpost($idcommu), "idauteur", $idcommu);
 					echo "<h4 class='m-2'> Membres qui commentent le plus : </h4>";
 					affichemembrecommenteleplus(chargeplusactifcomment($idcommu), "idauteur", $idcommu);
 					?>
+
 				</div>
 			</div>
 			<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-				<div class="container descriptioncommu caption img-thumbnail mt-4 row shadow-lg p-3 m-5 bg-white rounded">
+				<div class="container descriptioncommu caption img-thumbnail mt-4 shadow-lg p-3 mb-5 bg-white rounded">
 					<!-- <h4> Voici les membres de la communauté : </h4> -->
 					<?php
-					affichemembre ($membrecommu, "iduser");
+					afficheabonnée ($membrecommu, "iduser");
 					?>
 				</div>
 			</div>
