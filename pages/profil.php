@@ -27,28 +27,28 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<img class="roundedImageProfil sm-2"  src="DATA/profil_pp/<?php echo $profil['picture']; ?>">
+						<!-- Button trigger modal -->
+							<button type="button" class="btn btn-outline-secondary btn-sm  me-md-2 mt-2" action="modifDataProfil" data-bs-toggle="modal" data-bs-target="#changerPhotoProfil">Modifier la photo de profil</button>
+							<?php
+								modalChangerPhotoProfil();
+							?>
 					</div>
 					<!-- Premiere colonne -->
-					<div class="col-sm-3 text-">
+					<div class="col-sm-3">
 						<div class="col-sm-3">
 							<div style="width: 49%;" class="text-center m-auto m-lg-3"><p class="fs-1 text-center"><?php echo $profil['pseudo']; ?></p></div>	
 						</div>
-						<div class="col-sm-5 text-center my-4">
-							<p class="fs-5">Nombre de publications: <?php echo sizeof($mesposts); ?></p>
+						<div class="col-sm-5 text-center my-4 ">
+							<p class="fs-5"><?php echo sizeof($mesposts) . " publications"; ?></p>
 						</div>
 					</div>
 					<!-- Deuxieme colonne -->
 					<div class="col-sm-3  mx-auto m-auto">
-						<div class="col-sm-5 text-center mt-3 ">
-						<button type="button" class="btn btn-outline-secondary btn-sm  me-md-2" action="modifPhotoProfil" data-bs-toggle="modal" data-bs-target="#changerDataProfil">Modifier Vos informations</button>
-							<?php
-								modalChangerDataProfil($profil);
-							?>
-						</div>
-						<div class="col-sm-5 text-center my-4">
+
+						<div class="col-sm-5 text-center my-4 ">
 							<a class="btn btn-link" style="text-decoration:none;" role="button" data-bs-toggle="modal" data-bs-target="#modalFollowers">
 								<?php		
-									echo "<p class='fs-5'>" . countFollowers($id) . " abonnés</p>";
+									echo "<p class='fs-5 profiltop'>" . countFollowers($id) . " abonnés</p>";
 								?>
 							</a>
 							<div class="modal fade" id="modalFollowers" tabindex="-1" aria-labelledby="modalFollowersLabel" aria-hidden="true">
@@ -71,16 +71,15 @@
 					</div>
 					<!-- Troisieme colonne -->
 					<div class="col-sm-3 mx-auto">
-						<div class="col-sm-6 text-center mt-3">
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-outline-secondary btn-sm  me-md-2" action="modifDataProfil" data-bs-toggle="modal" data-bs-target="#changerPhotoProfil">Modifier la photo de profil</button>
+						<div class=" text-end">
+						<button type="button" class="btn btn-outline-secondary bi-gear btn-lg" action="modifPhotoProfil" data-bs-toggle="modal" data-bs-target="#changerDataProfil"></button>
 							<?php
-								modalChangerPhotoProfil();
+								modalChangerDataProfil($profil);
 							?>
 						</div>
 						<div class="col-sm-6 text-center my-4">
 							<!-- Modal Mes abonnements -->
-							<a class="btn btn-link" style="text-decoration:none;" role="button" data-bs-toggle="modal" data-bs-target="#modalFollow">
+							<a class="btn btn-link " style="text-decoration:none;" role="button" data-bs-toggle="modal" data-bs-target="#modalFollow">
 								<?php		
 									echo  "<p class='fs-5'>" . countFollows($id) . " abonnements</p>";
 								?>
@@ -136,11 +135,21 @@
 				<hr/>
 				<div class="row">
 					<p class="fs-5 text-center text-muted cursorDis">Publications</p>
-				</div>
 				<?php 
 					affichepost($mesposts);
 				?>
+				<hr/>
+					<p class="fs-5 text-center text-muted cursorDis">Communautés</p>
+				<?php 
+			$sescommu = selectcommu($id);
+			affichecommun($sescommu);
+				?>
+
+
+
+
 			</div>
+		</div>
 		<?php 
 	}else{
 
