@@ -1,5 +1,5 @@
 <!-- <div class="container m-5 p-4 pageminimumtaille communaute"> -->
-<div class="container shadow bg-white rounded">
+<div class="container shadow bg-white rounded p-4 pageminimumtaille">
 	<div class="row m-3">
 		<div class="col-sm-6">
 			<div class="gauche">
