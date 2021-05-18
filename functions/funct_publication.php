@@ -50,14 +50,15 @@ function affiche_imagepost_blackwhite($nomimage){
 function affichepost($tableaupost){
 	// BUT : afficher les communauté
 	// $tableaucommu : tableau associatif contenant les infos des communautés
-		echo"<div class='container images-wrapper d-flex'>";
+		echo"<div class='container images-wrapper'>";
 			echo "<div class='card-columns'>";
 
 		foreach ($tableaupost as $key => $value) {
 			//Affichage
 
-			echo "<div class='col-md-4 '>";
-			echo "<div class='thumbnail'>";
+			// echo "<div class='col-md-4 '>";
+			echo '<div class="card shadow p-3 bg-white rounded">';
+
 
 		if (!estdejaawarenesspost($_SESSION['id'], $value['idpost'])) {
 				if ($value['idauteur'] != $_SESSION['id']){
@@ -69,10 +70,9 @@ function affichepost($tableaupost){
 					<?php
 				}
 				}
-				echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
-				echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 
 				
+			echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 
 						echo affiche_imagepost($value['image']);
 						echo "<div class='text-start'>" . nbLike(getLike(),$value['idpost']) . " ♥" . "</div>"; 
@@ -80,14 +80,11 @@ function affichepost($tableaupost){
 							echo $value["description"];
 						// echo "</div>";
 				echo "</div>";
-			echo "</div>";
-			echo "</div>";
-
 
 		}
 		echo "</div>";
 			echo "</div>";
-				echo "</div>";
+
 	
 
 }
