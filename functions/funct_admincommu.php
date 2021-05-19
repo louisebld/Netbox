@@ -9,7 +9,7 @@ function affichemembre ($membrecommu, $namedatabase) {
 				<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
 			</div>
 <?php
-			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+			echo "<a class ='stylelien text-center' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
 			echo "</div>";
 
 			// echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
@@ -27,7 +27,7 @@ function afficheabonnée ($membrecommu, $namedatabase) {
 				<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
 			</div>
 <?php
-			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+			echo "<a class ='stylelien text-center' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
 			echo "</div>";
 
 			// echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
@@ -418,7 +418,7 @@ function affichemembredeban($membre, $namedatabase, $idcommu, $nomcommu) {
 			<img class="roundedImage" src="DATA/profil_pp/<?php echo $value['picture']; ?>" >
 <?php
 
-			echo "<a class ='stylelien' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
+			echo "<a class ='stylelien text-center' href=index.php?page=personneid" . $value[$namedatabase] . ">" . $value["pseudo"] . '</a>';
 			echo "</div>";
 			echo "<div class='droite'>";
 			if ($_SESSION['id']==$createur[0]['id']) {
