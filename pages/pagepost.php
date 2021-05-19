@@ -52,7 +52,7 @@ if (estdanscommu($_SESSION['id'], $idcommunaute) || $_SESSION['id']==$idcreateur
 			}
 
 
-			if (estmodo($_SESSION['id'], $idcommunaute)) {
+			if (estmodo($_SESSION['id'], $idcommunaute) ||($idcreateur == $_SESSION['id'])) {
 
 			// Pour supprimer un post
 			echo "<div class='container text-center mt-4'>";
