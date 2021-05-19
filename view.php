@@ -35,17 +35,25 @@
 
 
 	if (isset($_GET["page"])) {
-		if ($_GET["page"] == "accueil"){
+
+
+		if(isset($_SESSION['id'])) {
+
+			if ($_GET["page"] == "accueil"){
 			include ("pages/accueil.php");
 			include("pages/footer.php");
 			
-		}
+			}
 
-		elseif ($_GET["page"] == "communaute"){
+		// elseif ($_GET["page"] == "communaute"){
 			
-			include ("pages/entete.php");
-			include ("pages/communaute.php");
-			include ("pages/barre.php");
+		// 	// include ("pages/entete.php");
+		// 	// include ("pages/communaute.php");
+		// 	// include ("pages/barre.php");
+
+		// 			header('location:index.php?page=actu');
+
+		// }
 
 			// if (!isset($_SESSION['id'])) {
 
@@ -58,7 +66,9 @@
 			// }
 
 
-		}elseif($_GET["page"] == "tag"){
+		
+
+		elseif($_GET["page"] == "tag"){
 			include ("pages/entete.php");
 			include ("pages/tag.php");
 			include ("pages/barre.php");
@@ -85,7 +95,7 @@
 
 		}
 
-		elseif (commenceparcommu($_GET["page"])){
+		elseif (commenceparcommu($_GET["page"])  && ($_GET["page"] != "communaute")){
 
 			$communaute=savoircommu($_GET["page"]);
 			include ("pages/entete.php");
@@ -156,17 +166,25 @@
 		}
 
 		else{
-			include ("pages/accueil.php");
-			include("pages/footer.php");
+			header('location:index.php?page=actu');
+
 
 
 		}
 
-	}
+}
+
+	else if ($_GET["page"] == "accueil"){
+			include ("pages/accueil.php");
+			include("pages/footer.php");
+			
+		}
 
 	else {
-		header('location:index.php?page=accueil');
+			header('location:index.php?page=accueil');
+
 	}
+}
 
 	?>
 
