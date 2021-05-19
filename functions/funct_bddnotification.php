@@ -83,6 +83,16 @@ function supprime_all_notif($idCurrentUser, $idOtherUser, $type) {
 
 }
 
+function supprime_toutes_les_notifs($idCurrentUser) {
+// Supprime toute les notifications entre deux utilisateurs (que dans un seul sens) et en fontion du type 
+
+// variable globale base de donnée
+	global $db;
+
+	$notif = mysqli_query($db, "DELETE FROM notification WHERE idCurrentUser = $idCurrentUser");
+
+}
+
 function nbDMDe($idpersonne, $idOtherUser) {
 // Renvoie le nombre de message que $idOtherUser a envoyé à $idpersonne
 

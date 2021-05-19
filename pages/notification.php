@@ -39,6 +39,19 @@ $id_notification_autre = 3;
 					<?php
 					// Affichage du récapitulatif des Notifications
 						// print_recapNotification($mon_id);
+						if (anotification($mon_id)) { ?>
+							<form method="post" action="index.php?page=notification" enctype="multipart/form-data">
+				    		<?php  
+				    		?>
+				    		<div class="d-flex justify-content-center" style="padding: 10px; margin-bottom: 10px">
+				    		
+				    		<input type="hidden" id="idCurrentUser" name="idCurrentUser" value="<?php echo $mon_id; ?>" />
+				    		<input type="submit" class="btn btn-danger" name="supprToutesLesNotifs" id="supprAllNotif" value="Supprimer toutes les notifications" />
+
+				    		</div>
+				    		</form>
+		    			<?php
+						}
 						print_formulairemessageNotificationDM($mon_id,$id_notification_DM);
 						print_formulairemessageNotificationFollow($mon_id,$id_notification_follow);
 					?>

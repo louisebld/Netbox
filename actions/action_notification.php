@@ -36,4 +36,15 @@ if (isset($_POST['supprAllNotifFollow'])) {
 
 	header("Location:index.php?page=notification");
 	}
+
+if (isset($_POST['supprToutesLesNotifs'])) {
+
+
+	$idCurrentUser = $_POST['idCurrentUser'];
+
+	supprime_toutes_les_notifs($idCurrentUser);
+
+
+	header("Location:index.php?page=notification");
+	}
 ?>
