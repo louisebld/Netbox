@@ -69,12 +69,12 @@ function print_rep ($rep) {
                             $dislike = nbUnlikeCom(getUnlikeCom(),$value['id']);
 					        echo '<div class="container">';
 					            echo '<div class="d-inline-flex">';
-                                    echo afficheLikeBoutonCom($value['idpost'],$value['id']);
-                                    echo '<p class="text-danger mx-2">' . $like . '</p>';
+                                    echo afficheLikeBoutonCom($value['idpost'],$value['id'],$like);
+                                    //echo '<p class="text-danger mx-2">' . $like . '</p>';
                                 echo '</div>';
                                 echo '<div class="d-inline-flex">';
-                                    echo afficheUnlikeBoutonCom($value['idpost'],$value['id']);
-                                    echo '<p class="mx-2">' . $dislike . '</p>';
+                                    echo afficheUnlikeBoutonCom($value['idpost'],$value['id'], $dislike);
+                                    //echo '<p class="mx-2">' . $dislike . '</p>';
                                 echo '</div>';
                             echo '</div>';
                         echo '</div>'; 
