@@ -54,7 +54,7 @@ function print_formulairemessageNotificationDM($idPersonne,$idNotification) {
 	    	}
 		    	
 	    	else { ?>
-	    		<h4> Vous n'avez pas de nouvelles notifications </h4>
+	    		<h5> Vous n'avez pas de nouveaux messages ! </h5>
 	    	<?php } ?>
 	    	
 	    </div>
@@ -78,11 +78,13 @@ function print_formulairemessageNotificationFollow($idPersonne,$idNotification) 
 		    		<form method="post" action="index.php?page=notification" enctype="multipart/form-data">
 		    		<?php  
 		    		foreach ($notifs as $key => $value):
+		    			$idOtherUser = $value['idOtherUser'];
+		    			$PseudoOtherUser = recup_profil_id($value['idOtherUser'])[0]['pseudo'];
 		    		?>
 		    		<div class="notification" style="padding: 10px; margin-bottom: 10px">
 		    		<p>
-		    		<h6> <?php echo recup_profil_id($value['idOtherUser'])[0]['pseudo'];?>, vous a follow !</h6>
-		    		
+		    		<h6> <?php echo "<a class ='stylelien text-center' href=index.php?page=personneid" . $idOtherUser . ">" . $PseudoOtherUser ;?> </a>, vous a follow !</h6>
+
 		    		<input type="hidden" id="idCurrentUser" name="idCurrentUser" value="<?php echo $value['idCurrentUser']; ?>" />
 		    		<input type="hidden" id="idOtherUser" name="idOtherUser" value="<?php echo $value['idOtherUser']; ?>" />
 		    		<input type="hidden" id="type" name="type" value="<?php echo $idNotification; ?>" />
@@ -95,7 +97,7 @@ function print_formulairemessageNotificationFollow($idPersonne,$idNotification) 
 			}
 		    	
 	    	else { ?>
-	    		<h4> Vous n'avez pas de nouvelles notifications </h4>
+	    		<h5> Vous n'avez pas de nouveaux followers !</h5>
 	    	<?php } ?>
 	    	
 	    </div>
