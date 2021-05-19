@@ -280,8 +280,10 @@ function affichageActu($tabPost){
 					
 						echo '<div class="card">';
 							// && (($value['id'])!=($value['idcreateur']))
-								var_dump($value);
-								if (isset($value['pseudo'])&& ($_SESSION['id']!=$value['idauteur'])){
+								//var_dump($value);
+								$commu = recupdonneauteurcommu($value['idcommu']);
+								//var_dump($commu);
+								if (isset($value['pseudo']) && $commu[0]['idcreateur'] != $_SESSION['id']){
 									echo affiche_imagepost_blackwhite($value['image']);
 									if (isset($_SESSION['id'])) {
 										if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
@@ -310,3 +312,4 @@ function affichageActu($tabPost){
 	echo '</div>';
 echo '</div>';
 }
+
