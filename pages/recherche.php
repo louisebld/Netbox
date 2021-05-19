@@ -33,6 +33,7 @@
 						</div>
 					</form>
 				</div>
+		</div>
 			
 		<?php
 		$rch = $_POST['cherche'];
@@ -191,7 +192,7 @@
 				
 			}
 			?></div>
-			
+			</div>
 			</div><?php 
 		}
 		
@@ -231,6 +232,7 @@
 				<img src="images/recherche.png" alt="Faire une recherche" class="text-center m-lg-2">
 			</div>
 		</div>
+</div>
 </div>
 </div>
 <?php
