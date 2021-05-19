@@ -63,6 +63,7 @@ $profil = recup_profil_id($idpersonne)[0];
 		affichecommun($sescommu);
 	?>
 </div>
+</div>
 
 <!-- <div style="margin-left: 12.5%; width: 75%; margin-top: 50px;">
 	 -->
