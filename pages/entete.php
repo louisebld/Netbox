@@ -14,7 +14,7 @@
   <!-- <i class="bi bi-people-fill"></i> -->
   <!-- <button type="button" name="people" value="people" class="btn btn-danger btn-xl bi-people-fill m-1"></button> -->
 
-  <a class="navbar-brand mx-4 .text-light" href="index.php?page=communaute">Netbox</a>
+  <a class="navbar-brand mx-4 .text-light" href="index.php?page=actu">Netbox</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,7 +42,7 @@
             <a href='index.php?page=publication'><button type="submit" name="addpost" value="post" class="btn btn-primary btn-circle bi-pencil-square m-1 "> Publier</button></a>
       </li>
       <li class='nav-item'>
-            <a href='index.php?page=communaute'><button type="submit" name="commu" value="commu" class="btn btn-warning  btn-circle bi-journal-richtext m-1"> Communauté</button></a>
+            <a href='index.php?page=mescommu'><button type="submit" name="commu" value="commu" class="btn btn-warning  btn-circle bi-journal-richtext m-1"> Communauté</button></a>
       </li>
 
       <li class='nav-item'>

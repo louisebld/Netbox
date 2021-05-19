@@ -10,7 +10,9 @@
 						
 						afficheFilActu($mescommu, $iduser);
 				}
+
 					?>
+				
 			</div>
 </div>
 

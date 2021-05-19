@@ -40,7 +40,7 @@
 				?>
 				<button type="button" class="btn btn-light btn-outline-dark border-light m-2" data-bs-whatever="@getbootstrap"><a href="index.php?act=deconnexion" style="text-decoration: none;color: black;">Déconnexion</a></button>
 
-				<a class="btn btn-success" href="index.php?page=communaute">Communauté</a>
+				<a class="btn btn-success" href="index.php?page=mescommu">Communauté</a>
 
 				<?php
 

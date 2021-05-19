@@ -9,7 +9,7 @@
 					<h5>Liens utiles</h5>
 					<ul class="list-unstyled">
 						<li><a class="mx-4 LinkFooter hLinkFooter" style="text-decoration: none;" href="index.php?page=accueil">Accueil</a></li>
-						<li><a class="mx-4 LinkFooter hLinkFooter" style="text-decoration: none;" href="index.php?page=communaute">Espace communautaire</a></li>
+						<li><a class="mx-4 LinkFooter hLinkFooter" style="text-decoration: none;" href="index.php?page=mescommu">Espace communautaire</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-4 mt-5">
