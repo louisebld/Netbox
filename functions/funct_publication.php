@@ -279,7 +279,9 @@ function affichageActu($tabPost){
 				echo '<div class="col-sm-12 col-lg-7 mx-auto my-4 shadow p-3 mb-5 bg-white rounded">';	
 					
 						echo '<div class="card">';
-								if (isset($value['pseudo'])){
+							// && (($value['id'])!=($value['idcreateur']))
+								var_dump($value);
+								if (isset($value['pseudo'])&& ($_SESSION['id']!=$value['idauteur'])){
 									echo affiche_imagepost_blackwhite($value['image']);
 									if (isset($_SESSION['id'])) {
 										if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
