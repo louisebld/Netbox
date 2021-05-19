@@ -186,15 +186,22 @@
 	}
 }
 
+else {
+				header('location:index.php?page=accueil');
+
+}
+
 	?>
 
 
 
 	<!-- Pour le footer -->
 	<?php
+	if (isset($_GET["page"])) {
 	if (!($_GET["page"] == "accueil")){
 		include("pages/footer.php");
 	}
+}
 	?>
 
 
