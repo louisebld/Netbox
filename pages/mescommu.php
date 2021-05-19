@@ -25,17 +25,28 @@
 						$suggestion = getSuggestionCommu($_SESSION['id']);
 						// var_dump($suggestion);
 						if (empty($suggestion)){
-								echo '<img class="figure-img img-fluid rounded text-end" src="images/box.png">';
-
+								// echo '<img class="figure-img img-fluid rounded text-end" src="images/box.png">';
+							?>
+							<div class="container shadow p-3 bg-white rounded text-center w-25">
+								<p class="fs-2 rounded">Il n'y a plus de commuanutés a voir !!<br/>
+								
+								Crée ta propre communauté</p>
+								<div class='fs-2'>
+									<a class='hText' href='' data-bs-toggle='modal' data-bs-target='#commuBouton' data-bs-whatever='@getbootstrap'><button type="submit" name="commu" value="commu" class="btn btn-primary  btn-circle bi-cup-straw m-1"> Créer une communauté</button></a>		
+								</div>
+								<img class="figure-img img-fluid rounded text-end" src="images/box.png">
+								
+							</div>
+							<?php
 						}
 						else {
-						affichecommunonly($suggestion);
+							affichecommunonly($suggestion);
 						}
 					}
 				?> 
 				<h4 class="mb-3 mt-4">Les communautés à découvrir ...</h4>
 				<?php
 					affichecommunonly($tableaucommu);
-
+					
 				?>
 </div>

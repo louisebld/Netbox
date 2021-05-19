@@ -37,8 +37,10 @@
 						//var_dump($mescommu);
 						//var_dump(recuppostByID($mescommu[0]['idcommu']));
 						$iduser = $_SESSION['id'];
-						if (!empty($mescommu)){
-							afficheFilActu($mescommu, $iduser);
+						$tabActu = afficheFilActu($mescommu, $iduser);
+						//var_dump($tabActu);
+						if (!empty($tabActu)){
+							affichageActu($tabActu);
 						} else {
 							//On gere s'il n'y a rien a afficher
 							?>	
