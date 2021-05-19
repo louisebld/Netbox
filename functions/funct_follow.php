@@ -4,7 +4,7 @@ function afficheboutonfollow($idutilisateurcourant) {
 
 ?>
 
-	<form method="post" class='text-center' action="index.php?page=communaute"> 
+	<form method="post" class='text-center' action="index.php?page=mescommu"> 
 
 
 			<?php	
@@ -25,7 +25,7 @@ function afficheboutonunfollow($idutilisateurcourant) {
 
 ?>
 
-	<form method="post" class='text-center' action="index.php?page=communaute"> 
+	<form method="post" class='text-center' action="index.php?page=mescommu"> 
 
 
 			<?php	
