@@ -401,7 +401,7 @@ position:absolute;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    background: #5a99ee;
+    background: #6CAF9B;
     display: inline-block;
     padding: 10px 20px;
     position: relative;
@@ -437,7 +437,7 @@ position:absolute;
 .chat-list .in .chat-message:before {
     left: -12px;
     border-bottom: 20px solid transparent;
-    border-right: 20px solid #5a99ee;
+    border-right: 20px solid #6CAF9B;
 }
 
 .chat-list .out .chat-img {
@@ -451,13 +451,13 @@ position:absolute;
 }
 
 .chat-list .out .chat-message {
-    background: #6CAF9B;
+    background: #5a99ee;
 }
 
 .chat-list .out .chat-message:before {
     right: -12px;
     border-bottom: 20px solid transparent;
-    border-left: 20px solid #6CAF9B;
+    border-left: 20px solid #5a99ee;
 }
 
 .card .card-header:first-child {
