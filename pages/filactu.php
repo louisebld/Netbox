@@ -11,7 +11,7 @@
 						// afficheFilActu($mescommu, $iduser);
 						$tabActu = afficheFilActu($mescommu, $iduser);
 						//var_dump($tabActu);
-						$tabActu = array();
+						
 						if (!empty($tabActu)){
 							affichageActu($tabActu);
 						} else {
