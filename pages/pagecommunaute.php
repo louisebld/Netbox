@@ -22,16 +22,19 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 	
 	<ul class="nav nav-pills nav-fill bg-white justify-content-center" id="myTab" role="tablist">
 		<li class="nav-item">
-			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+			<a class="nav-link active btn" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" id="tchat-tab" data-toggle="tab" href="#tchat" role="tab" aria-controls="tchat" aria-selected="false">Tchat</a>
+			<a class="nav-link btn" id="tchat-tab" data-toggle="tab" href="#tchat" role="tab" aria-controls="tchat" aria-selected="false">Tchat</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Stats</a>
+			<a class="nav-link btn" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Stats</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Abonnés</a>
+			<a class="nav-link btn" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+				Abonnés <span class="badge badge-danger text-dark">4</span></a>
+
+
 		</li>
 
 	<?php if (estmodo($_SESSION['id'], $idcommu)) { ?>
@@ -44,8 +47,8 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 
 	<?php if ($_SESSION['id']==$createur[0]['id']) { ?>
 
-		<li class="nav-item bg-light">
-			<a class="nav-link" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
+		<li class="nav-item bg-light ">
+			<a class="nav-link btn-danger" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
 		</li>
 
 		
