@@ -73,7 +73,7 @@
 						//On gere s'il n'y a rien a afficher
 						?>	
 							<div class="container shadow p-3 bg-white rounded text-center">
-								<p class="fs-2 text-white barre rounded">Il n'y a plus de commuanutés a voir !!<br/>
+								<p class="fs-2 text-white barre rounded">Il n'y a plus de communautés à voir !<br/>
 								
 								Crée ta propre communauté</p>
 								<div class='fs-2'>
