@@ -495,3 +495,7 @@ position:absolute;
 .pseudoabsolute {
     position:absolute;
 }
+
+a:hover {
+    color:black;
+}
