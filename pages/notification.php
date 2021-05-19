@@ -29,12 +29,6 @@ $id_notification_autre = 3;
 			</li>
 			<?php } ?>
 
-			<?php if (aTypeDeNotification($mon_id,$id_notification_autre)) { ?>
-			<li class="nav-item">
-				<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Autres</a>
-			</li>
-			<?php } ?>
-
 		</ul>
 
 	<div class="container col-lg-8">
@@ -44,7 +38,9 @@ $id_notification_autre = 3;
 					<h4> Bienvenue sur vos Notifications </h4>
 					<?php
 					// Affichage du récapitulatif des Notifications
-						print_recapNotification($mon_id);
+						// print_recapNotification($mon_id);
+						print_formulairemessageNotificationDM($mon_id,$id_notification_DM);
+						print_formulairemessageNotificationFollow($mon_id,$id_notification_follow);
 					?>
 				</div>
 			</div>
