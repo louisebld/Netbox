@@ -57,7 +57,7 @@ function chargeMessages(){
 					// </button><img class="roundedImagetchatdroite" src="DATA/profil_pp/${message.image}"></p>` 
 
 					discussion.innerHTML = discussion.innerHTML + `
-					<li class="in">
+					<li class="out">
         					<div class="chat-img">
         						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
         					</div>
@@ -87,7 +87,7 @@ function chargeMessages(){
    						   // discussion.innerHTML = discussion.innerHTML + `<p><img class="roundedImagetchatgauche" src="DATA/profil_pp/${message.image}"><button type="button" class="btn btn-lg btn-primary" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message} </button></p>` 
 
 					discussion.innerHTML = discussion.innerHTML + `
-					<li class="out">
+					<li class="in">
         					<div class="chat-img">
         						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
         					</div>
