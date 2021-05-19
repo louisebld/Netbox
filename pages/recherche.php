@@ -46,7 +46,7 @@
 			if ($type == "com") {
 				$res = chargesearchcommu($rch);
 				if (!empty($res)){
-					affichecommun($res);
+					affichecommurecherche($res);
 				} else {
 					aucunResultatRecherche();
 				}

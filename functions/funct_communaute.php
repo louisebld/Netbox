@@ -209,16 +209,17 @@ function affichecommunonly($tableaucommu){
 
 	// $tableaucommu : tableau associatif contenant les infos des communautés
 	
-	echo"<div class='container images-wrapper d-flex'>";
+
+	echo"<div class='container images-wrapper'>";
 		echo "<div class='card-columns'>";
 
 		foreach ($tableaucommu as $key => $value) {
 			//Affichage
 			// var_dump($value['idcreateur']);
 			if (!estdanscommu($_SESSION['id'], $value['idcommu']) && $_SESSION['id'] != intval($value['idcreateur'])) {
-				echo '<div class="col-sm-6 col-lg-4 mb-4">';
+				echo '<div class=""> ';
 				echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
-					echo '<div class="card shadow p-3 bg-white rounded" style="width: 18rem; ">';
+				echo '<div class="card shadow p-3 bg-white rounded">';
 
 
 
@@ -253,14 +254,82 @@ function affichecommunonly($tableaucommu){
 						}
 					echo '</div>';
 				echo '</div>';
+								echo '</a>';
+
 				echo '</div>';
-				echo '</a>';
+
 			}
+
 		}
 	}
+
 		echo "</div>";
 	echo "</div>";
 }
+
+function affichecommurecherche($tableaucommu){
+
+	// BUT : afficher les communauté
+
+	// $tableaucommu : tableau associatif contenant les infos des communautés
+	
+
+	echo"<div class='container images-wrapper'>";
+		echo "<div class='card-columns'>";
+
+		foreach ($tableaucommu as $key => $value) {
+			//Affichage
+			// var_dump($value['idcreateur']);
+				echo '<div class=""> ';
+				echo "<a class='stylelien' href=index.php?page=commu" . $value['nom'] . ">";
+				echo '<div class="card shadow p-3 bg-white rounded">';
+
+
+
+				if (!estbannicommu($_SESSION['id'], $value['idcommu'])) {
+
+
+
+					// if (estdanscommu($_SESSION['id'], $value['idcommu'])) {
+					// 	// affichage du bouton de nombres de notif
+					// 	// soustrait le nombre de post dans la commu - le nombre de post vu
+					// 	// l'afficher que quand y'a des notifs ?
+
+					// 	echo '<button class="btn btn-warning boutonnbpost disabled btn-circle btn-lg">'. (combienpostcommu(recuppost($value['idcommu'])) - postvucommu($_SESSION['id'], $value['idcommu'])) . '</button>';
+						
+					// }
+				
+					echo '<h5 class="card-title">';
+					
+					echo '</h5>';
+					echo '<div class="image_button_superposed">';
+						echo affiche_imagecommu($value['image']);
+					echo '</div>';
+					echo '<div class="card-body">';
+						echo '<p class="card-text"><h5 >' . $value["nom"] . '</h5>' . $value["description"] . '</p>';
+						if (isset($_SESSION['id'])) {
+							if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
+							echo '<p >';
+							$communaute= $value['idcommu'];
+							formulairerejointcommu($communaute);
+							echo '</p>';
+							}
+						}
+					echo '</div>';
+				echo '</div>';
+								echo '</a>';
+
+				echo '</div>';
+
+			}
+
+		
+	}
+
+		echo "</div>";
+	echo "</div>";
+}
+
 
 
 

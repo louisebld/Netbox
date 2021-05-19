@@ -38,5 +38,4 @@
 					affichecommunonly($tableaucommu);
 
 				?>
-			
 </div>

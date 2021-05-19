@@ -28,7 +28,7 @@ if (estdanscommu($iduser, $idcommu)) {
 
 	leavecommu($iduser, $idcommu);
 
-	header("Location:index.php?page=communaute");
+	header("Location:index.php?page=mescommu");
 
 }
 
