@@ -32,7 +32,7 @@ if (estdanscommu($_SESSION['id'], $idcommu) || $_SESSION['id']==$idcreateur) {
 		</li>
 		<li class="nav-item">
 			<a class="nav-link btn" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
-				Abonnés <span class="badge badge-danger text-dark">4</span></a>
+				Abonnés <span class="badge badge-danger text-dark"><?php echo sizeof($membrecommu) ?></span></a>
 
 
 		</li>
