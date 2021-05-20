@@ -6,8 +6,11 @@ function print_formulairemessageDM($idDestinataire) {
 	<!-- <form method="post" action="index.php?page=communaute" enctype="multipart/form-data"> -->
 
    <div class="col-12 my-1">
+   			<ul class="chat-list">
+
 	    <div class="p-2" id="discussionDM">
 	    </div>
+	</ul>
 	</div>
 
 		<input type="hidden" id="idutilisateur" name="idutilisateur" value="<?php if (isset($_SESSION['id'])) {echo $_SESSION['id'];} ?>" />
@@ -15,15 +18,11 @@ function print_formulairemessageDM($idDestinataire) {
 		<!-- <input type="hidden" id="nomcommu" name="nomcommu" value="<?php //echo $communaute; ?>" /> -->
 
 		
-		<div class="form-group">
-			<textarea class="form-control" name="messageDM" id="messageDM" placeholder="Message" rows="3"></textarea>
+		<div class="form-group form-inline d-flex">
+		<input type="text" class='form-control bg-white' placeholder="Message" name="messageDM" id="messageDM">
+		<button type="submit" class="btn btn-primary bi-chat-dots m-1" name="posterDM" id="posterDM" value="Envoyer" />
+
 		</div>
-		<br/>
-
-
-		<center><input type="submit" class="btn btn-primary" name="posterDM" id="posterDM" value="Envoyer" /></center>
-
-	<!-- </form> -->
 
 	<?php
 

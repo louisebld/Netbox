@@ -1,3 +1,4 @@
+
 let lastIdDM = 0 // id du dernier message affiché
 
 // On attend le chargement du document
@@ -52,12 +53,34 @@ function chargeDMs(){
                     if (mon_id == message.utilisateur){
                     // On ajoute le contenu avant le contenu actuel de discussion
                     // discussion.innerHTML = discussion.innerHTML + `<p>${message.pseudo} a écrit le ${dateMessage.toLocaleString()} : ${message.message}</p>` 
-                     discussion.innerHTML = discussion.innerHTML + `<p class='aligndroite'><button type="button" class="btn btn-lg btn-success" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message} </button></p>` 
+                    discussion.innerHTML = discussion.innerHTML + `
+					<li class="out">
+        					<div class="chat-img">
+        						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
+        					</div>
+					<div class="chat-body">
+        						<div class="chat-message">
+        							<h5> ${message.pseudo} </h5>
+        							<p>${message.message}</p>
+        						</div>
+        					</div>
+        			</li>`
 
                  	}
                  	else {
-   						   discussion.innerHTML = discussion.innerHTML + `<p><button type="button" class="btn btn-lg btn-primary" disabled="disabled">${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message} </button></p>` 
 
+					discussion.innerHTML = discussion.innerHTML + `
+					<li class="in">
+        					<div class="chat-img">
+        						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
+        					</div>
+					<div class="chat-body">
+        						<div class="chat-message">
+        							<h5> ${message.pseudo} </h5>
+        							<p>${message.message}</p>
+        						</div>
+        					</div>
+        			</li>`
                  	}
 // <p class='barre'>${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message}</p>
 

@@ -3,7 +3,7 @@
 function afficheboutonNotification($idutilisateur) {
 	if (anotification($idutilisateur)) {
 	?>	
-		<div class='text-center' style="margin: 5px;">
+		<div class='text-center'>
 		<a href='index.php?page=notification'><button type="submit" name="notification" value="notification" class="btn btn-primary btn-circle btn-xl bi-bell m-1 "><?php echo nbNotifTotal($idutilisateur); ?></button></a>
 		</div>
 
