@@ -96,7 +96,7 @@ if (isset($_POST['delpost'])) {
 	$photo = $_POST['nomphoto'];
 
 	supprime_post($id);
-	supprimephotopost($photo);
+	//supprimephotopost($photo);
 
 	// pour rediriger sur la communaute
 	header("Location:index.php?page=commu" . $_POST['nomcommu'] . "");

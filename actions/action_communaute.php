@@ -147,12 +147,12 @@ if (isset($_POST['delcommu'])) {
 	
 	foreach ($postCommu as $key => $value) {
 		supprime_post($value['idpost']);
-		supprimephotopost($value['image']);
+		//supprimephotopost($value['image']);
 	}
 
 
 	supprime_commu($id);
-	supprimephotocommu($photo);
+	//supprimephotocommu($photo);
 
 	header("Location:index.php?page=communaute");
 
