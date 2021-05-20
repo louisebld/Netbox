@@ -143,6 +143,13 @@ if (isset($_POST['delcommu'])) {
 
 	$id = $_POST['idcommu'];
 	$photo = $_POST['nomphoto'];
+	$postCommu = recuppost($id);
+	
+	foreach ($postCommu as $key => $value) {
+		supprime_post($value['idpost']);
+		supprimephotopost($value['image']);
+	}
+
 
 	supprime_commu($id);
 	supprimephotocommu($photo);
