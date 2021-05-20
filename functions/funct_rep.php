@@ -7,7 +7,7 @@ function form_rep($idcomu, $idpost, $idcom){
 
 
 
-
+            
             <form method="post" class="formReponses" action="#"> <!-- Chercher a prendre l'info sur quelle comu on est -->
 
                 <p>
@@ -93,11 +93,12 @@ function afficheboutondelcom($idcom, $idpost) {
 
 ?>
 
-    <form method="post" class='text-end' action="index.php?page=communaute"> 
+    <!-- <form method="post" class='text-end' action="index.php?page=communaute">  -->
 
 
             <?php   
-
+            // echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
+            echo '<form method="post" class="text-end" action="index.php?page=post' . $idpost . '">';
                 echo  '<input id="idcom" name="idcom" type="hidden" value= '. $idcom . ">" ;
 
                 echo "<input type='hidden' name='idpost' value= $idpost>";
@@ -115,10 +116,11 @@ function afficheboutondelrep($idrep, $idpost) {
 
 ?>
 
-    <form method="post" class='text-end' action="index.php?page=communaute"> 
+    <!-- <form method="post" class='text-end' action="index.php?page=communaute">  -->
 
 
             <?php   
+            echo '<form method="post" class="text-end" action="index.php?page=post' . $idpost . '">';
 
                 echo  '<input id="idrep" name="idrep" type="hidden" value= '. $idrep . ">" ;
 

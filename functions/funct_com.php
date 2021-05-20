@@ -4,8 +4,10 @@ function form_com($idcomu, $idpost){
     //Fonction qui permet d'imprimer le formulaire pour les commentaires d'un post 
 	?>
 
-	<form method="post" class="formCommentaire" action="index.php?page=communaute"> <!-- Chercher a prendre l'info sur quelle comu on est -->
-
+	<!-- <form method="post" class="formCommentaire" action="index.php?page=communaute"> Chercher a prendre l'info sur quelle comu on est -->
+    <?php
+        echo '<form method="post" class="text-end" action="index.php?page=post' . $idpost . '">';
+    ?>
 		<p>
 			<!-- <textarea id="com" id="com" placeholder="Commentaire ..." name="com"
 			rows="10" cols="35"></textarea> -->
