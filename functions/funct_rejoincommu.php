@@ -52,6 +52,26 @@ function formulairerejointcommu($idcommunaute) {
 
 }
 
+function formulairepostvu($iduser, $idpost, $idcommu) {
+	// Fonction qui affiche le formulaire de création de communauté
+		?>
+	
+	
+		<form class="form-group" method="post" action="index.php?page=actu">
+	
+			<input type="hidden" name="idcommu" value= "<?php echo $idcommu; ?>">
+			<input type="hidden" name="idpost" value= "<?php echo $idpost; ?>">
+			<input type="hidden" name="iduser" value= "<?php echo $iduser; ?>">
+	
+			<div class="mb-3 text-center">
+				<button type="submit" name="postvu" value="postvu" class="btn btn-outline-secondary">Vu</button>
+			</div>
+		</form>
+	
+		<?php
+	
+	}
+
 
 function afficheboutonquitter($iduser, $idcommu) {
 

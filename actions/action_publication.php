@@ -117,4 +117,9 @@ if (isset($_POST) && isset($_POST["unlike"]) && isset($_SESSION['id'])) {
 	header("Location: ./index.php?page=post" . $_POST['idpost']);
 }
 
+if (isset($_POST['postvu'])){
+	insertawarenesspost($_POST['iduser'], $_POST['idpost'], $_POST['idcommu']);
+	header("Location:index.php?page=actu");
+}
+
 ?>

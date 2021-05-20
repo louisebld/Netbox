@@ -289,11 +289,15 @@ function affichageActu($tabPost){
 										if (!estdanscommu($_SESSION['id'], $value['idcommu'])) {
 											echo '<p >';
 											$communaute= $value['idcommu'];
+											
 											formulairerejointcommu($communaute);
 											echo '</p>';
 										}
 									}
 								} else {
+									echo '<p >';
+										formulairepostvu($_SESSION['id'], $value['idpost'], $value['idcommu']);
+									echo '</p>';
 									echo "<a class='stylelien' href=index.php?page=post" . $value['idpost'] . ">";
 									echo affiche_imagepost($value['image']);
 								}
