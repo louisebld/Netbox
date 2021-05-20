@@ -21,10 +21,10 @@
 							<input type="radio" class='form-check-input' name="type" value="amis">
 							<label for="com" class='form-check-label'>Amis</label>
 						</div>
-						<div class="form-check form-check-inline">
+						<!-- <div class="form-check form-check-inline">
 							<input type="radio" class='form-check-input' name="type" value="allSearch">
 							<label for="com" class='form-check-label'>Tout</label>
-						</div>
+						</div> -->
 						</div>
 						</select>
 						<div class='form-group form-inline d-flex'>
@@ -64,7 +64,8 @@
 				affichelistetag();
 				echo '</div>';
 			}
-			if ($type == "allSearch") {
+			//a remettre au cas ou
+			if ($type == "all") {
 				$tag =$rch;
 				if (count(explode("#", $tag))== 1) {
 				$tag = "#".$tag;
@@ -217,10 +218,10 @@
 							<input type="radio" class='form-check-input' name="type" value="amis">
 							<label for="com" class='form-check-label'>Amis</label>
 						</div>
-						<div class="form-check form-check-inline">
+						<!-- <div class="form-check form-check-inline">
 							<input type="radio" class='form-check-input' name="type" value="allSearch">
 							<label for="com" class='form-check-label'>Tout</label>
-						</div>
+						</div> -->
 						</div>
 						</select>
 						<div class='form-group form-inline d-flex'>
