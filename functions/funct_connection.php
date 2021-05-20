@@ -128,7 +128,7 @@ function modalConnection(){
 									print_error($_SESSION['errC']);
 								}
 							?>
-							<form class="form-group" method="post" action="index.php?page=accueil">
+							<form class="form-group" method="post" action="index.php?page=actu">
 								<!-- Mail -->
 								<div class="mb-3">
 									<label for="mail" class="col-form-label">Adresse mail :</label>

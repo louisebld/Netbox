@@ -56,7 +56,7 @@ if (isset($_POST['mail']) && isset($_POST['mdp']) && isset($_POST['connexion']) 
 			$_SESSION['id'] = $profil[0]['id'];
 			$id = $profil[0]['id'];
 			$_SESSION['errI'] = "";
-			header('Location: index.php?page=accueil');
+			header('Location: index.php?page=actu');
 		} else {
 			$err = $err . "<p>L'E-mail ou mot de passe incorect</p>";
 		}
