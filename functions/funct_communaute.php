@@ -149,10 +149,11 @@ function affichecommun($tableaucommu){
 				// echo '    <blockquote class="blockquote mb-0 card-body">';
 				if (!estbannicommu($_SESSION['id'], $value['idcommu'])) {
 
-					if (estdanscommu($_SESSION['id'], $value['idcommu'])) {
+					if (estdanscommu($_SESSION['id'], $value['idcommu']) || ($_SESSION['id'] == $value['idcreateur'])) {
 						// affichage du bouton de nombres de notif
 						// soustrait le nombre de post dans la commu - le nombre de post vu
 						// l'afficher que quand y'a des notifs ?
+
 						$vue = (combienpostcommu(recuppost($value['idcommu'])) - postvucommu($_SESSION['id'], $value['idcommu']));
 						
 						if ($vue > 0){

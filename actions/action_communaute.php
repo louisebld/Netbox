@@ -148,7 +148,9 @@ if (isset($_POST['delcommu'])) {
 	foreach ($postCommu as $key => $value) {
 		supprime_post($value['idpost']);
 		//supprimephotopost($value['image']);
+		dellike($value['idpost']);
 	}
+
 
 
 	supprime_commu($id);

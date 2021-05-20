@@ -71,6 +71,13 @@ function supprime_post($idpost) {
 		mysqli_query($db, "DELETE FROM publication WHERE idpost = $idpost");
 	}
 
+function dellike($idpost) {
+			global $db;
+		// on supprime
+		mysqli_query($db, "DELETE FROM likes WHERE idpost = $idpost");
+
+}
+
 
 function recupdonneauteurpost($idpost) {
 
