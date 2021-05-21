@@ -31,7 +31,7 @@ if (estdanscommu($_SESSION['id'], $idcommunaute) || $_SESSION['id']==$idcreateur
 
 		</form>
 	</div>
-	<div class="container col-lg-6 d-flex float-left">
+	<div class="container col-lg-6 float-left">
 		<div class="card bg-light">
 			<div class="card-header"></div>
 				<div class="card-body">
@@ -56,7 +56,7 @@ if (estdanscommu($_SESSION['id'], $idcommunaute) || $_SESSION['id']==$idcreateur
 
 			// Pour supprimer un post
 			echo "<div class='container text-center mt-4'>";
-				echo "<form method='post' action='index.php?page=communaute'>";
+				echo "<form method='post' action='index.php?page=commu" .  $commucourante[0]['nom'] . "'>";
 				// l'id du post
 				echo  "<input id='idpost' name='idpost' type='hidden' value= ". $idpost . ">";
 				// le nom de la commu

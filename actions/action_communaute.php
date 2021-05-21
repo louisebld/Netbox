@@ -111,7 +111,7 @@ if (isset($_POST['creercommu'])) {
 
 
 // on redirige
-		header("Location:index.php?page=communaute");//-----
+		header("Location:index.php?page=mescommu");//-----
 // on enlève les variables de session
 		unset($_SESSION['erreurcreatcommu']);
 		unset($_SESSION['donnecreatcommu']);
@@ -156,6 +156,6 @@ if (isset($_POST['delcommu'])) {
 	supprime_commu($id);
 	//supprimephotocommu($photo);
 
-	header("Location:index.php?page=communaute");
+	header("Location:index.php?page=mescommu");
 
 	}

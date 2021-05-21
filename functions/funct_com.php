@@ -36,11 +36,11 @@ function form_com($idcomu, $idpost){
 function print_com ($com) {
     //Fonction qui affiche les commentaires 
         
-        echo '<div class="container col-10 mt-5">';	
+        echo '<div class="container mt-5">';	
         
         foreach ($com as $key => $value) {
             $createur = recupdonneauteurcom($value['id']);
-            echo '<div class= "col-lg-12">';
+            echo '<div class= "col-lg-12 mb-3">';
             echo '<div class="card col-sm-12">';
                 echo '<div class="card-body">';
                     echo '<div class="row">';

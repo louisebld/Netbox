@@ -35,7 +35,7 @@ function print_formulairecreationcommu() {
 	?>
 
 
-	<form method="post" action="index.php?page=communaute" enctype="multipart/form-data">
+	<form method="post" action="#" enctype="multipart/form-data">
 		<div class="form-group">
 			<input type="text" placeholder="Nom de votre communauté" class="form-control" name="nom"  value="<?php if (isset($_SESSION['donnecreatcommu']['nom'])) echo $_SESSION['donnecreatcommu']['nom']; ?>">
 		</div>
@@ -91,7 +91,7 @@ function modalCommunaute(){
 							?>
 						<!-- Possibilité de tout mettre dans une fonction
 							dans un funct_inscription-->
-							<form method="post" action="index.php?page=communaute" enctype="multipart/form-data">
+							<form method="post" action="#" enctype="multipart/form-data">
 								<!-- Nom de la communauté-->
 								<div class="mb-3">
 									<p> Ne mettez pas d'accent(s) dans le nom de votre communauté ! </p>

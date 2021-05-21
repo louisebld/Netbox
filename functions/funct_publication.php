@@ -5,7 +5,7 @@ function print_formulairecreationpost() {
 	?>
 
 
-	<form method="post" action="index.php?page=publication" enctype="multipart/form-data">
+	<form method="post" action="index.php?page=mescommu" enctype="multipart/form-data">
 
 
 		<div class="form-group">

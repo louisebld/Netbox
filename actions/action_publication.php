@@ -78,7 +78,7 @@ if (isset($_POST['poster'])) {
 
 
 // on redirige
-		header("Location:index.php?page=communaute");
+		header("Location:index.php?page=mescommu");
 // on enlève les variables de session
 		unset($_SESSION['erreurpost']);
 		unset($_SESSION['donnecreatcommu']);
