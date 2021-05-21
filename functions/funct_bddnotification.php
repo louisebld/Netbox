@@ -53,6 +53,59 @@ function RecupNotification($idpersonne,$idNotif) {
 	return $tableau;
 }
 
+function aDM($idpersonne) {
+// Renvoie si la personne (idpersonne) à des DMs 
+
+// variable globale base de donnée
+	global $db;
+
+	$notif = mysqli_query($db, "SELECT utilisateur,destinataire FROM messagedm WHERE utilisateur = $idpersonne OR destinataire = $idpersonne GROUP BY utilisateur, destinataire ORDER BY datemessage");
+
+	//on met dans un tableau
+	$compteur = mysqli_num_rows($notif);
+
+	if ($compteur>0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function RecupDMUtilisateur($idpersonne) {
+// Renvoie le tableau des destinataires des DMs d'une personne (idpersonne)
+
+// variable globale base de donnée
+	global $db;
+
+	$notif = mysqli_query($db, "SELECT utilisateur FROM messagedm WHERE destinataire = $idpersonne GROUP BY utilisateur ORDER BY datemessage");
+
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($notif)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}
+
+function RecupDMDestinataire($idpersonne) {
+// Renvoie le tableau des destinataires des DMs d'une personne (idpersonne)
+
+// variable globale base de donnée
+	global $db;
+
+	$notif = mysqli_query($db, "SELECT destinataire FROM messagedm WHERE utilisateur = $idpersonne GROUP BY destinataire ORDER BY datemessage");
+
+	//on met dans un tableau
+	$tableau = [];
+	while ($row=mysqli_fetch_assoc($notif)) {
+		$tableau[] = $row;
+	}
+
+	return $tableau;
+}
+
 function ajout_notif($idnotifier, $idpersonne, $type) {
 // Ajoute une notification
 
@@ -94,6 +147,20 @@ function supprime_toutes_les_notifs($idCurrentUser) {
 }
 
 function nbDMDe($idpersonne, $idOtherUser) {
+// Renvoie le nombre de message que $idOtherUser a envoyé à $idpersonne
+
+// variable globale base de donnée
+	global $db;
+
+	$notif = mysqli_query($db, "SELECT * FROM messagedm WHERE utilisateur = $idpersonne AND destinataire = $idOtherUser");
+
+	// on compte le nombre de lignes idOtherUser
+	$compteur = mysqli_num_rows($notif);
+
+	return $compteur;
+}
+
+function nbNotifDMDe($idpersonne, $idOtherUser) {
 // Renvoie le nombre de message que $idOtherUser a envoyé à $idpersonne
 
 // variable globale base de donnée

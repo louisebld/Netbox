@@ -21,7 +21,7 @@ if (isset($_POST['supprAllNotifDM'])) {
 	supprime_all_notif($idCurrentUser, $idOtherUser, $type);
 
 
-	header("Location:index.php?page=personneid" . $idOtherUser);
+	header("Location:index.php?page=notification");
 	}
 
 if (isset($_POST['supprAllNotifFollow'])) {

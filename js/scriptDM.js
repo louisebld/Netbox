@@ -1,30 +1,61 @@
-
-let lastIdDM = 0 // id du dernier message affiché
+// let lastIdDM = 0 // id du dernier message affiché
 
 // On attend le chargement du document
 
-window.onload = () => {
+function start(id){
 
-	let texte = document.querySelector("#messageDM")
-	texte.addEventListener("keyup", verifEntreeDM)
+	var form = document.querySelector("#dmprofil" + id)
 
-	let valid = document.querySelector("#posterDM")
-	valid.addEventListener("click", ajoutDMs)
+	let texte = form.querySelector("#messageDM")
+	texte.addEventListener("keyup",  function () {
+		verifEntreeDM(id)
+	})
 
-    setInterval(chargeDMs, 1000)
+	let valid = form.querySelector("#posterDM")
+	valid.addEventListener("click", function () {
+		ajoutDMs(id)
+	})
+
+	let fermer = form.querySelector("#close")
+	fermer.addEventListener("click", function () {
+		clearInterval(loop)
+	})
+
+	let fermer2 = form.querySelector("#close2")
+	fermer2.addEventListener("click", function () {
+		clearInterval(loop)
+	})
+
+	var loop = setInterval(function () {
+		chargeDMs(id)
+	}, 1000)
+
+	// setTimeout(function () {document.addEventListener("click", function () {
+	// 	clearInterval(loop)
+	// })},50)
+
+
 
 
 }
 
 
-function chargeDMs(){
+function chargeDMs(id){
+
+	
+
     // On instancie XMLHttpRequest
     let xmlhttpdm = new XMLHttpRequest()
 
+	var form = document.querySelector("#dmprofil" + id)
 
-    let idDestinataire = document.querySelector('#idDestinataire').value
-    let mon_id = document.querySelector('#idutilisateur').value
+    let idDestinataire = form.querySelector('#idDestinataire').value
+    let mon_id = form.querySelector('#idutilisateur').value
+    let lastIdDM = form.querySelector('#lastIdDM' + id).value // on récupère l'id du dernier message affiché
+    let ModiflastIdDM = form.querySelector('#ModiflastIdDM' + id) // on récupère la div où on stock l'id du dernier message affiché
     //console.log(idcommunaute)
+    console.log('Je charge !')
+    
 
     // donnees = {}
 	// donnees["idcommunaute"] = idcommunaute
@@ -44,7 +75,7 @@ function chargeDMs(){
                 //messages.reverse()
 
                 // On récupère la div #discussion
-                let discussion = document.querySelector("#discussionDM")
+                let discussion = form.querySelector("#discussionDM" + id)
 
                 for(let message of messages){
                     // On transforme la date du message en JS
@@ -54,38 +85,36 @@ function chargeDMs(){
                     // On ajoute le contenu avant le contenu actuel de discussion
                     // discussion.innerHTML = discussion.innerHTML + `<p>${message.pseudo} a écrit le ${dateMessage.toLocaleString()} : ${message.message}</p>` 
                     discussion.innerHTML = discussion.innerHTML + `
-					<li class="out">
-        					<div class="chat-img">
-        						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
-        					</div>
-					<div class="chat-body">
-        						<div class="chat-message">
-        							<h5> ${message.pseudo} </h5>
-        							<p>${message.message}</p>
-        						</div>
-        					</div>
-        			</li>`
-
+						<li class="out">
+	        					<div class="chat-img">
+	        						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
+	        					</div>
+						<div class="chat-body">
+	        						<div class="chat-message">
+	        							<h5> ${message.pseudo} </h5>
+	        							<p>${message.message}</p>
+	        						</div>
+	        					</div>
+	        			</li>`
                  	}
                  	else {
-
-					discussion.innerHTML = discussion.innerHTML + `
-					<li class="in">
-        					<div class="chat-img">
-        						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
-        					</div>
-					<div class="chat-body">
-        						<div class="chat-message">
-        							<h5> ${message.pseudo} </h5>
-        							<p>${message.message}</p>
-        						</div>
-        					</div>
-        			</li>`
+	   				discussion.innerHTML = discussion.innerHTML + `
+						<li class="in">
+	        					<div class="chat-img">
+	        						<img alt="Avtar" src="DATA/profil_pp/${message.image}">
+	        					</div>
+						<div class="chat-body">
+	        						<div class="chat-message">
+	        							<h5> ${message.pseudo} </h5>
+	        							<p>${message.message}</p>
+	        						</div>
+	        					</div>
+	        			</li>`
                  	}
 // <p class='barre'>${message.pseudo} : ${dateMessage.toLocaleString()} : ${message.message}</p>
 
                     // On met à jour le lastId
-                    lastIdDM = message.idmessage
+                    ModiflastIdDM.innerHTML = `<input type="hidden" id="lastIdDM${idDestinataire}" name="lastIdDM${idDestinataire}" value="${message.idmessage}" />`
                 }
             }else{
                 // On gère les erreurs
@@ -96,26 +125,28 @@ function chargeDMs(){
     }
 
     // On ouvre la requête
-    xmlhttpdm.open("GET", "functions/chargeDM.php?lastIdDM="+lastIdDM + "&destinataire="+idDestinataire + "&utilisateur="+mon_id)
+    xmlhttpdm.open("GET", "functions/chargeDM.php?lastIdDM="+ lastIdDM + "&destinataire="+ idDestinataire + "&utilisateur="+ mon_id)
     // On envoie
     xmlhttpdm.send()
 }
 
 
-function verifEntreeDM(e){
+function verifEntreeDM(id){
 
-	if (e.key == "Enter"){
-		ajoutDMs();
+	if (event.key == "Enter"){
+		ajoutDMs(id);
 	}
 
 }
 
-function ajoutDMs(){
+function ajoutDMs(id){
+
+	var form = document.querySelector("#dmprofil" + id)
 
 	// On récupère le message
 	console.log('ok')
-	let message = document.querySelector('#messageDM').value
-	let idDestinataire = document.querySelector('#idDestinataire').value
+	let message = form.querySelector('#messageDM').value
+	let idDestinataire = form.querySelector('#idDestinataire').value
 	//console.log(idcommunaute)
 	console.log(message)
 	console.log(idDestinataire)
@@ -145,7 +176,7 @@ function ajoutDMs(){
 				if (this.status==201 || this.status==200){
 					// l'enregistrement a fonctionné
 					// on efface le champ texte
-					document.querySelector('#messageDM').value = ""
+					form.querySelector('#messageDM').value = ""
 				}
 				else {
 					// l'enregistrement a échoué

@@ -11,6 +11,66 @@ function afficheboutonNotification($idutilisateur) {
 	}
 }
 
+function print_listeDesDMs($idPersonne) {
+// Fonction qui affiche le formulaire
+	?>
+
+   <div class="col-12 my-1">
+	    <div class="p-2" id="placementNotif">
+	    	<?php
+	    	if (aDM($idPersonne)) {
+	    		//On récupère tout les ids des personnes avec qui $idpersonne a envoie ou reçu des messages
+    			$DMenvoyer = RecupDMDestinataire($idPersonne);
+    			$DMrecu = RecupDMUtilisateur($idPersonne);
+
+    				$res = [];
+    				//On met tout les ids dans le même tableau
+    				foreach ($DMenvoyer as $key => $value):
+
+    					$res[] = $value['destinataire'];
+    				endforeach;
+    				foreach ($DMrecu as $key => $value):
+    					$res[] = $value['utilisateur'];
+    				endforeach;
+    				// var_dump($res);
+
+    				//On enlève les doublons
+	   				$resunique = array_unique($res);
+					//var_dump($resunique);
+
+	   				//On affiche de la manière dont on a envie les DMs
+		    		foreach ($resunique as $key => $value):
+		    		?>
+		    		<div class="notification" style="padding: 10px; margin-bottom: 10px">
+		    		<p>
+	    				<h6> Voir votre conversation avec 
+	    					<?php
+	    						echo recup_profil_id($value)[0]['pseudo'];
+	    					?> !</h6>
+		    		<div> <!--   class="d-flex flex-wrap justify-content-around" -->
+		    			<div>
+			    		<?php
+			    		afficheboutondm($value);
+			    		?>
+			    		</div>
+		    		</div>
+		    		</p>
+		    		</div>
+		   		<?php
+		    	endforeach;
+	    	}
+		    	
+	    	else { ?>
+	    		<h5> Vous n'avez pas de nouveaux messages ! </h5>
+	    	<?php } ?>
+	    	
+	    </div>
+	</div>
+
+	<?php
+
+}
+
 function print_formulairemessageNotificationDM($idPersonne,$idNotification) {
 // Fonction qui affiche le formulaire
 	?>
@@ -21,18 +81,16 @@ function print_formulairemessageNotificationDM($idPersonne,$idNotification) {
 	    	if (aTypeDeNotification($idPersonne,$idNotification)) {
 	    		//Manière d'afficher les différents type de notification
     			$notifs = RecupNotification($idPersonne,$idNotification);
-		    		?>
-		    		<form method="post" action="index.php?page=notification" enctype="multipart/form-data">
-		    		<?php
+
 		    		foreach ($notifs as $key => $value):
 		    		?>
 		    		<div class="notification" style="padding: 10px; margin-bottom: 10px">
 		    		<p>
 		    		<?php
-		    			if ( (nbDMDe($idPersonne, $value['idOtherUser'])) > 1 ) {
+		    			if ( (nbNotifDMDe($idPersonne, $value['idOtherUser'])) > 1 ) {
 		    				?>
 		    				<h6> <?php echo recup_profil_id($value['idOtherUser'])[0]['pseudo']; ?>, vous a envoyé 
-		    					<?php echo nbDMDe($idPersonne, $value['idOtherUser']) ?> nouveaux messages !</h6>
+		    					<?php echo nbNotifDMDe($idPersonne, $value['idOtherUser']) ?> nouveaux messages !</h6>
 		    				<?php
 		    			}else{
 		    				?>
@@ -40,15 +98,24 @@ function print_formulairemessageNotificationDM($idPersonne,$idNotification) {
 		    				<?php
 		    			}
 		    		?>
-		    		
-		    		
-		    		<input type="hidden" id="idCurrentUser" name="idCurrentUser" value="<?php echo $value['idCurrentUser']; ?>" />
-		    		<input type="hidden" id="idOtherUser" name="idOtherUser" value="<?php echo $value['idOtherUser']; ?>" />
-		    		<input type="hidden" id="type" name="type" value="<?php echo $idNotification; ?>" />
-		    		<input type="submit" class="btn btn-primary bi-chat-right-text" name="supprAllNotifDM" id="supprAllNotif" value="Répondre" />
+		    		<div class="d-flex flex-wrap justify-content-around">
+		    			<div>
+			    		<?php
+			    		afficheboutondm($value['idOtherUser']);
+			    		?>
+			    		</div>
+			    		<div>
+			    		<form method="post" action="index.php?page=notification" enctype="multipart/form-data">
+				    		<input type="hidden" id="idCurrentUser" name="idCurrentUser" value="<?php echo $value['idCurrentUser']; ?>" />
+			    			<input type="hidden" id="idOtherUser" name="idOtherUser" value="<?php echo $value['idOtherUser']; ?>" />
+			    			<input type="hidden" id="type" name="type" value="<?php echo $idNotification; ?>" />
+				    		<input type="submit" class="btn btn-warning bi-chat-right-text m-2" name="supprAllNotifDM" id="supprAllNotif" value="Marquer comme lu" />
+			    		</form>
+			    		</div>
+		    		</div>
 		    		</p>
 		    		</div>
-		    		</form>
+
 		   		<?php
 		    	endforeach;
 	    	}
@@ -129,10 +196,10 @@ function print_recapNotification($idPersonne) {
 			    		<div class="notification" style="padding: 10px; margin-bottom: 10px">
 			    		<p>
 			    		<?php 
-			    			if ( (nbDMDe($idPersonne, $value['idOtherUser'])) > 1 ) {
+			    			if ( (nbNotifDMDe($idPersonne, $value['idOtherUser'])) > 1 ) {
 			    				?>
 			    				<h6> <?php echo recup_profil_id($value['idOtherUser'])[0]['pseudo']; ?>, vous a envoyé 
-			    					<?php echo nbDMDe($idPersonne, $value['idOtherUser']) ?> nouveaux messages !</h6>
+			    					<?php echo nbNotifDMDe($idPersonne, $value['idOtherUser']) ?> nouveaux messages !</h6>
 			    				<?php
 			    			}else{
 			    				?>

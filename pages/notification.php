@@ -6,7 +6,7 @@ $id_notification_autre = 3;
 ?>
 
 <div class="contener m-5 communaute p-4">
-
+<script src="js/scriptDM.js"></script>
 
 	<h4>Vos notifications !</h4>
 	<div>
@@ -16,12 +16,6 @@ $id_notification_autre = 3;
 			<li class="nav-item">
 				<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Notification</a>
 			</li>
-
-			<?php if (aTypeDeNotification($mon_id,$id_notification_DM)) { ?>
-				<li class="nav-item">
-				<a class="nav-link" id="tchat-tab" data-toggle="tab" href="#tchat" role="tab" aria-controls="tchat" aria-selected="false">Messages Privés</a>
-				</li>
-			<?php } ?>
 			
 			<?php if (aTypeDeNotification($mon_id,$id_notification_follow)) { ?>
 			<li class="nav-item">
@@ -55,15 +49,10 @@ $id_notification_autre = 3;
 						print_formulairemessageNotificationDM($mon_id,$id_notification_DM);
 						print_formulairemessageNotificationFollow($mon_id,$id_notification_follow);
 					?>
-				</div>
-			</div>
-
-			<div class="tab-pane fade" id="tchat" role="tabpanel" aria-labelledby="tchat-tab">
-				<div class="container descriptioncommu caption img-thumbnail mt-4">
 					<h4> Messages Privés </h4>
 					<?php
 					// Affichage des Notifications
-						print_formulairemessageNotificationDM($mon_id,$id_notification_DM);
+						print_listeDesDMs($mon_id);
 					?>
 				</div>
 			</div>
